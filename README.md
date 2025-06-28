@@ -13,3 +13,6 @@ To ensure the project board automatically tracks the progress of the website, ch
 
 ### Update the pull request when appropriate.
 The description is not static. When you first create a pull request, you may have a list of things you want to do before merging the code into the main branch. Make sure to always revisit the description and make sure it is accurate. 
+
+## Verify the project board automation
+Go back to the project board by clicking the Projects tab at the top. Notice that a new card is in the In progress column. Click on it and it'll redirect to the pull request.
