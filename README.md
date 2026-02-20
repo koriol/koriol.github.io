@@ -10,6 +10,10 @@ The Problem: Converged physical/digital risks in a storefront environment.
 The Solution: A 31-control audit focusing on Access Control (AC) and Physical Protection (PE).
 
 Deliverable: View Gap Analysis Table | View Risk Register
+### 🛡️ NIST 800-53 Gap Analysis
+*Educational Storefront Assessment*
+> A comprehensive audit of 31 controls focusing on the intersection of physical site security and digital access management. 
+[**View the Full Analysis**](./gap-analysis.md) | [**Download CSV**](./assets/gap-analysis.csv)
 
 ### 🐍 Technical & Coding Portfolio
 #### Python for Security Automation
