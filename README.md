@@ -1,4 +1,8 @@
 # koriol.github.io
+/koriol.github.io
+  ├── README.md           # The "Home Page" (Portfolio Landing)
+  ├── docs/               # Technical write-ups (like your Gap Analysis)
+  └── assets/             # Images, PDFs, etc.
 ## Practicing
 personal website repo practice
 
