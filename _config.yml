@@ -2,7 +2,7 @@ remote_theme: pages-themes/merlot@v0.2.0
 plugins:
   - jekyll-remote-theme
 
-title: [Your Name] | GRC & Cyber Security Portfolio
+title: Katherine Oriol | GRC & Cyber Security Portfolio
 description: NIST 800-53 Gap Analysis & Risk Management for Educational Infrastructure.
 show_downloads: true
 google_analytics: # Optional: Add your ID if you want to track recruiter views
