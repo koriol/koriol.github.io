@@ -15,6 +15,9 @@ Deliverable: View Gap Analysis Table | View Risk Register
 > A comprehensive audit of 31 controls focusing on the intersection of physical site security and digital access management. 
 [**View the Full Analysis**](./gap-analysis.md) | [**Download CSV**](./assets/gap-analysis.csv)
 
+### 🛡️ NIST 800-53 Risk Register
+> [**View the risk register summary**](./risk_register.md)
+
 ### 🐍 Technical & Coding Portfolio
 #### Python for Security Automation
 Script: Automated User Access Review (UAR) tool for CSV exports.
