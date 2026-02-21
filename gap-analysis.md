@@ -1,3 +1,7 @@
+# Gap Analysis
+## Assessment Overview
+This assessment explores the critical intersection of physical and digital security within a small-scale educational storefront. Using the NIST 800-53 Rev. 5 (Low Baseline) framework, I conducted a 31-control gap analysis to identify how "real-world" physical vulnerabilities—such as unsecured hardware and manual credential logging—create significant digital risks. The following table below are the results of the assessment. [Click here to view the Full 6-Page Gap Analysis Report (PDF)](./assets/NIST 800-53 Rev. 5 Targeted Compliance Gap Analysis_ February 10, 2026 - 11 x 17.pdf)
+
 | **Control Family** | **Control ID** | **Control Name**                                                       | **Applicability**   | **Implementation** | **Risk ID** |
 |--------------------|----------------|------------------------------------------------------------------------|---------------------|--------------------|-------------|
 | **AC**             | AC-02          | Account Management                                                     | Applicable (Shared) | Partially          | R-01        |
@@ -32,4 +36,4 @@
 | **SI**             | SI-04          | System Monitoring                                                      | Applicable (Shared) | Partially          | R-29        |
 | **SR**             | SR-12          | Component Disposal                                                     | Applicable (Local)  | Not Implemented    | R-30        |
 
-[Click here to view the Full 6-Page Gap Analysis Report (PDF)](./assets/NIST 800-53 Rev. 5 Targeted Compliance Gap Analysis_ February 10, 2026 - 11 x 17.pdf)
+
