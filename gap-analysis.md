@@ -31,3 +31,5 @@
 | **SI**             | SI-02          | Flaw Remediation                                                       | Applicable (Local)  | Not Implemented    | R-28        |
 | **SI**             | SI-04          | System Monitoring                                                      | Applicable (Shared) | Partially          | R-29        |
 | **SR**             | SR-12          | Component Disposal                                                     | Applicable (Local)  | Not Implemented    | R-30        |
+
+[Click here to view the Full 6-Page Gap Analysis Report (PDF)](./assets/NIST 800-53 Rev. 5 Targeted Compliance Gap Analysis_ February 10, 2026 - 11 x 17.pdf)
