@@ -29,7 +29,12 @@ System Security Category (*SC*): Based on the information types processed, the H
 
 *SC*<sub>Mathnasium NY</sub> = {(Confidentiality, Moderate), (Integrity, Moderate), (Availability, Moderate)}
 
-## II. Risk Heatmap Analysis:
+## II. Risk Appetite
+Following the NIST CSF 2.0 (SP 1301) methodology, I established an Organizational Profile to align cybersecurity outcomes with the franchise’s mission. I utilized NIST SP 800-30 guidelines to conduct the risk assessment, ensuring all findings were prioritized based on the organization’s stated Risk Appetite and Implementation Tier targets.
+
+The organization maintains a **Low** appetite for risks impacting student PII and financial data integrity. We have a **Moderate** appetite for operational disruptions during non-instructional hours to facilitate rapid technology adoption. We maintain a **Zero** appetite for intentional non-compliance with regional data privacy regulations.
+
+## III. Risk Heatmap Analysis:
 
 + Impact 5 (Catastrophic): Permanent loss of Student Records (D.15.1); closure of the New York branch.
 + Impact 3 (Moderate): Temporary center downtime; PII breach requiring parental notification.
