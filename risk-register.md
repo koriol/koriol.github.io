@@ -37,10 +37,10 @@ System Security Category (*SC*): Based on the information types processed, the H
 
 | Rating | Score | Definition | Business Context (New York Center) |
 | --- | --- | --- | --- |
-| "<span style=""color:red"">Critical</span>" | 20-25 | Immediate Action Required | Potential for total loss of student PII or long-term center closure. |
-| "<span style=""color:orange"">High</span>" | 12-19 | Prioritized Mitigation | Significant impact on operations or a major GDPR/Privacy violation. |
-| "<span style=""color:gold"">Medium</span>" | 6-11 | Planned Remediation | Noticeable impact on staff efficiency or minor financial loss.|
-| "<span style=""color:green"">Low</span>" | 1-5 | Monitor / Accept | Risk is within appetite; standard procedures are sufficient. |
+| <span style=""color:red"">Critical</span> | 20-25 | Immediate Action Required | Potential for total loss of student PII or long-term center closure. |
+| <span style=""color:orange"">High</span> | 12-19 | Prioritized Mitigation | Significant impact on operations or a major GDPR/Privacy violation. |
+| <span style=""color:gold"">Medium</span> | 6-11 | Planned Remediation | Noticeable impact on staff efficiency or minor financial loss.|
+| <span style=""color:green"">Low</span> | 1-5 | Monitor / Accept | Risk is within appetite; standard procedures are sufficient. |
 
 ## III. Risk Distribution & Controls:
 This shows how we are defending the center.
