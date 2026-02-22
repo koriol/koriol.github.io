@@ -27,7 +27,7 @@ The following table identifies the specific information types processed by the M
 
 System Security Category (*SC*): Based on the information types processed, the High Water Mark for the system is established as **MODERATE**. This baseline dictates the selection of NIST 800-53 security controls.
 
-*SC*<sub>Mathnasium NY<sub> = {({Confidentiality, Moderate}), ({Integrity, Moderate}), ({Availability, Moderate})}
+*SC*<sub>Mathnasium NY</sub> = {({Confidentiality, Moderate}), ({Integrity, Moderate}), ({Availability, Moderate})}
 
 ## II. Risk Heatmap Analysis:
 
