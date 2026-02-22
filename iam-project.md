@@ -52,6 +52,14 @@ I chose the Bulk Create workflow over manual creation for three strategic reason
 
 Scope: 11 Initial Member Identities (inclusive of one "Terminated" user for offboarding testing).
 
+### ⚠️ Security & Data Privacy Notice
+**Identity Protection:** In a production enterprise environment, User Provisioning Files (CSVs) contain sensitive **PII (Personally Identifiable Information)** and temporary credentials.
+
+For this Portfolio Lab:
+* All identities used are fictional entities.
+* The "Initial Password" column used during upload was a one-time placeholder.
+* Security Protocol: In real-world practice, these files are encrypted at rest and deleted immediately after the successful sync to the directory to prevent "credential leakage."
+
 ### Dynamic Groups
 Implemented Attribute-Based Access Control (ABAC) using Dynamic Membership Rules to automate lifecycle management and ensure consistent policy application across the NYC workforce.
 *Insert Screenshot of Dynamic Rule window*
