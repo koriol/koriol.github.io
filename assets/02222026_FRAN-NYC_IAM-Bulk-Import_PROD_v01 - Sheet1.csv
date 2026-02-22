@@ -1,0 +1,12 @@
+First Name,Last Name,Display Name,Naming Convention,User Principal Name (UPN),Job Title,Department,Why they are here (The GRC Logic)
+Ada,Lovelace,Ada Lovelace,FRAN-NYC-EXEC-ALovelace,FRAN-NYC-EXEC-ALovelaceoriolkgmail.onmicrosoft.com,Director,Leadership,High Privilege. To test Admin controls.
+Alan,Turing,Alan Turing,FRAN-NYC-ADMIN-ATuring,FRAN-NYC-ADMIN-ATuringoriolkgmail.onmicrosoft.com,IT Specialist,IT Ops,Service Account. To run your Linux scripts.
+Maria,Curie,Maria Curie,FRAN-NYC-STAF-MCurie,FRAN-NYC-STAF-MCurieoriolkgmail.onmicrosoft.com,Lead Teacher,Faculty,Standard User. Needs access to student PII.
+Isaac,Newton,Isaac Newton,FRAN-NYC-STAF-INewton,FRAN-NYC-STAF-INewtonoriolkgmail.onmicrosoft.com,Assistant,Faculty,Low Privilege. Should not see financial data.
+Nikola,Tesla,Nikola Tesla,FRAN-NYC-STUD-NTesla,FRAN-NYC-STUD-NTeslaoriolkgmail.onmicrosoft.com,Student,STEM Lab,External User. Heavily restricted access.
+Katherine,Johnson,Katherine Johnson,FRAN-NYC-FINA-KJohnson,FRAN-NYC-FINA-KJohnsonoriolkgmail.onmicrosoft.com,Registrar,Finance,"Separation of Duties. Can see money, not grades."
+Charles,Darwin,Charles Darwin,FRAN-NYC-STAF-CDarwin,FRAN-NYC-STAF-CDarwinoriolkgmail.onmicrosoft.com,Teacher,Faculty,MFA Test. To verify your security prompts.
+Rosalind,Franklin,Rosalind Franklin,FRAN-NYC-STUD-RFranklin,FRAN-NYC-STUD-RFranklinoriolkgmail.onmicrosoft.com,Student,STEM Lab,General User. Basic portal access.
+Albert,Einstein,Albert Einstein,FRAN-NYC-TERM-AEinstein,FRAN-NYC-TERM-AEinsteinoriolkgmail.onmicrosoft.com,Terminated,Faculty,"The ""Ghost"". To test your Offboarding/Audit script."
+Grace,Hopper,Grace Hopper,FRAN-NYC-AUDT-GHopper,FRAN-NYC-AUDT-GHopperoriolkgmail.onmicrosoft.com,Auditor,Compliance,Read-Only. To simulate a GRC audit.
+Stephen,Hawking,Stephen Hawking,FRAN-EXT-GUST-SHawking,FRAN-EXT-GUST-SHawkingoriolkgmail.onmicrosoft.com,Guest Lecturer,External,"Guest Access. Restricted to one specific ""Classroom"" folder."
