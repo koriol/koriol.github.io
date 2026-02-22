@@ -48,7 +48,7 @@ I chose the Bulk Create workflow over manual creation for three strategic reason
 + Efficiency: Reduces administrative overhead by 90% compared to manual provisioning.
 
 ### Artifact Documentation
-File Name: 20260222_FRAN-NYC_IAM-Bulk-Import_PROD_v01.csv
+[**File Name: 20260222_FRAN-NYC_IAM-Bulk-Import_PROD_v01.csv**](.
 
 Scope: 11 Initial Member Identities (inclusive of one "Terminated" user for offboarding testing).
 
