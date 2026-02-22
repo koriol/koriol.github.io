@@ -10,12 +10,12 @@ Total Risks Identified: 31 | Critical/High Risks: 8 | Top Information Type: Stud
 2. Network Segmentation (SC family)
 3. Physical MDF Lock (PE family)
 
-##I. Security Categorization Summary (FIPS 199):
+## I. Security Categorization Summary (FIPS 199):
 
 ## II. Risk Heatmap Analysis:
 
-### III. Risk Distribution & Controls:
-This shows the executive how we are defending the center.
+## III. Risk Distribution & Controls:
+This shows how we are defending the center.
 | Function | Count | Purpose |
 | :--- | :--- | :--- |
 | <span style="color:blue">Preventive</span> | 18 | Stopping unauthorized access before it happens. |
