@@ -5,7 +5,7 @@ This portfolio entry demonstrates a comprehensive Risk Assessment of a Mathnasiu
 ### Quick View
 Total Risks Identified: 31 | Critical/High Risks: 8 | Top Information Type: Student PII (Moderate)
 
-### Top Three Immediate ACtions
+### Top Three Immediate Actions
 1. MFA Implementation (IA family)
 2. Network Segmentation (SC family)
 3. Physical MDF Lock (PE family)
