@@ -19,15 +19,15 @@ The following table identifies the specific information types processed by the M
 
 | Information Type | NIST Code | Confidentiality | Integrity | Availability | Professional Justification |
 | --- | --- | --- | --- | --- | --- |
-| Primary & Secondary Education | D.15.1 | Moderate | Moderate | Low | Includes student progress reports and learning plans. Loss of C or I would cause serious adverse effects on parental trust and mission success.|
-|Personnel Administration | C.3.3.1 | Moderate | Low | Low | Covers tutor background checks and PII. C is Moderate due to sensitive vetting data required for staff working with minors (NIST PS-03).|
-| Payroll & Expense Management | C.3.5.1 | Moderate | Moderate | Low | Covers franchise fees and staff compensation. I is Moderate to ensure financial records are not modified by unauthorized users.|
-| Public Affairs | C.2.1.1 | Low | Low | Low | Marketing materials and Guest Wi-Fi portal info. Impact of a breach is limited as this info is intended for public consumption.|
-| Information Infrastructure | C.3.1.2 | Moderate | Moderate | Moderate | **Critical Row**: Covers network configs and admin passwords. Compromise here results in the compromise of all other data types.|
+| Primary & Secondary Education | **D.15.1** | Moderate | Moderate | Low | Includes student progress reports and learning plans. Loss of C or I would cause serious adverse effects on parental trust and mission success.|
+|Personnel Administration | **C.3.3.1** | Moderate | Low | Low | Covers tutor background checks and PII. C is Moderate due to sensitive vetting data required for staff working with minors (NIST PS-03).|
+| Payroll & Expense Management | **C.3.5.1** | Moderate | Moderate | Low | Covers franchise fees and staff compensation. I is Moderate to ensure financial records are not modified by unauthorized users.|
+| Public Affairs | **C.2.1.1** | Low | Low | Low | Marketing materials and Guest Wi-Fi portal info. Impact of a breach is limited as this info is intended for public consumption.|
+| Information Infrastructure | **C.3.1.2** | Moderate | Moderate | Moderate | **Critical Row**: Covers network configs and admin passwords. Compromise here results in the compromise of all other data types.|
 
 System Security Category ($SC$): Based on the information types processed, the High Water Mark for the system is established as **MODERATE**. This baseline dictates the selection of NIST 800-53 security controls.
 
-$$SC_{\text{Mathnasium NY}} = \{(\text{Confidentiality, Moderate}), (\text{Integrity, Moderate}), (\text{Availability, Moderate})\}$$
+*SC*<sub>Mathnasium NY<sub> = {({Confidentiality, Moderate}), ({Integrity, Moderate}), ({Availability, Moderate})}
 
 ## II. Risk Heatmap Analysis:
 
