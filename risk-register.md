@@ -25,7 +25,7 @@ The following table identifies the specific information types processed by the M
 | Public Affairs | **C.2.1.1** | Low | Low | Low | Marketing materials and Guest Wi-Fi portal info. Impact of a breach is limited as this info is intended for public consumption.|
 | Information Infrastructure | **C.3.1.2** | Moderate | Moderate | Moderate | **Critical Row**: Covers network configs and admin passwords. Compromise here results in the compromise of all other data types.|
 
-System Security Category ($SC$): Based on the information types processed, the High Water Mark for the system is established as **MODERATE**. This baseline dictates the selection of NIST 800-53 security controls.
+System Security Category (*SC*): Based on the information types processed, the High Water Mark for the system is established as **MODERATE**. This baseline dictates the selection of NIST 800-53 security controls.
 
 *SC*<sub>Mathnasium NY<sub> = {({Confidentiality, Moderate}), ({Integrity, Moderate}), ({Availability, Moderate})}
 
