@@ -3,14 +3,6 @@
 ## Executive Summary
 To establish a "Source of Truth" for the NYC Education Franchise, I initialized a centralized identity directory using Microsoft Entra ID. Rather than manual entry, I utilized a Bulk Upload (CSV) methodology to ensure data integrity, scalability, and adherence to a strict naming convention required for automated auditing. The CSV file acted as the Authoritative Source for this implementation. I built this entire lab using Standard features because I know how to work within budget constraints.
 
-## Table of Devices
-| Device Category | OS / Type | Role in Lab |
-| --- | --- | --- |
-| Primary Server | Ubuntu Linux | "The ""Vault"" (Identity Audit host)" |
-| Mobile Endpoint | iOS / Android | MFA & Conditional Access testing |
-| Workstation | macOS / Windows | Primary Staff access testing |
-| Legacy Device | Older Tablet/PC | "Risk Isolation & ""Grandfathered"" Access testing" |
-
 ### Naming conventions
 I engineered a Lexical Naming Convention to ensure every identity is human-readable and machine-auditable. This follows the ISO/IEC 27001 logic for asset and identity identification.
 
@@ -84,3 +76,6 @@ Group ownership is currently centralized under the Global Admin for the initial 
 - **Identity Confirmation:** Verified 11/11 users successfully provisioned via Entra ID User List.
 - **MFA Heartbeat:** Confirmed FRAN-NYC-ADMN-ATuring successfully triggered MFA challenge upon secondary login.
 - **Group Membership:** Validated that permissions inherited by NYC-Faculty-Staff members align with Least Privilege principles.
+
+### Phase 2: Advanced Identity Governance
+Automation, scalability, CAPs, PIM and lifecycle workflow. [**Click here for Phase 2**](./iam-project-phase-2.md)
