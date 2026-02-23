@@ -1,8 +1,7 @@
 # Enterprise Identity Governance & Lifetime Automation
 
 ## Executive Summary
-To establish a "Source of Truth" for the NYC Education Franchise, I initialized a centralized identity directory using Microsoft Entra ID. Rather than manual entry, I utilized a Bulk Upload (CSV) methodology to ensure data integrity, scalability, and adherence to a strict naming convention required for automated auditing.
-
+To establish a "Source of Truth" for the NYC Education Franchise, I initialized a centralized identity directory using Microsoft Entra ID. Rather than manual entry, I utilized a Bulk Upload (CSV) methodology to ensure data integrity, scalability, and adherence to a strict naming convention required for automated auditing. The CSV file acted as the Authoritative Source for this implementation. I built this entire lab using Standard features because I know how to work within budget constraints.
 
 ## Table of Devices
 | Device Category | OS / Type | Role in Lab |
@@ -52,6 +51,13 @@ I chose the Bulk Create workflow over manual creation for three strategic reason
 
 Scope: 11 Initial Member Identities (inclusive of one "Terminated" user for offboarding testing).
 
+### Group Architecture
+| Group Name | Type | Membership Strategy | Governance Goal |
+| --- | --- | --- | --- |
+| NYC-Faculty-Staff | Security | Static (Assigned) | Role-Based Access Control (RBAC) for educational tools. |
+| NYC-IT-Admins | Security | Static (Assigned) | Privileged Access Management (PAM) for IT infrastructure. |
+| NYC-Executives | Security | Static (Assigned) | Data isolation for confidential financial/business records. |
+
 ### ⚠️ Security & Data Privacy Notice
 **Identity Protection:** In a production enterprise environment, User Provisioning Files (CSVs) contain sensitive **PII (Personally Identifiable Information)** and temporary credentials.
 
@@ -60,6 +66,21 @@ For this Portfolio Lab:
 * The "Initial Password" column used during upload was a one-time placeholder.
 * Security Protocol: In real-world practice, these files are encrypted at rest and deleted immediately after the successful sync to the directory to prevent "credential leakage."
 
-### Dynamic Groups
-Implemented Attribute-Based Access Control (ABAC) using Dynamic Membership Rules to automate lifecycle management and ensure consistent policy application across the NYC workforce.
-*Insert Screenshot of Dynamic Rule window*
+### Security Control: Administrative Hardening
+**Action:** Enforced Per-User Multi-Factor Authentication (MFA) for the FRAN-NYC-ADMN-ATuring account.
+**Rationale:** Mitigating risk of unauthorized access via credential theft. Global Admin accounts are high-value targets and require a second factor of authentication as per the Principle of Defense in Depth.
+
+### Lessons Learned
+During the bulk provisioning phase, I encountered a UPN validation error. I resolved this by verifying the Primary Tenant Domain and performing a global string replacement in the source CSV to ensure 100% alignment with directory DNS requirements. This highlighted the importance of Domain Verification in IAM workflows.
+
+**Challenge:** During the implementation of Entra ID P2, I encountered a 401 Unauthorized licensing synchronization error. This is a common real-world 'Identity Trap' where external admin accounts (B2B/Guest) conflict with internal tenant billing profiles. Root cause identified as a token mismatch between the Microsoft Account (MSA) bootstrap identity and the Entra ID organizational tenant.
+
+**Solution:** Demonstrated operational agility by pivoting to a Phase 1: Static Membership Model. I promoted a native cloud identity (Alan Turing) to Global Administrator to decouple the environment from external dependencies and manually mapped users to Security Groups to ensure 'Zero-Day' readiness.
+
+### Assigned Groups
+Group ownership is currently centralized under the Global Admin for the initial build phase, with plans to delegate ownership to Department Heads in Phase 2 to follow a Decentralized Governance model.
+
+### Post-Implementation Validation
+- **Identity Confirmation:** Verified 11/11 users successfully provisioned via Entra ID User List.
+- **MFA Heartbeat:** Confirmed FRAN-NYC-ADMN-ATuring successfully triggered MFA challenge upon secondary login.
+- **Group Membership:** Validated that permissions inherited by NYC-Faculty-Staff members align with Least Privilege principles.
