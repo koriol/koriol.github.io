@@ -80,3 +80,5 @@ Group ownership is currently centralized under the Global Admin for the initial 
 
 ### Phase 2: Advanced Identity Governance
 Automation, scalability, CAPs, PIM and lifecycle workflow. [**Click here for Phase 2**](./iam-project-phase-2.md)
+
+#### Current Status: Phase 1 Complete ✅ | Phase 2 Pending License Sync ⏳
