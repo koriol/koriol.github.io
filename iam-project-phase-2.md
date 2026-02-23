@@ -32,3 +32,11 @@
 ### 4. Lifecycle Workflows
 **Objective:** Automate the "Onboarding" experience.
 **Logic:** Trigger an automated "Welcome to NYC Franchise" email and provision a temporary library pass as soon as a user with the STAF role is detected in the directory.
+
+### The Plan: The "Hybrid Governance" Demonstration
+| Feature | Phase 1: Manual (Static) | Phase 2: Entra Suite (Dynamic) |
+| --- | --- | --- |
+| **Effort** | High (Manual entry for every hire) | Low (Auto-provisions based on attributes) |
+| **Error Rate** | High (Human typos) | Zero (Logic-based) |
+| **Security** | Static (Users stay even if fired) | Real-time (Users leave if attribute changes) |
+| **Use Case** | Small Business / Specialized Roles | Enterprise / Scalable Franchises |
