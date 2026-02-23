@@ -24,6 +24,7 @@ Example: FRAN-NYC-ADMN-ATuring@domain.onmicrosoft.com
 
 ### Professional Role Codes
 I implemented a standardized Lexical Naming Convention based on ISO/IEC 27001 guidelines for asset identification and access control
+
 | **Department/Role** | **Code Naming Convention** | **Example** |
 | --- | --- | --- |
 | IT Operations | ITOE (IT Ops/Eng) | FRAN-NYC-ITOE-ATuring |
@@ -31,6 +32,7 @@ I implemented a standardized Lexical Naming Convention based on ISO/IEC 27001 gu
 | Auditor | AUDT | FRAN-NYC-AUDT-External |
 | Leadership | EXEC | FRAN-NYC-EXEC-ALovelace |
 | Guest | GUST | FRAN-NYC-GUST-SHwaking |
+
 > *Note: Role codes define the user's primary function. An individual may belong to a Department (e.g., IT Operations) while holding a specific Functional Role (e.g., ADMN) for audit purposes.*
 
 ### Implementation Methodology (Why Bulk Upload?)
@@ -73,13 +75,6 @@ To ensure the integrity of the security controls, I performed a "Sign-in Audit":
 > Fig 1.3: End-User Validation—Verification of the MFA challenge-response handshake during the administrative login sequence.
 4. **Outcome:** PASS. Identity is verified via out-of-band (OOB) authentication, successfully mitigating 99.9% of automated password attacks (per Microsoft security benchmarks).
 
-### Lessons Learned
-During the bulk provisioning phase, I encountered a UPN validation error. I resolved this by verifying the Primary Tenant Domain and performing a global string replacement in the source CSV to ensure 100% alignment with directory DNS requirements. This highlighted the importance of Domain Verification in IAM workflows.
-
-**Challenge:** During the implementation of Entra ID P2, I encountered a 401 Unauthorized licensing synchronization error. This is a common real-world 'Identity Trap' where external admin accounts (B2B/Guest) conflict with internal tenant billing profiles. Root cause identified as a token mismatch between the Microsoft Account (MSA) bootstrap identity and the Entra ID organizational tenant.
-
-**Solution:** Demonstrated operational agility by pivoting to a Phase 1: Static Membership Model. I promoted a native cloud identity (Alan Turing) to Global Administrator to decouple the environment from external dependencies and manually mapped users to Security Groups to ensure 'Zero-Day' readiness.
-
 ### Assigned Groups
 Group ownership is currently centralized under the Global Admin for the initial build phase, with plans to delegate ownership to Department Heads in Phase 2 to follow a Decentralized Governance model.
 
@@ -89,25 +84,49 @@ Group ownership is currently centralized under the Global Admin for the initial 
 ![Alan Turing Sign-on logs confirming MFA](./assets/MFA_Confirm.png)
 > *Fig 1.4: Administrative Audit Trace—Sign-in logs verifying a successful 'MFA Challenged' login event for the Global Administrator.*
 - **Group Membership:** Validated that permissions inherited by NYC-Faculty-Staff members align with Least Privilege principles.
+  
+## User Acceptance Testing (UAT)
+**Test Case:** Verify "Least Privilege" for non-administrative staff.
+* **User:** Maria Curie (Faculty)
+* **Action:** Attempted access to Global Identity Settings.
+* **Result:** Access Denied. User successfully restricted to Standard User permissions.
+* **Conclusion:** RBAC is functioning as intended; administrative surface area is isolated from standard staff identities.
 
 ### Administrative Handover Email
 Email sent to the client (Franchise Director) explaining that their NYC office is now live and secured.
 
-Subject: COMPLETED: Phase 1 Identity & Security Infrastructure - NYC Education Franchise
+**Subject:** COMPLETED: Phase 1 Identity & Security Infrastructure - NYC Education Franchise
+**To:** Project Stakeholders / NYC Leadership
+**From:** K. Oriol, Lead IAM Engineer
 
-To: Project Stakeholders / NYC Leadership
-From: K. Oriol, Lead IAM Engineer
-
-Notice:
+**Notice:**
 The foundational identity directory for the New York City franchise is now Live and Secured.
 
-Key Deliverables Completed:
+<u>Key Deliverables Completed:</u>
 * Centralized Directory: Provisioned 11 staff identities via standardized bulk-ingestion.
 * RBAC Groups: Established Security Groups for Faculty, IT, and Executives to ensure strictly partitioned access.
 * Administrative Hardening: Enforced Multi-Factor Authentication (MFA) on the primary Global Admin account (FRAN-NYC-ADMN-ATuring).
 * Audit Readiness: Verified sign-in logs and identity integrity for immediate operational use.
 
 The environment is now ready for User Acceptance Testing (UAT) and Phase 2 automation scaling.
+
+### Lessons Learned
+1. During the bulk provisioning phase, I encountered a UPN validation error. I resolved this by verifying the Primary Tenant Domain and performing a global string replacement in the source CSV to ensure 100% alignment with directory DNS requirements. This highlighted the importance of Domain Verification in IAM workflows.
+
+2. **Challenge:** During the implementation of Entra ID P2, I encountered a 401 Unauthorized licensing synchronization error. This is a common real-world 'Identity Trap' where external admin accounts (B2B/Guest) conflict with internal tenant billing profiles. Root cause identified as a token mismatch between the Microsoft Account (MSA) bootstrap identity and the Entra ID organizational tenant.
+
+**Solution:** Demonstrated operational agility by pivoting to a Phase 1: Static Membership Model. I promoted a native cloud identity (Alan Turing) to Global Administrator to decouple the environment from external dependencies and manually mapped users to Security Groups to ensure 'Zero-Day' readiness.
+
+3. **Technical Retrospective:** The "Privilege Gap" Discovery
+During the hardening phase of the NYC Franchise lab, I encountered a significant roadblock where high-level security toggles (specifically the Administration Portal Restriction) were non-functional despite being logged in as the designated "Admin" identity.
+
+**The Root Cause:**
+The FRAN-NYC-ADMN-ATuring account had been successfully assigned the Group Administrator role, but lacked the Global Administrator directory role.
+
+**Key Takeaways for GRC & IAM:**
+* <u>The Nuance of Scoped Roles:</u> This incident highlighted the critical distinction between functional administration (managing groups/members) and tenant governance (configuring global security postures).
+* <u>Troubleshooting via Role Audit:</u> I resolved the issue by performing a role audit from the bootstrap account, elevating the identity to Global Administrator, and re-authenticating to refresh the access token.
+* <u>Least Privilege vs. Operational Necessity:</u> While "Least Privilege" suggests keeping roles minimal, this lab demonstrated that "Global Admin" is a prerequisite for initial "Tenant Hardening" tasks before delegating lower-level roles to others.
 
 ### Phase 2: Advanced Identity Governance
 Automation, scalability, CAPs, PIM and lifecycle workflow. [**Click here for Phase 2**](./iam-project-phase-2.md)
