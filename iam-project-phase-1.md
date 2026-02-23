@@ -1,9 +1,9 @@
-# Enterprise Identity Governance & Lifetime Automation
+# Enterprise Identity Governance & Identity Lifecycle Management (ILM)
 
 ## Executive Summary
 To establish a "Source of Truth" for the NYC Education Franchise, I initialized a centralized identity directory using Microsoft Entra ID. Rather than manual entry, I utilized a Bulk Upload (CSV) methodology to ensure data integrity, scalability, and adherence to a strict naming convention required for automated auditing. The CSV file acted as the Authoritative Source for this implementation. I built this entire lab using Standard features because I know how to work within budget constraints.
 
-### Naming conventions
+### Lexical Naming conventions (ISO/IEC 27001 Alignment)
 I engineered a Lexical Naming Convention to ensure every identity is human-readable and machine-auditable. This follows the ISO/IEC 27001 logic for asset and identity identification.
 
 Format: [ORG]-[LOC]-[ROLE]-[Initial+LastName]
@@ -12,7 +12,7 @@ LOC: NYC (New York City)
 ROLE: 4-Character Functional Code (EXEC, ADMN, STAF, AUDT, FINA)
 Identifier: First Initial + Last Name
 
-FRAN-NYC-[ROLE]-[Initial+LastName]
+FRAN-NYC-ROLE-Initial+LastName
 FRAN = Franchise
 NYC = Location
 ROLE = assigned based on job position
@@ -35,23 +35,24 @@ I implemented a standardized Lexical Naming Convention based on ISO/IEC 27001 gu
 
 > *Note: Role codes define the user's primary function. An individual may belong to a Department (e.g., IT Operations) while holding a specific Functional Role (e.g., ADMN) for audit purposes.*
 
-### Implementation Methodology (Why Bulk Upload?)
-I chose the Bulk Create workflow over manual creation for three strategic reasons:
-+ Standardization: Eliminates human error (typos) in Department or Job Title fields, which are critical for Dynamic Group triggers.
-+ Auditability: The CSV acts as a "Point-in-Time" record of who was authorized to be in the system at launch.
-+ Efficiency: Reduces administrative overhead by 90% compared to manual provisioning.
+### Implementation Methodology: Automated Provisioning
+I chose the Automated Provisioning via Flat-File Ingestion over manual creation for three strategic reasons:
++ **Standardization:** Eliminates human error (typos) in Department or Job Title fields, which are critical for Dynamic Group triggers.
++ **Auditability:** The CSV acts as a "Point-in-Time" record of who was authorized to be in the system at launch.
++ **Efficiency:** Reduces administrative overhead by 90% compared to manual provisioning.
 
 ### Artifact Documentation
 [**File Name: 20260222_FRAN-NYC_IAM-Bulk-Import_PROD_v01.csv**](./assets/02222026_FRAN-NYC_IAM-Bulk-Import_PROD_v01.csv)
 
 Scope: 11 Initial Member Identities (inclusive of one "Terminated" user for offboarding testing).
 
-### Group Architecture
-| Group Name | Type | Membership Strategy | Governance Goal |
+### Group Architecture & RBAC Mapping
+| **Group Name** | **Type** | **Membership Strategy** | **Governance Goal** |
 | --- | --- | --- | --- |
 | NYC-Faculty-Staff | Security | Static (Assigned) | Role-Based Access Control (RBAC) for educational tools. |
 | NYC-IT-Admins | Security | Static (Assigned) | Privileged Access Management (PAM) for IT infrastructure. |
 | NYC-Executives | Security | Static (Assigned) | Data isolation for confidential financial/business records. |
+> *Note: These groups were initialized as Static/Assigned for Phase 1. Upon Entra P2 license activation in Phase 2, the 'NYC-Faculty-Staff' group will be converted to a Dynamic Membership model based on the 'Department' attribute to reduce administrative friction.*
 
 ### ⚠️ Security & Data Privacy Notice
 **Identity Protection:** In a production enterprise environment, User Provisioning Files (CSVs) contain sensitive **PII (Personally Identifiable Information)** and temporary credentials.
@@ -67,7 +68,7 @@ For this Portfolio Lab:
   ![Alan Turing MFA enabled](./assets/MFA_enabled.png)
 >Fig 1.2: Alan Turing enabled for Multi-Factor Authentication list.
 
-### Implementation Verification
+### Implementation Verification & Audit Logs
 To ensure the integrity of the security controls, I performed a "Sign-in Audit":
 1. **Control Test:** Attempted login as `FRAN-NYC-ADMN-ATuring`.
 2. **Result:** System successfully interrupted the primary authentication flow to demand a secondary factor (MFA).
@@ -110,20 +111,16 @@ The foundational identity directory for the New York City franchise is now Live 
 
 The environment is now ready for User Acceptance Testing (UAT) and Phase 2 automation scaling.
 
-### Lessons Learned
+### Technical Challenges & Conflict Resolution
 1. During the bulk provisioning phase, I encountered a UPN validation error. I resolved this by verifying the Primary Tenant Domain and performing a global string replacement in the source CSV to ensure 100% alignment with directory DNS requirements. This highlighted the importance of Domain Verification in IAM workflows.
 
 2. **Challenge:** During the implementation of Entra ID P2, I encountered a 401 Unauthorized licensing synchronization error. This is a common real-world 'Identity Trap' where external admin accounts (B2B/Guest) conflict with internal tenant billing profiles. Root cause identified as a token mismatch between the Microsoft Account (MSA) bootstrap identity and the Entra ID organizational tenant.
-
-**Solution:** Demonstrated operational agility by pivoting to a Phase 1: Static Membership Model. I promoted a native cloud identity (Alan Turing) to Global Administrator to decouple the environment from external dependencies and manually mapped users to Security Groups to ensure 'Zero-Day' readiness.
-
-3. **Technical Retrospective:** The "Privilege Gap" Discovery
-During the hardening phase of the NYC Franchise lab, I encountered a significant roadblock where high-level security toggles (specifically the Administration Portal Restriction) were non-functional despite being logged in as the designated "Admin" identity.
-
-**The Root Cause:**
-The FRAN-NYC-ADMN-ATuring account had been successfully assigned the Group Administrator role, but lacked the Global Administrator directory role.
-
-**Key Takeaways for GRC & IAM:**
+  * **Solution:** Demonstrated operational agility by pivoting to a Phase 1: Static Membership Model. I promoted a native cloud identity (Alan Turing) to Global Administrator to decouple the environment from external dependencies and manually mapped users to Security Groups to ensure 'Zero-Day' readiness.
+3. **The "Privilege Gap" Discovery:** During the hardening phase of the NYC Franchise lab, I encountered a significant roadblock where high-level security toggles (specifically the Administration Portal Restriction) were non-functional despite being logged in as the designated "Admin" identity.
+    * **The Root Cause:** The FRAN-NYC-ADMN-ATuring account had been successfully assigned the Group Administrator role, but lacked the Global Administrator directory role.
+    * ![Alan Turing with the "Global Administrator" role assigned](./assets/ATuring_assigned_role.png)
+    * > *Fig 1.5: Role Elevation—Confirmation of Active Global Administrator assignment following the resolution of the scoped-role conflict.*
+4. **Key Takeaways for GRC & IAM:**
 * <u>The Nuance of Scoped Roles:</u> This incident highlighted the critical distinction between functional administration (managing groups/members) and tenant governance (configuring global security postures).
 * <u>Troubleshooting via Role Audit:</u> I resolved the issue by performing a role audit from the bootstrap account, elevating the identity to Global Administrator, and re-authenticating to refresh the access token.
 * <u>Least Privilege vs. Operational Necessity:</u> While "Least Privilege" suggests keeping roles minimal, this lab demonstrated that "Global Admin" is a prerequisite for initial "Tenant Hardening" tasks before delegating lower-level roles to others.
