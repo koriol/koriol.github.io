@@ -62,6 +62,15 @@ For this Portfolio Lab:
 ### Security Control: Administrative Hardening
 **Action:** Enforced Per-User Multi-Factor Authentication (MFA) for the FRAN-NYC-ADMN-ATuring account.
 **Rationale:** Mitigating risk of unauthorized access via credential theft. Global Admin accounts are high-value targets and require a second factor of authentication as per the Principle of Defense in Depth.
+<figure>
+  ![Alan Turing MFA enabled](./assets/)
+  <figcaption>Fig 1.2: End-User Validation—Verification of the MFA challenge-response handshake during the administrative login sequence.</figcaption>
+</figure>
+### Implementation Verification
+To ensure the integrity of the security controls, I performed a "Sign-in Audit":
+1. **Control Test:** Attempted login as `FRAN-NYC-ADMN-ATuring`.
+2. **Result:** System successfully interrupted the primary authentication flow to demand a secondary factor (MFA).
+3. **Outcome:** PASS. Identity is verified via out-of-band (OOB) authentication, successfully mitigating 99.9% of automated password attacks (per Microsoft security benchmarks).
 
 ### Lessons Learned
 During the bulk provisioning phase, I encountered a UPN validation error. I resolved this by verifying the Primary Tenant Domain and performing a global string replacement in the source CSV to ensure 100% alignment with directory DNS requirements. This highlighted the importance of Domain Verification in IAM workflows.
