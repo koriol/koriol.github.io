@@ -63,7 +63,7 @@ For this Portfolio Lab:
 **Action:** Enforced Per-User Multi-Factor Authentication (MFA) for the FRAN-NYC-ADMN-ATuring account.
 **Rationale:** Mitigating risk of unauthorized access via credential theft. Global Admin accounts are high-value targets and require a second factor of authentication as per the Principle of Defense in Depth.
 <figure>
-  ![Alan Turing MFA enabled](./assets/)
+  ![Alan Turing MFA enabled](./assets/MFA_enabled.png)
   <figcaption>Fig 1.2: End-User Validation—Verification of the MFA challenge-response handshake during the administrative login sequence.</figcaption>
 </figure>
 ### Implementation Verification
