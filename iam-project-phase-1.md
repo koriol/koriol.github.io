@@ -31,6 +31,7 @@ I implemented a standardized Lexical Naming Convention based on ISO/IEC 27001 gu
 | Auditor | AUDT | FRAN-NYC-AUDT-External |
 | Leadership | EXEC | FRAN-NYC-EXEC-ALovelace |
 | Guest | GUST | FRAN-NYC-GUST-SHwaking |
+> *Note: Role codes define the user's primary function. An individual may belong to a Department (e.g., IT Operations) while holding a specific Functional Role (e.g., ADMN) for audit purposes.*
 
 ### Implementation Methodology (Why Bulk Upload?)
 I chose the Bulk Create workflow over manual creation for three strategic reasons:
