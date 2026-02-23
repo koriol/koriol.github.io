@@ -26,5 +26,5 @@ Link: View Repository
 #### Infrastructure & IT
 *Active Directory Hardening Guide for Small Businesses.*
 Implemented an end-to-end IAM lifecycle for a mock education franchise. Engineered a centralized Active Directory domain to govern multi-platform (Windows/Linux) access, reducing manual onboarding time by 80% and enforcing NIST-compliant Least Privilege.
-[**View the IAM Project**](./iam-project.md)
+[**View the IAM Project**](./iam-project-phase-1.md)
 View Technical Guide
