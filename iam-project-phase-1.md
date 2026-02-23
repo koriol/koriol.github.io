@@ -86,7 +86,28 @@ Group ownership is currently centralized under the Global Admin for the initial 
 ### Post-Implementation Validation
 - **Identity Confirmation:** Verified 11/11 users successfully provisioned via Entra ID User List.
 - **MFA Heartbeat:** Confirmed FRAN-NYC-ADMN-ATuring successfully triggered MFA challenge upon secondary login.
+![Alan Turing Sign-on logs confirming MFA](./assets/MFA_Confirm.png)
+> *Fig 1.4: Administrative Audit Trace—Sign-in logs verifying a successful 'MFA Challenged' login event for the Global Administrator.*
 - **Group Membership:** Validated that permissions inherited by NYC-Faculty-Staff members align with Least Privilege principles.
+
+### Administrative Handover Email
+Email sent to the client (Franchise Director) explaining that their NYC office is now live and secured.
+
+Subject: COMPLETED: Phase 1 Identity & Security Infrastructure - NYC Education Franchise
+
+To: Project Stakeholders / NYC Leadership
+From: K. Oriol, Lead IAM Engineer
+
+Notice:
+The foundational identity directory for the New York City franchise is now Live and Secured.
+
+Key Deliverables Completed:
+* Centralized Directory: Provisioned 11 staff identities via standardized bulk-ingestion.
+* RBAC Groups: Established Security Groups for Faculty, IT, and Executives to ensure strictly partitioned access.
+* Administrative Hardening: Enforced Multi-Factor Authentication (MFA) on the primary Global Admin account (FRAN-NYC-ADMN-ATuring).
+* Audit Readiness: Verified sign-in logs and identity integrity for immediate operational use.
+
+The environment is now ready for User Acceptance Testing (UAT) and Phase 2 automation scaling.
 
 ### Phase 2: Advanced Identity Governance
 Automation, scalability, CAPs, PIM and lifecycle workflow. [**Click here for Phase 2**](./iam-project-phase-2.md)
