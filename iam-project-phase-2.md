@@ -1,7 +1,9 @@
 # Enterprise Identity Governance & Lifetime Automation
 
 ## Executive Summary
+Phase 2 focused on transitioning the NYC Education Franchise from a Static Security Baseline to an Adaptive Identity Governance model. By leveraging Microsoft Entra ID P2 capabilities, I implemented Attribute-Based Access Control (ABAC), moved away from "All-or-Nothing" security defaults in favor of granular Conditional Access Policies (CAPs), and empowered end-users via Self-Service Password Reset (SSPR).
 
+The result is a "Frictionless" security environment where administrative tiers are heavily guarded while standard faculty members maintain high operational velocity.
 
 ## Table of Devices
 | Device Category | OS / Type | Role in Lab |
@@ -11,19 +13,28 @@
 | Workstation | macOS / Windows | Primary Staff access testing |
 | Legacy Device | Older Tablet/PC | "Risk Isolation & ""Grandfathered"" Access testing" |
 
-## 🏗️ Phase 2 Roadmap: Advanced Identity Governance
-*The following objectives are slated for implementation upon the successful propagation of Entra ID Premium licensing and the completion of the baseline identity migration.*
+## 🏗️ Technical Architecture & Roadmap
+*Phase 2 Objectives were executed following the successful propagation of Premium licensing.*
 
-### 1. Automation & Scalability (Dynamic Membership)
-**Objective:** Transition from Static to Dynamic Groups.
-**Logic:** Implement Attribute-Based Access Control (ABAC) using the rule: (user.department -eq "Faculty").
-**Goal:** Eliminate manual administrative overhead during the "Joiner-Mover-Leaver" (JML) lifecycle.
+### 1. Automation via Dynamic Membership (ABAC)
+**Objective:** Transition from manual group management to an **Attribute-Based Access Control (ABAC)** model.
+* **Logic:** (`user.department -eq "Faculty"`)
+* **Goal:** Automate the **Joiner-Mover-Leaver (JML)** lifecycle.
+* **Result:** Identities provisioned via CSV in Phase 1 were automatically ingested into the Faculty security group based on department metadata.
 
+> *Fig 2.1: Automation Logic— Validation of the Dynamic Membership rule processor successfully aggregating 4 faculty identities without manual intervention.*
+---
 ### 2. Context-Aware Security (Conditional Access)
-**Objective:** Deploy Conditional Access Policies (CAPs) to replace "all-or-nothing" security.
+**Objective:** Replace "Security Defaults" with targeted Conditional Access Policies (CAPs) to enforce MFA based on risk and role.
 **Scenarios:**
 * **Geofencing:** Restrict administrative logins to known Franchise locations (e.g., NYC HQ and designated travel hubs like Cork, Ireland).
 * **Device Compliance:** Require devices to be "Intune Managed" before accessing the NYC-Executives data.
+
+Policy ID,Target Audience,Condition,Requirement
+NYC-CAP-ADMN-MFA,NYC-IT-Admins,All Cloud Apps,Require MFA
+Global Mandate,All Users,Admin Portals,Require MFA
+![](./assets/
+> *Fig 2.2: Policy Architecture— Deployment of a targeted CAP requiring MFA for the administrative tier while allowing SFA for productivity endpoints.*
 
 ### 3. Privileged Identity Management (PIM)
 **Objective:** Implement "Just-In-Time" (JIT) access for the ADMN role.
