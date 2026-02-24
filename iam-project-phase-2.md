@@ -21,7 +21,7 @@ The result is a "Frictionless" security environment where administrative tiers a
 * **Logic:** (`user.department -eq "Faculty"`)
 * **Goal:** Automate the **Joiner-Mover-Leaver (JML)** lifecycle.
 * **Result:** Identities provisioned via CSV in Phase 1 were automatically ingested into the Faculty security group based on department metadata.
-
+![Group members after dynamic grouping](./assets/dynamic_members.png)
 > *Fig 2.1: Automation Logic— Validation of the Dynamic Membership rule processor successfully aggregating 4 faculty identities without manual intervention.*
 ---
 ### 2. Context-Aware Security (Conditional Access)
@@ -54,8 +54,11 @@ The result is a "Frictionless" security environment where administrative tiers a
 To ensure the "Zero-Call" support model, the password reset workflow was tested using the `STAF-MCurie ` identity.
 * **The Registration Gap:** Initial testing failed due to missing user data. I remediated this by performing a registration campaign at aka.ms/ssprsetup.
 * **The Challenge:** System successfully identified the "Out-of-Band" (OOB) mobile device.
-
-
+![SSPR validation through registered phone](./assets/sspr_phone_recovery_request.png)
+> *Fig 2.3: Identity Challenge— System successfully identifying user-registered recovery methods during a password recovery event.*
+---
+![Received code text verification](./assets/text_verification_code.png)
+> *Fig 2.4: Out-of-Band (OOB) Verification— Evidence of successful SMS One-Time Passcode (OTP) delivery to the secondary device.*
 > Note: For the integrity of the lab environment, the password was not rotated after successful verification to prevent session disruption.
 
 ### 3. Privileged Identity Management (PIM)
@@ -104,7 +107,7 @@ To validate the custom NYC-CAP-ADMN-RequireMFA policy, a secondary test was perf
 * **Test Path:** Triggered "Forgotten Password" workflow for STAF-MCurie.
 * **Validation:** System successfully triggered an SMS OTP to the registered mobile device. Identity was verified, and the user reached the "New Password" entry portal.
 
-![SSPR validation through registered phone](./assets/sspr_phone_recovery_request.png)
+
 > *Fig 2.1: SSPR Identity Challenge—System successfully identifying user-registered recovery methods.*
 ![Received code text verification](./assets/text_verification_code.png)
 > *Fig 2.2: Out-of-Band (OOB) Verification—SMS delivery of the one-time passcode (OTP).*
