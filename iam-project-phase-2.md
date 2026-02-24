@@ -57,8 +57,11 @@ To ensure the "Zero-Call" support model, the password reset workflow was tested 
 ![SSPR validation through registered phone](./assets/sspr_phone_recovery_request.png)
 > *Fig 2.3: Identity Challenge— System successfully identifying user-registered recovery methods during a password recovery event.*
 ---
-![Received code text verification](./assets/text_verification_code.png)
+![Received code text verification](./assets/phone_verification.jpg)
 > *Fig 2.4: Out-of-Band (OOB) Verification— Evidence of successful SMS One-Time Passcode (OTP) delivery to the secondary device.*
+---
+![Password reset verification](./assets/verification_password_step.png)
+> *Fig 2.5: Write-Back Authorization— System granting permission to reset credentials following successful multi-layered verification.*
 > Note: For the integrity of the lab environment, the password was not rotated after successful verification to prevent session disruption.
 
 ### 3. Privileged Identity Management (PIM)
