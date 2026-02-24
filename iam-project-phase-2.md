@@ -21,13 +21,16 @@ The result is a "Frictionless" security environment where administrative tiers a
 * **Logic:** (`user.department -eq "Faculty"`)
 * **Goal:** Automate the **Joiner-Mover-Leaver (JML)** lifecycle.
 * **Result:** Identities provisioned via CSV in Phase 1 were automatically ingested into the Faculty security group based on department metadata.
-<img alt="Group members after dynamic grouping" src="assets/dynamic_members.png" height="300" />
-> *Fig 2.1: Automation Logic— Validation of the Dynamic Membership rule processor successfully aggregating 4 faculty identities without manual intervention.*
+
+| --- | --- |
+| <img alt="Group members after dynamic grouping" src="assets/dynamic_members.png" height="300" />
+> | *Fig 2.1: Automation Logic— Validation of the Dynamic Membership rule processor successfully aggregating 4 faculty identities without manual intervention.* |
 
 ---
 
 ### 2. Context-Aware Security (Conditional Access)
 **Objective:** Replace "Security Defaults" with targeted Conditional Access Policies (CAPs) to enforce MFA based on risk and role.
+
 **Scenarios:**
 * **Geofencing:** Restrict administrative logins to known Franchise locations (e.g., NYC HQ and designated travel hubs like Cork, Ireland).
 * **Device Compliance:** Require devices to be "Intune Managed" before accessing the NYC-Executives data.
@@ -36,14 +39,17 @@ The result is a "Frictionless" security environment where administrative tiers a
 | --- | --- | --- | --- |
 | `NYC-CAP-ADMN-MFA` | NYC-IT-Admins | All Cloud Apps | Require MFA |
 | Global Mandate | All Users | Admin Portals | Require MFA |
-<video controls width="600">
+
+<video controls autoplay muted loop playsinline width="300">
   <source src="https://koriol.github.io/assets/conditional_access_policy.mp4" type="video/mp4" alt="Conditional access policy" height="300">
   Your browser does not support the video tag.
 </video>
 > *Fig 2.2: Policy Architecture— Deployment of a targeted CAP requiring MFA for the administrative tier while allowing SFA for productivity endpoints.*
 
 ## 🛡️ Technical Change Log & Retrospective
+
 ### Strategic Pivot: Disabling Security Defaults
+
 **Action:** Formally disabled Microsoft Entra "Security Defaults."
 **Rationale:** Security Defaults are incompatible with granular CAPs. To implement role-based MFA, the "Training Wheels" were removed to enable the enterprise-grade **Conditional Access engine.**
 **Risk Mitigation:** The `NYC-CAP-ADMN-MFA` policy was pre-staged to ensure the Global Administrator remained protected during the transition.
@@ -64,18 +70,20 @@ To ensure the "Zero-Call" support model, the password reset workflow was tested 
 > *Fig 2.3: Identity Challenge— System successfully identifying user-registered recovery methods during a password recovery event.*
 
 ---
-
-<img alt="Received code text verification" src="assets/phone_verification.jpg" height="300" />
-> *Fig 2.4: Out-of-Band (OOB) Verification— Evidence of successful SMS One-Time Passcode (OTP) delivery to the secondary device.*
+| --- | --- |
+| <img alt="Received code text verification" src="assets/phone_verification.jpg" height="200" />
+> | *Fig 2.4: Out-of-Band (OOB) Verification— Evidence of successful SMS One-Time Passcode (OTP) delivery to the secondary device.* |
 
 ---
+| --- | --- |
+| ![Password reset verification](./assets/verification_password_step.png) | *Fig 2.5: Write-Back Authorization— System granting permission to reset credentials following successful multi-layered verification.* |
 
-![Password reset verification](./assets/verification_password_step.png)
-> *Fig 2.5: Write-Back Authorization— System granting permission to reset credentials following successful multi-layered verification.*
 > Note: For the integrity of the lab environment, the password was not rotated after successful verification to prevent session disruption.
 
 ### 3. Privileged Identity Management (PIM)
+
 **Objective:** Implement "Just-In-Time" (JIT) access for the ADMN role.
+
 **Rationale:** Alan Turing should not have Global Admin rights 24/7. He should "activate" them only when needed for a specific task, reducing the blast radius of a potential credential compromise.
 
 ### 4. Lifecycle Workflows
