@@ -6,7 +6,7 @@ Phase 2 focused on transitioning the NYC Education Franchise from a Static Secur
 The result is a "Frictionless" security environment where administrative tiers are heavily guarded while standard faculty members maintain high operational velocity.
 
 ## Table of Devices
-| Device Category | OS / Type | Role in Lab |
+| **Device Category** | **OS / Type** | **Role in Lab** |
 | --- | --- | --- |
 | Primary Server | Ubuntu Linux | "The ""Vault"" (Identity Audit host)" |
 | Mobile Endpoint | iOS / Android | MFA & Conditional Access testing |
@@ -21,9 +21,11 @@ The result is a "Frictionless" security environment where administrative tiers a
 * **Logic:** (`user.department -eq "Faculty"`)
 * **Goal:** Automate the **Joiner-Mover-Leaver (JML)** lifecycle.
 * **Result:** Identities provisioned via CSV in Phase 1 were automatically ingested into the Faculty security group based on department metadata.
-![Group members after dynamic grouping](./assets/dynamic_members.png)
+<img alt="Group members after dynamic grouping" src="assets/dynamic_members.png" height="300" />
 > *Fig 2.1: Automation Logic— Validation of the Dynamic Membership rule processor successfully aggregating 4 faculty identities without manual intervention.*
+
 ---
+
 ### 2. Context-Aware Security (Conditional Access)
 **Objective:** Replace "Security Defaults" with targeted Conditional Access Policies (CAPs) to enforce MFA based on risk and role.
 **Scenarios:**
@@ -34,8 +36,10 @@ The result is a "Frictionless" security environment where administrative tiers a
 | --- | --- | --- | --- |
 | `NYC-CAP-ADMN-MFA` | NYC-IT-Admins | All Cloud Apps | Require MFA |
 | Global Mandate | All Users | Admin Portals | Require MFA |
-
-![Conditional access policy](./assets/conditional_access_policy.mp4)
+<video controls width="600">
+  <source src="https://koriol.github.io/assets/conditional_access_policy.mp4" type="video/mp4" alt="Conditional access policy" height="300">
+  Your browser does not support the video tag.
+</video>
 > *Fig 2.2: Policy Architecture— Deployment of a targeted CAP requiring MFA for the administrative tier while allowing SFA for productivity endpoints.*
 
 ## 🛡️ Technical Change Log & Retrospective
@@ -47,7 +51,9 @@ The result is a "Frictionless" security environment where administrative tiers a
 > **Issue:** Standard users (`STAF-MCurie`) were prompted for MFA despite policy exclusions.
 > **Investigation:** Analysis of **Sign-in Logs** revealed a "Global Mandate" interruption. Microsoft enforces MFA for all users when accessing the **Entra/Azure Admin Portals** (aka.ms/mfaforazure), regardless of custom policies.
 > **Validation:** Confirmed custom CAP success by logging into `portal.office.com`, where the user successfully authenticated via **Single-Factor (SFA)** as intended.
+
 ---
+
 ## 🔓 Self-Service Empowerment (SSPR)
 **Implementation:** Transitioned to the Converged Authentication Methods Policy to enable Self-Service Password Reset.
 ### SSPR Functional Validation
@@ -56,10 +62,14 @@ To ensure the "Zero-Call" support model, the password reset workflow was tested 
 * **The Challenge:** System successfully identified the "Out-of-Band" (OOB) mobile device.
 ![SSPR validation through registered phone](./assets/sspr_phone_recovery_request.png)
 > *Fig 2.3: Identity Challenge— System successfully identifying user-registered recovery methods during a password recovery event.*
+
 ---
-![Received code text verification](./assets/phone_verification.jpg)
+
+<img alt="Received code text verification" src="assets/phone_verification.jpg" height="300" />
 > *Fig 2.4: Out-of-Band (OOB) Verification— Evidence of successful SMS One-Time Passcode (OTP) delivery to the secondary device.*
+
 ---
+
 ![Password reset verification](./assets/verification_password_step.png)
 > *Fig 2.5: Write-Back Authorization— System granting permission to reset credentials following successful multi-layered verification.*
 > Note: For the integrity of the lab environment, the password was not rotated after successful verification to prevent session disruption.
@@ -111,8 +121,10 @@ To validate the custom NYC-CAP-ADMN-RequireMFA policy, a secondary test was perf
 * **Validation:** System successfully triggered an SMS OTP to the registered mobile device. Identity was verified, and the user reached the "New Password" entry portal.
 
 
-> *Fig 2.1: SSPR Identity Challenge—System successfully identifying user-registered recovery methods.*
-![Received code text verification](./assets/text_verification_code.png)
-> *Fig 2.2: Out-of-Band (OOB) Verification—SMS delivery of the one-time passcode (OTP).*
-![Successful code verification for new passwor](./assets/verification_password_step.png)
-> *Fig 2.3: Verification Success—System granting the password-reset write-back permission after successful authentication.*
+### 🏁 Phase 2 Completion Status: 100% ✅
+* Dynamic Lifecycle Automation: Verified.
+* Targeted MFA / CAPs: Verified.
+* SSPR Functional Workflow: Verified.
+
+**Next Steps:** 
+Proceeding to Phase 3: Privileged Identity Management (PIM) and Identity Protection to establish "Just-In-Time" (JIT) administrative access.
