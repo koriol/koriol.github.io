@@ -30,11 +30,33 @@ The result is a "Frictionless" security environment where administrative tiers a
 * **Geofencing:** Restrict administrative logins to known Franchise locations (e.g., NYC HQ and designated travel hubs like Cork, Ireland).
 * **Device Compliance:** Require devices to be "Intune Managed" before accessing the NYC-Executives data.
 
-Policy ID,Target Audience,Condition,Requirement
-NYC-CAP-ADMN-MFA,NYC-IT-Admins,All Cloud Apps,Require MFA
-Global Mandate,All Users,Admin Portals,Require MFA
-![](./assets/
+| **Policy ID** | **Target Audience** | **Condition** | **Requirement** |
+| --- | --- | --- | --- |
+| `NYC-CAP-ADMN-MFA` | NYC-IT-Admins | All Cloud Apps | Require MFA |
+| Global Mandate | All Users | Admin Portals | Require MFA |
+
+![Conditional access policy](./assets/conditional_access_policy.mp4)
 > *Fig 2.2: Policy Architecture— Deployment of a targeted CAP requiring MFA for the administrative tier while allowing SFA for productivity endpoints.*
+
+## 🛡️ Technical Change Log & Retrospective
+### Strategic Pivot: Disabling Security Defaults
+**Action:** Formally disabled Microsoft Entra "Security Defaults."
+**Rationale:** Security Defaults are incompatible with granular CAPs. To implement role-based MFA, the "Training Wheels" were removed to enable the enterprise-grade **Conditional Access engine.**
+**Risk Mitigation:** The `NYC-CAP-ADMN-MFA` policy was pre-staged to ensure the Global Administrator remained protected during the transition.
+> ### 🔍 Technical Discovery: The "Ghost" MFA Prompt
+> **Issue:** Standard users (`STAF-MCurie`) were prompted for MFA despite policy exclusions.
+> **Investigation:** Analysis of **Sign-in Logs** revealed a "Global Mandate" interruption. Microsoft enforces MFA for all users when accessing the **Entra/Azure Admin Portals** (aka.ms/mfaforazure), regardless of custom policies.
+> **Validation:** Confirmed custom CAP success by logging into `portal.office.com`, where the user successfully authenticated via **Single-Factor (SFA)** as intended.
+---
+## 🔓 Self-Service Empowerment (SSPR)
+**Implementation:** Transitioned to the Converged Authentication Methods Policy to enable Self-Service Password Reset.
+### SSPR Functional Validation
+To ensure the "Zero-Call" support model, the password reset workflow was tested using the `STAF-MCurie ` identity.
+* **The Registration Gap:** Initial testing failed due to missing user data. I remediated this by performing a registration campaign at aka.ms/ssprsetup.
+* **The Challenge:** System successfully identified the "Out-of-Band" (OOB) mobile device.
+
+
+> Note: For the integrity of the lab environment, the password was not rotated after successful verification to prevent session disruption.
 
 ### 3. Privileged Identity Management (PIM)
 **Objective:** Implement "Just-In-Time" (JIT) access for the ADMN role.
@@ -81,7 +103,6 @@ To validate the custom NYC-CAP-ADMN-RequireMFA policy, a secondary test was perf
 * **Status:** FUNCTIONAL / SUCCESSFUL
 * **Test Path:** Triggered "Forgotten Password" workflow for STAF-MCurie.
 * **Validation:** System successfully triggered an SMS OTP to the registered mobile device. Identity was verified, and the user reached the "New Password" entry portal.
-> Note: For the integrity of the lab environment, the password was not rotated after successful verification to prevent session disruption.
 
 ![SSPR validation through registered phone](./assets/sspr_phone_recovery_request.png)
 > *Fig 2.1: SSPR Identity Challenge—System successfully identifying user-registered recovery methods.*
