@@ -43,7 +43,11 @@ I chose the Automated Provisioning via Flat-File Ingestion over manual creation 
 [**File Name: 20260222_FRAN-NYC_IAM-Bulk-Import_PROD_v01.csv**](./assets/02222026_FRAN-NYC_IAM-Bulk-Import_PROD_v01.csv)
 
 Scope: 11 Initial Member Identities (inclusive of one "Terminated" user for offboarding testing).
+
+___
 ---
+***
+
 ### Group Architecture & RBAC Mapping
 
 | **Group Name** | **Type** | **Membership Strategy** | **Governance Goal** |
@@ -53,7 +57,7 @@ Scope: 11 Initial Member Identities (inclusive of one "Terminated" user for offb
 | NYC-Executives | Security | Static (Assigned) | Data isolation for confidential financial/business records. |
 
 > *Note: These groups were initialized as Static/Assigned for Phase 1. Upon Entra P2 license activation in Phase 2, the 'NYC-Faculty-Staff' group will be converted to a Dynamic Membership model based on the 'Department' attribute to reduce administrative friction.*
----
+
 ### ⚠️ Security & Data Privacy Notice
 **Identity Protection:** In a production enterprise environment, User Provisioning Files (CSVs) contain sensitive **PII (Personally Identifiable Information)** and temporary credentials.
 
@@ -61,13 +65,13 @@ For this Portfolio Lab:
 * All identities used are fictional entities.
 * The "Initial Password" column used during upload was a one-time placeholder.
 * Security Protocol: In real-world practice, these files are encrypted at rest and deleted immediately after the successful sync to the directory to prevent "credential leakage."
----
+
 ### Security Control: Administrative Hardening
 **Control:** Enforced Per-User Multi-Factor Authentication (MFA) for the `FRAN-NYC-ADMN-ATuring` account.
 **Rationale:** Mitigating risk of unauthorized access via credential theft. Global Admin accounts are high-value targets and require a second factor of authentication as per the Principle of Defense in Depth via out-of-band (OOB) verification.
   ![Alan Turing MFA enabled](./assets/MFA_enabled.png)
 >Fig 1.2: Evidence of MFA ‘Enforced’ status for primary administrative identity.
----
+
 ### Implementation Verification & Audit Logs
 To ensure the integrity of the security controls, I performed a "Sign-in Audit":
 1. **Control Test:** Attempted login as `FRAN-NYC-ADMN-ATuring`.
@@ -81,11 +85,11 @@ To ensure the integrity of the security controls, I performed a "Sign-in Audit":
   * **Action:** Attempted to access Global Directory Settings.
   * **Result: Access Denied.** Administrative surface area is successfully isolated from standard user tiers.
 5. **Outcome:** PASS. Identity is verified via out-of-band (OOB) authentication, successfully mitigating 99.9% of automated password attacks (per Microsoft security benchmarks).
----
+
 ### Post-Implementation Validation
 - **Identity Confirmation:** Verified 11/11 users successfully provisioned via Entra ID User List.
 - **Group Membership:** Validated that permissions inherited by NYC-Faculty-Staff members align with Least Privilege principles.
----
+
 ## User Acceptance Testing (UAT)
 **Test Case:** Verify "Least Privilege" for non-administrative staff.
 * **User:** Maria Curie (Faculty)
@@ -94,10 +98,10 @@ To ensure the integrity of the security controls, I performed a "Sign-in Audit":
   ![Maria Curie access denied for Entra ID](./assets/MCurie_entra_no_access.png)
   > *Fig 1.5: While trying to access Entra ID from Azure account, Faculty user is denied*
 * **Conclusion:** RBAC is functioning as intended; administrative surface area is isolated from standard staff identities.
----
+
 ### Administrative Handover Email
 Email sent to the client (Franchise Director) explaining that their NYC office is now live and secured.
----
+
 **Subject:** COMPLETED: Phase 1 Identity & Security Infrastructure - NYC Education Franchise
 **To:** Project Stakeholders / NYC Leadership
 **From:** K. Oriol, Lead IAM Engineer
@@ -112,7 +116,7 @@ The foundational identity directory for the New York City franchise is now Live 
 * Audit Readiness: Verified sign-in logs and identity integrity for immediate operational use.
 
 The environment is now ready for User Acceptance Testing (UAT) and Phase 2 automation scaling.
----
+
 ### Technical Challenges & Conflict Resolution
 1. During the bulk provisioning phase, I encountered a UPN validation error. I resolved this by verifying the Primary Tenant Domain and performing a global string replacement in the source CSV to ensure 100% alignment with directory DNS requirements. This highlighted the importance of Domain Verification in IAM workflows.
 
