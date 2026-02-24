@@ -45,8 +45,6 @@ I chose the Automated Provisioning via Flat-File Ingestion over manual creation 
 Scope: 11 Initial Member Identities (inclusive of one "Terminated" user for offboarding testing).
 
 ___
----
-***
 
 ### Group Architecture & RBAC Mapping
 
@@ -76,46 +74,53 @@ For this Portfolio Lab:
 To ensure the integrity of the security controls, I performed a "Sign-in Audit":
 1. **Control Test:** Attempted login as `FRAN-NYC-ADMN-ATuring`.
 2. **Result:** System successfully interrupted the primary authentication flow to demand a secondary factor (MFA).
-![Alan Turing MFA interruption for log in](./assets/MFA_ATuring.png)
+<img alt="Alan Turing MFA interruption for log in" src="assets/MFA_ATuring.png" height="300" />
 > Fig 1.3: End-User Validation—Verification of the MFA challenge-response handshake during the administrative login sequence.
 3. **Audit Trace:** Confirmed “MFA Satisfied” status within the Entra Sign-in logs.
-![Alan Turing Sign-on logs confirming MFA](./assets/MFA_Confirm.png)
+<img alt="Alan Turing Sign-on logs confirming MFA" src="assets/MFA_Confirm.png" width="300" /> 
 > *Fig 1.4: Administrative Audit Trace—Sign-in logs verifying a successful 'MFA Challenged' login event for the Global Administrator.*
 4. **User Acceptance Testing (UAT) (Least Privilege):** Logged in as `FRAN-NYC-STAF-MCurie` (Faculty) to verify role isolation.
   * **Action:** Attempted to access Global Directory Settings.
   * **Result: Access Denied.** Administrative surface area is successfully isolated from standard user tiers.
+
 5. **Outcome:** PASS. Identity is verified via out-of-band (OOB) authentication, successfully mitigating 99.9% of automated password attacks (per Microsoft security benchmarks).
 
 ### Post-Implementation Validation
 - **Identity Confirmation:** Verified 11/11 users successfully provisioned via Entra ID User List.
 - **Group Membership:** Validated that permissions inherited by NYC-Faculty-Staff members align with Least Privilege principles.
 
+___
+
 ## User Acceptance Testing (UAT)
 **Test Case:** Verify "Least Privilege" for non-administrative staff.
 * **User:** Maria Curie (Faculty)
 * **Action:** Attempted access to Global Identity Settings.
 * **Result:** Access Denied. User successfully restricted to Standard User permissions.
-  ![Maria Curie access denied for Entra ID](./assets/MCurie_entra_no_access.png)
+  <img alt="Maria Curie access denied for Entra ID" src="assets/MCurie_entra_no_access.png" width="300" />
   > *Fig 1.5: While trying to access Entra ID from Azure account, Faculty user is denied*
 * **Conclusion:** RBAC is functioning as intended; administrative surface area is isolated from standard staff identities.
+
+---
 
 ### Administrative Handover Email
 Email sent to the client (Franchise Director) explaining that their NYC office is now live and secured.
 
-**Subject:** COMPLETED: Phase 1 Identity & Security Infrastructure - NYC Education Franchise
-**To:** Project Stakeholders / NYC Leadership
-**From:** K. Oriol, Lead IAM Engineer
+> **Subject:** COMPLETED: Phase 1 Identity & Security Infrastructure - NYC Education Franchise
+> **To:** Project Stakeholders / NYC Leadership
+> **From:** K. Oriol, Lead IAM Engineer
+> 
+> **Notice:**
+> The foundational identity directory for the New York City franchise is now Live and Secured.
+> 
+> <u>Key Deliverables Completed:</u>
+> * Centralized Directory: Provisioned 11 staff identities via standardized bulk-ingestion.
+> * RBAC Groups: Established Security Groups for Faculty, IT, and Executives to ensure strictly partitioned access.
+> * Administrative Hardening: Enforced Multi-Factor Authentication (MFA) on the primary Global Admin account (`FRAN-NYC-ADMN-ATuring`).
+> * Audit Readiness: Verified sign-in logs and identity integrity for immediate operational use.
+> 
+> The environment is now ready for User Acceptance Testing (UAT) and Phase 2 automation scaling.
 
-**Notice:**
-The foundational identity directory for the New York City franchise is now Live and Secured.
-
-<u>Key Deliverables Completed:</u>
-* Centralized Directory: Provisioned 11 staff identities via standardized bulk-ingestion.
-* RBAC Groups: Established Security Groups for Faculty, IT, and Executives to ensure strictly partitioned access.
-* Administrative Hardening: Enforced Multi-Factor Authentication (MFA) on the primary Global Admin account (FRAN-NYC-ADMN-ATuring).
-* Audit Readiness: Verified sign-in logs and identity integrity for immediate operational use.
-
-The environment is now ready for User Acceptance Testing (UAT) and Phase 2 automation scaling.
+---
 
 ### Technical Challenges & Conflict Resolution
 1. During the bulk provisioning phase, I encountered a UPN validation error. I resolved this by verifying the Primary Tenant Domain and performing a global string replacement in the source CSV to ensure 100% alignment with directory DNS requirements. This highlighted the importance of Domain Verification in IAM workflows.
@@ -125,7 +130,7 @@ The environment is now ready for User Acceptance Testing (UAT) and Phase 2 autom
     
 3. **The "Privilege Gap" Discovery:** During the hardening phase of the NYC Franchise lab, I encountered a significant roadblock where high-level security toggles (specifically the Administration Portal Restriction) were non-functional despite being logged in as the designated "Admin" identity.
     * **The Root Cause:** The FRAN-NYC-ADMN-ATuring account had been successfully assigned the Group Administrator role, but lacked the Global Administrator directory role.
-    * ![Alan Turing with the "Global Administrator" role assigned](./assets/ATuring_assigned_role.png)
+      <img alt="Alan Turing with the 'Global Administrator' role assigned" src="assets/ATuring_assigned_role.png" height="300">
     > *Fig 1.6: Role Elevation—Confirmation of Active Global Administrator assignment following the resolution of the scoped-role conflict.*
 4. **Key Takeaways for GRC & IAM:**
 * <u>The Nuance of Scoped Roles:</u> This incident highlighted the critical distinction between functional administration (managing groups/members) and tenant governance (configuring global security postures).
