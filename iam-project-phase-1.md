@@ -122,15 +122,16 @@ The environment is now ready for User Acceptance Testing (UAT) and Phase 2 autom
 
 2. **Challenge:** During the implementation of Entra ID P2, I encountered a 401 Unauthorized licensing synchronization error. This is a common real-world 'Identity Trap' where external admin accounts (B2B/Guest) conflict with internal tenant billing profiles. Root cause identified as a token mismatch between the Microsoft Account (MSA) bootstrap identity and the Entra ID organizational tenant.
   * **Solution:** Demonstrated operational agility by pivoting to a Phase 1: Static Membership Model. I promoted a native cloud identity (Alan Turing) to Global Administrator to decouple the environment from external dependencies and manually mapped users to Security Groups to ensure 'Zero-Day' readiness.
+    
 3. **The "Privilege Gap" Discovery:** During the hardening phase of the NYC Franchise lab, I encountered a significant roadblock where high-level security toggles (specifically the Administration Portal Restriction) were non-functional despite being logged in as the designated "Admin" identity.
     * **The Root Cause:** The FRAN-NYC-ADMN-ATuring account had been successfully assigned the Group Administrator role, but lacked the Global Administrator directory role.
     * ![Alan Turing with the "Global Administrator" role assigned](./assets/ATuring_assigned_role.png)
-    * > *Fig 1.6: Role Elevation—Confirmation of Active Global Administrator assignment following the resolution of the scoped-role conflict.*
+    > *Fig 1.6: Role Elevation—Confirmation of Active Global Administrator assignment following the resolution of the scoped-role conflict.*
 4. **Key Takeaways for GRC & IAM:**
 * <u>The Nuance of Scoped Roles:</u> This incident highlighted the critical distinction between functional administration (managing groups/members) and tenant governance (configuring global security postures).
 * <u>Troubleshooting via Role Audit:</u> I resolved the issue by performing a role audit from the bootstrap account, elevating the identity to Global Administrator, and re-authenticating to refresh the access token.
 * <u>Least Privilege vs. Operational Necessity:</u> While "Least Privilege" suggests keeping roles minimal, this lab demonstrated that "Global Admin" is a prerequisite for initial "Tenant Hardening" tasks before delegating lower-level roles to others.
----
+
 ### Phase 2: Advanced Identity Governance
 Automation, scalability, CAPs, PIM and lifecycle workflow. [**Click here for Phase 2**](./iam-project-phase-2.md)
 
