@@ -110,3 +110,25 @@ PIM Setup,Upcoming 📅,We'll do this once the EMRG account is verified.
 
 ![Leaver access denied](./assets/leaver_access_denied.png)
 > *Fig 3.7: Lifecycle Management (Leaver)—Demonstrating immediate revocation of privileges, ensuring that 'Leavers' or compromised accounts are neutralized instantly.*
+
+### **Project Component: Compliance & Terms of Use (ToU)**
+
+#### **1. Rationale**
+To ensure legal and regulatory compliance, I implemented an **Acceptable Use Policy (AUP)**. This prevents "shadow IT" and ensures all users acknowledge their security responsibilities before accessing corporate resources.
+
+#### **2. Configuration Highlights**
+* **Policy Enforcement:** Applied via Conditional Access, targeting all Faculty and Staff.
+* **Consent Requirement:** Enabled 'Require users to expand,' forcing a manual scroll/expansion of the document to prevent blind acceptance.
+* **Audit Trail:** Enabled acceptance reporting to track when and where users agreed to the terms.
+
+![Configuration of terms of use](./assets/tou_config.png)
+> *Fig 3.9: Administrative Configuration—Setting the 'Hard' requirement for AUP expansion and acceptance.*
+> Implemented the AUP policy initially in Report-only mode. This allowed for an impact analysis to ensure that legitimate sign-ins weren't being unintentionally blocked before full enforcement.
+
+![Confirmation of AUP implementation](./assets/aup_confirm_mc.png)
+> *Fig 3.10: End-User Compliance Flow—The mandatory interrupt experienced by users before accessing Office 365 apps.*
+
+![Audit log of terms acceptance](./assets/tou_audit_log.png)
+> *Fig 3.11: Audit & Compliance—Detailed reporting showing user acceptance logs, providing an immutable record for legal and regulatory audits.*
+![Must expand to accept terms](./assets/aup_read_confirm.png)
+> *Fig 3.11: Users must expand the terms of service to confirm acceptance and be granted access.*
