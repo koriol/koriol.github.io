@@ -75,3 +75,23 @@ PIM Setup,Upcoming 📅,We'll do this once the EMRG account is verified.
 
 ![PIM audit log](./assets/PIM_audit_log.png)
 > *Fig 3.8: PIM Audit Logs—The system-generated audit trail capturing the 'Why' behind the elevation. This ensures 100% accountability for high-privilege actions.*
+
+### Project Component: Privileged Identity Management (PIM)
+**1. The Strategy: Just-In-Time (JIT) Elevation**
+<u>The Objective:</u> Eliminate "Standing Access" for administrative accounts. By default, even highly trusted users like Alan Turing should operate as standard users until elevated access is required for a specific task.
+
+<u>The Policy:</u> Enforced a 4-hour activation window, mandatory MFA, and a required business justification for the Global Administrator role.
+
+**2. Implementation & Troubleshooting (The "Overlapping Assignment" Fix)**
+<u>The Conflict:</u> During setup, I encountered an error: "Role assignment already exists."
+
+<u>The Diagnosis:</u> This was caused by an existing "Permanent Active" assignment conflicting with the new "Eligible" PIM assignment.
+
+<u>The Resolution:</u> Successfully decommissioned the static/permanent assignment, allowing the PIM engine to manage the lifecycle exclusively. This ensured the user was strictly "Eligible" and had no persistent power.
+
+**3. Results & Verification (The Audit Trail)**
+<u>Activation Flow:</u> Verified that the user must go through a formal request process, providing a justification (e.g., "Monthly Security Audit") which is then logged permanently.
+
+<u>Time-Bound Security:</u> Confirmed that privileges automatically expire after the 4-hour threshold, reducing the window of opportunity for credential abuse.
+
+<u>Governance Visibility:</u> Leveraged PIM Audit Logs to track activation history, ensuring 100% accountability for privileged actions.
