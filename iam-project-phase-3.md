@@ -50,6 +50,9 @@ Break-Glass User Created,Complete ✅,EMRG-FRAN-ADMIN is ready.
 Passkey Registered,In Progress ⏳,"This makes the account ""Portal-Proof."""
 PIM Setup,Upcoming 📅,We'll do this once the EMRG account is verified.
 
+![Pop-up for activating security key NFC](./assets/sec_key_pop-up.png)
+> *Fig 3.1: FIDO2/Passkey Initialization—Enrolling a mobile device as a hardware-backed security key for the emergency access account.*
+
 > *Fig 3.2: Phishing-Resistant MFA—Verification of the Passkey registration, satisfying the Microsoft Mandatory MFA mandate without cloud-service dependency.*
 ![Passkey successful configured](./assets/security_key_success.png)
 
@@ -61,3 +64,14 @@ PIM Setup,Upcoming 📅,We'll do this once the EMRG account is verified.
 
 > 🚨 Audit Note: In a production environment, this account would be connected to a Microsoft Sentinel Alert. Any login by EMRG-FRAN-ADMIN should trigger a high-severity incident notification to the CISO, as it indicates a total failure of standard administrative paths.
 
+![Role settings showing 4-hour limit and "Require Justification"](./assets/role_settings_max_4hr.png)
+> *Fig 3.4: Configuring Just-In-Time (JIT) Policy—Enforcing a 4-hour limit and mandatory business justification for Global Admin elevation.*
+
+![Role assignment fail pop-up](./assets/role_assignment_fail.png)
+> *Fig 3.5: Encountered a conflict where a pre-existing permanent assignment prevented PIM activation. Resolved by decommissioning the static assignment in favor of the Eligible JIT workflow.*
+
+![Active assignments tab](./assets/aturing_active_assignments.png)
+> *Fig*
+
+![PIM audit log](./assets/PIM_audit_log.png)
+> *Fig 3.8: PIM Audit Logs—The system-generated audit trail capturing the 'Why' behind the elevation. This ensures 100% accountability for high-privilege actions.*
