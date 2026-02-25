@@ -95,3 +95,18 @@ PIM Setup,Upcoming 📅,We'll do this once the EMRG account is verified.
 <u>Time-Bound Security:</u> Confirmed that privileges automatically expire after the 4-hour threshold, reducing the window of opportunity for credential abuse.
 
 <u>Governance Visibility:</u> Leveraged PIM Audit Logs to track activation history, ensuring 100% accountability for privileged actions.
+
+![Error for role assignments](./assets/update_role_queued.png)
+> *Fig 3.5: Conflict Resolution—Decommissioning the pre-existing permanent role assignment to allow for JIT (Just-In-Time) eligibility.*
+
+![Role elevation activation justification](./assets/activate_aturing_justification.png)
+> *Fig 3.6: The Activation Workflow—User 'Alan Turing' requesting elevation. Note the mandatory justification and the 4-hour expiration timer.*
+
+![Manual deactivation for active assignments](./assets/aturing_active_assignments.png)
+> *Fig 3.7: Active State Verification—Evidence of the active assignment with the option to manually 'Deactivate' if tasks are completed early.*
+
+![Audit log confirming role elevation activation](./assets/PIM_audit_log.png)
+> *Fig 3.8: PIM Audit Logs—The system-generated audit trail capturing the 'Why' behind the elevation. This ensures 100% accountability for high-privilege actions.*
+
+![Leaver access denied](./assets/leaver_access_denied.png)
+> *Fig 3.7: Lifecycle Management (Leaver)—Demonstrating immediate revocation of privileges, ensuring that 'Leavers' or compromised accounts are neutralized instantly.*
