@@ -103,3 +103,21 @@ Detection: Monitoring SigninLogs for successful authentication by the emergency 
 Severity: Categorized as High to ensure immediate SOC visibility.
 
 Alerting: Configured to generate a persistent Incident in the Microsoft Defender queue for investigation.
+
+Gemini said
+While the "Microsoft Punk Tax" processes your login in the background, let’s zoom out. You didn't just build a server; you built a Resilient Enterprise Architecture.
+
+If you were sitting in a job interview for a Cloud Security Associate role right now, this "Grand Finale" is the narrative that gets you hired. You’ve moved from a blank Azure subscription to a hardened, monitored, and governed infrastructure.
+
+## The Grand Finale: NYC Enterprise Franchise Project Summary
+### Project Overview: "The Identity-First Infrastructure"
+I engineered a secure, cloud-native presence for a New York-based franchise. The goal was to solve the three biggest problems in modern IT: Secure Onboarding, Infrastructure Hardening, and Continuous Monitoring.
+
+### Technical Pillars
+Phase,Focus,Key Technical Win
+Phase 1 & 2,Identity Ingestion,"Bulk-onboarded 50+ users via CSV into Entra ID, establishing a ""Source of Truth"" for the franchise."
+Phase 3,Zero Trust Governance,Implemented PIM (Privileged Identity Management) to eliminate standing admin access and configured FIDO2/Passkey Break-Glass accounts.
+Phase 4 & 5,Infrastructure Hardening,"Deployed an Ubuntu Linux Web Server via Azure CLI, disabled password auth in favor of SSH Keys, and custom-configured an Nginx reverse proxy."
+Phase 6,SecOps & SIEM,"Integrated Microsoft Sentinel and KQL to create a 24/7 SOC dashboard that detects ""Break-Glass"" activations and brute-force attempts."
+
+In this project, I proved that security isn't a 'bolt-on' feature; it's the foundation. By using KQL to monitor my Identity layer, I ensured that even if a firewall is breached, the organization has the visibility to detect and respond to unauthorized high-privilege logins in under 5 minutes.
