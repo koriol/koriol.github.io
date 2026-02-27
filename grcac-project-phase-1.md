@@ -36,7 +36,8 @@ Policy Initiative Deployment: Hands-on experience deploying large-scale security
 GRC Workflow: Navigating the lifecycle of policy implementation from definition to active assignment.
 
 Having both assignments is a great safety net. The Tenant Group assignment applies the "Law" to everything in your entire Azure directory, while the Subscription assignment ensures your specific project area is the primary focus.
-![](./grcac/policy_2.png)
+
+![Assign policy](./grcac/policy_2.png)
 > *Fig 7.3: Formal Policy Assignment—Successfully assigning the NIST SP 800-53 Rev. 5 initiative to the NYC-Franchise-Prod subscription. This action initiates the continuous automated audit of all infrastructure components against 1,000+ security sub-controls.*
 
 In a real enterprise, you often deal with "Policy Overlap" where the corporate office (Tenant level) and the local branch (Subscription level) both apply standards. We have intentionally left both active to ensure maximum coverage. We are also utilizing the Azure CLI/PowerShell to force a compliance evaluation, demonstrating that we don't just wait for the cloud—we know how to drive it.
@@ -47,7 +48,7 @@ Proactive Compliance Auditing: Using CLI/PowerShell to initiate on-demand compli
 
 Administrative Governance: Differentiating between "Operational" accounts (EMRG) and "Governance" accounts (Global Admin).
 
-![](./grcac/ps_policy_run.png)
+![Powershell command to trigger policy](./grcac/ps_policy_run.png)
 > *Fig 7.4: Proactive Governance—Executing an on-demand compliance scan via PowerShell. This bypasses standard evaluation latency and ensures the NYC Franchise infrastructure is immediately audited against the newly assigned NIST 800-53 controls.*
 
 Real-world cloud engineering involves dealing with "API Latency." When the manual trigger command hung, we pivoted from PowerShell to the Azure CLI (az policy state) to verify the instruction. This demonstrates Technical Versatility—not being locked into one tool when a session fails.
@@ -69,5 +70,5 @@ Incident/Task Validation: Proving that a security-critical task (Compliance Scan
 
 Platform Resilience: Overcoming UI/CLI "silence" by using deeper system logs.
 
-![](./grcac/policy_trigger_confirm.png)
+![Activity log confirms policy trigger](./grcac/policy_trigger_confirm.png)
 > *Fig 7.7: Audit Trail Validation—Verifying the successful manual trigger of the NIST 800-53 compliance scan via the Azure Activity Log. This provides non-repudiation proof that the governance audit was initiated despite CLI session timeouts.*
