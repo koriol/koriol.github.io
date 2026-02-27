@@ -73,5 +73,3 @@ Utilized triple-verbose SSH logging (-vvv) to identify cryptographic handshake f
 ![Confirmed updates after reboot](./assets/
 > *Fig 4.34: Managed Identity Verification—Retrieving a JSON Web Token (JWT) from the Instance Metadata Service (IMDS). This confirms the VM's ability to authenticate as a unique security principal within the Azure tenant.*
 
-![Completed server webpage](./assets/server_landing.png)
-> *Fig 5.12: Application Layer Deployment—Successfully replaced the default Nginx placeholder with a custom business landing page. This confirms the end-to-end functionality of the cloud stack, from the Azure Virtual Network and NSG rules to the Linux OS hardening and the final web service presentation.*
