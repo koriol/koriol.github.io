@@ -103,6 +103,9 @@ Detection: Monitoring SigninLogs for successful authentication by the emergency 
 Severity: Categorized as High to ensure immediate SOC visibility.
 
 Alerting: Configured to generate a persistent Incident in the Microsoft Defender queue for investigation.
+![Alert results](./assets/alert_confirm.png)
+> *Fig 6.10: Telemetry Validation via Advanced Hunting—Successfully querying the 'SecurityAlert' table to confirm alert generation. The JSON metadata confirms 'Full alert created' status for the Break-Glass activation tripwire, verifying the end-to-end functionality of the detection engine within the Microsoft Defender portal.*
+
 
 Gemini said
 While the "Microsoft Punk Tax" processes your login in the background, let’s zoom out. You didn't just build a server; you built a Resilient Enterprise Architecture.
