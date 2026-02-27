@@ -47,7 +47,7 @@ Proactive Compliance Auditing: Using CLI/PowerShell to initiate on-demand compli
 
 Administrative Governance: Differentiating between "Operational" accounts (EMRG) and "Governance" accounts (Global Admin).
 
-![](./grcac/)
+![](./grcac/ps_policy_run.png)
 > *Fig 7.4: Proactive Governance—Executing an on-demand compliance scan via PowerShell. This bypasses standard evaluation latency and ensures the NYC Franchise infrastructure is immediately audited against the newly assigned NIST 800-53 controls.*
 
 Real-world cloud engineering involves dealing with "API Latency." When the manual trigger command hung, we pivoted from PowerShell to the Azure CLI (az policy state) to verify the instruction. This demonstrates Technical Versatility—not being locked into one tool when a session fails.
@@ -58,5 +58,16 @@ Asynchronous Operation Management: Understanding that cloud commands often run "
 
 Resilience in Administration: Maintaining progress by verifying dashboard states when command-line tools hit a latency wall.
 
-![Bash alternative trigger for compliance policy](./grcac/)
+![Bash alternative trigger for compliance policy](./grcac/bash_policy_trigger.png)
 > *Fig 7.5: Cross-Tool Verification—Utilizing the Azure CLI (Bash) to trigger a compliance state evaluation after a PowerShell session timeout. This ensures the audit engine is actively processing the NYC Franchise resources against the NIST framework.*
+
+When command-line tools fail to provide immediate feedback, a security professional must pivot to platform-level logging. By checking the Activity Log, we are verifying that the "Handshake" between our NYC terminal and the Azure Policy Engine actually occurred. This confirms that the NIST 800-53 audit is currently running in the background, regardless of the terminal's lack of output.
+
+Audit Trail Verification: Using the Azure Activity Log to confirm administrative actions.
+
+Incident/Task Validation: Proving that a security-critical task (Compliance Scan) was initiated.
+
+Platform Resilience: Overcoming UI/CLI "silence" by using deeper system logs.
+
+![](./grcac/policy_trigger_confirm.png)
+> *Fig 7.7: Audit Trail Validation—Verifying the successful manual trigger of the NIST 800-53 compliance scan via the Azure Activity Log. This provides non-repudiation proof that the governance audit was initiated despite CLI session timeouts.*
