@@ -43,8 +43,16 @@ Action: Identify a non-compliant setting (like "Diagnostic Logs not enabled") an
 Outcome: Watching Azure automatically update your resources to meet the legal standard.
 [Phase 3 page](./grcac-phase-3.md)
 
-### Phase 4: The GRC Executive Report
-The final deliverable.
+### Phase 4: SIEM and Incident Reporting
+[Phase 4 page](./grcac-phase-4.md)
+
+### Phase 5: Incident Simulation
+You’ll run a simple script to "Attack" your VM. Since your SIEM is already "tuned," it will catch it instantly.
+[Phase 5 page](./grcac-phase-5.md)
+
+### Phase 6: Final Reporting
+We export the NIST dashboard and grab the final "Green" score.
+[Phase 6 page](./grcac-phase-6.md)
 
 Action: Export the Regulatory Compliance Report as a PDF/CSV.
 
