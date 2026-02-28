@@ -23,6 +23,7 @@ In this phase, we are establishing the Security Operations Center (SOC) capabili
 
 ***
 
+### Re-purposing the Existing "LAW"
 Compliance without visibility is a major risk. To satisfy NIST 800-53 AU-2 (Event Logging), I initiated the deployment of a centralized Log Analytics Workspace (LAW). This serves as the foundational data layer for the NYC Franchise's security operations. By placing the LAW in the same region and resource group as the production assets, I ensured low-latency data ingestion and simplified resource management, establishing the "Data Reservoir" required for advanced threat hunting.
 
 In a production environment, resource re-usability is key to cost optimization. I evaluated an existing Log Analytics Workspace (`law`) to determine its suitability for the NYC Franchise's SIEM backbone. By verifying that the workspace shared the same geographical region as the compute resources, I ensured compliance with NIST 800-53 AU-3 (Content of Audit Records) while minimizing egress costs. I then onboarded Microsoft Sentinel to this workspace, effectively upgrading a simple "Log Bucket" into a full-scale Security Operations Center.
@@ -39,7 +40,7 @@ In a production environment, resource re-usability is key to cost optimization. 
 > *Fig 15.1: SIEM Onboarding—Activating Microsoft Sentinel on the existing 'law' Log Analytics Workspace. This centralizes all security telemetry for the NYC-Franchise-Prod environment, providing the 'Single Pane of Glass' required for real-time incident detection and response.*
 
 ***
-
+### Connecting the NYC-Linux-VM: Finding the Modern Data Connector
 To centralize security intelligence for the NYC Franchise, I onboarded Microsoft Sentinel onto the existing law Log Analytics Workspace. While the compute resource (NYC-Linux-VM) is located in East US 2 and the workspace in East US, I made the architectural decision to utilize the existing workspace to maintain a consolidated audit trail. This transition elevates the environment from basic logging to a full Cloud-Native SIEM, enabling automated threat detection and response in alignment with NIST 800-53 AU-1 (Audit and Accountability Policy).
 
 <u>**Applied Skills**</u>
@@ -51,7 +52,7 @@ To centralize security intelligence for the NYC Franchise, I onboarded Microsoft
 > *Fig 15.2: SIEM Activation—Successfully onboarding Microsoft Sentinel to the centralized 'law' workspace. This fulfills the NIST 800-53 requirement for a dedicated security monitoring platform, providing the intelligence layer necessary for the NYC Franchise's Security Operations Center.*
 
 ***
-
+### The Data Collection Rule
 To move from identity monitoring to Full-Stack Observability, I configured the Azure Monitor Agent (AMA) data connector within Microsoft Sentinel. By creating a Data Collection Rule (DCR), I defined the specific telemetry streams (Syslog and Auth logs) required for the NYC-Linux-VM. This ensures that the SIEM isn't just watching "logins" (Identity), but is also monitoring the internal OS security events, fulfilling NIST 800-53 AU-12 (Audit Generation).
 
 Navigating the evolving landscape of Azure's security offerings requires a pivot from traditional "Out of the Box" connectors to Solution-Based Ingestion. I identified that Microsoft has integrated Linux telemetry into a broader "Unified Agent" framework. By focusing on the Azure Monitor Agent (AMA) rather than legacy standalone connectors, I ensured that the NYC Franchise monitoring architecture is aligned with current DevOps-integrated security practices, satisfying NIST 800-53 AU-12 while navigating the complexities of modern cloud-native tooling.
@@ -65,7 +66,7 @@ Navigating the evolving landscape of Azure's security offerings requires a pivot
 > *Fig 15.3: Adaptive Telemetry Configuration—Locating the Azure Monitor Agent (AMA) syslog connector within the consolidated Sentinel framework. This configuration allows for the secure, high-fidelity ingestion of Linux security events into the NYC Franchise SOC, bypassing legacy agent limitations.*
 
 ***
-
+### Confirming the Data Collection Rule
 After locating the elusive Syslog via AMA connector, I moved into the "Policy-as-Code" phase by defining a Data Collection Rule (DCR). This is a critical step in Cloud GRC because it ensures we are not "over-logging" (which costs money) or "under-logging" (which leaves us blind). By specifically targeting the AUTH and AUTHPRIV facilities, I am focusing the NYC Franchise's monitoring budget on high-value security telemetry, directly fulfilling NIST 800-53 AU-2 (Audit Events).
 
 <u>**Applied Skills**</u>
@@ -89,7 +90,7 @@ In a high-velocity cloud environment, "Notification Success" is insufficient for
 > *Fig 15.5: Telemetry Association Verification—Confirming that the NYC-Linux-VM is successfully associated with the DCR-NYC-Linux-Security rule. This validates the technical 'Handshake' between the production server and the SIEM, ensuring that all authentication-level logs are being actively transmitted for SOC analysis.*
 
 ***
-
+### Navigating the Unified SOC (Defender for Cloud)
 In early 2026, Microsoft finalized the unification of Microsoft Sentinel and Microsoft Defender for Cloud into a single security operations interface. I adapted to this architectural shift by managing the NYC Franchise incident queue through the Unified Security Operations Platform. By identifying and claiming the "Emergency User" login incidents, I demonstrated the transition from Governance (setting the rules) to Active Incident Response, fulfilling NIST 800-53 IR-4 (Incident Handling).
 
 <u>**Applied Skills**</u>
@@ -101,7 +102,7 @@ In early 2026, Microsoft finalized the unification of Microsoft Sentinel and Mic
 > *Fig 16.1: Unified Security Operations—Managing NYC-Franchise-Prod incidents within the integrated Microsoft Defender portal. This reflects the 2026 industry standard for unified XDR + SIEM monitoring, where the 'Emergency User' login alerts are formally assigned for investigation in compliance with NIST 800-53 IR-4.*
 
 ***
-
+### Hunting the "Break-Glass" Alert
 To validate the effectiveness of the NYC-Franchise-Prod monitoring strategy, I performed a manual "Hunt" for a high-priority custom alert: Break-Glass Account Activation. Using Kusto Query Language (KQL) within the Unified Defender portal, I verified that the Syslog stream successfully captured the emergency administrator's login signature (EMRG-FRAN-ADMIN). This proactive verification ensures that even if automated correlation logic is delayed by portal synchronization, the underlying security telemetry is intact and discoverable, satisfying NIST 800-53 AU-6 (Audit Record Review).
 
 <u>**Applied Skills**</u>
@@ -113,7 +114,7 @@ To validate the effectiveness of the NYC-Franchise-Prod monitoring strategy, I p
 > *Fig 16.2: Custom Detection Validation—Executing a KQL hunt to verify the 'Break-Glass' alert logic. This query confirms that the NYC-Linux-VM is successfully transmitting critical administrative events to the SIEM, providing non-repudiable evidence of emergency account usage.*
 
 ***
-
+### The Incident Metadata
 To ensure the NYC Franchise SOC operates with industry-standard terminology, I mapped the "Break-Glass" detection to the MITRE ATT&CK categories within the Unified Defender Portal. By classifying the event under Credential Access, I enabled the SIEM to correlate this administrative login with other potential lifecycle stages, such as Persistence or Lateral Movement. This structured approach directly supports NIST 800-53 IR-4 (Incident Handling) by providing a clear, taxonomical record of the security event.
 
 <u>**Applied Skills**</u>
@@ -125,7 +126,7 @@ To ensure the NYC Franchise SOC operates with industry-standard terminology, I m
 > *Fig 16.3: Formal Incident Classification—Promoting the custom 'Break-Glass' alerts to a high-severity incident (INC-NYC-PRV-01). By mapping the 'EMRG-FRAN-ADMIN' entity to the target VM, I am establishing the forensic link required for a NIST-compliant security investigation.*
 
 ***
-
+### Precision MITRE Mapping
 To align the NYC-Franchise-Prod incident with global threat intelligence standards, I performed a granular mapping of the alert to the MITRE ATT&CK Framework. I identified the activity as T1078 (Valid Accounts), specifically T1078.004 (Cloud Accounts). This classification acknowledges that while the account is "Valid," its activation outside of a declared emergency constitutes a high-risk security event. This level of precision is required for NIST 800-53 IR-4 to ensure that incident reporting is searchable and categorized by tactical behavior rather than just "Alert Name."
 
 <u>**Applied Skills**</u>
