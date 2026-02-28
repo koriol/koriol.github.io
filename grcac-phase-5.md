@@ -19,6 +19,6 @@ Mitigation: Using Automation Rules to lock down the attacker before they can exf
 <u>**Applied Skill**</u>: Threat Hunting & Rule Fine-Tuning.
 
 <u>**Tools Used**</u>
-* **Kali Linux / PowerShell / Bash: For executing the simulated attack.
+* **Kali Linux / PowerShell / Bash:** For executing the simulated attack.
 * **Microsoft Sentinel Automation (SOAR):** To create automated responses.
 * **Kusto Query Language (KQL):** For advanced "Hunting" during the attack.
