@@ -61,7 +61,7 @@ Identity is the new perimeter. After hardening the server and the notifications,
 * **Privileged Access Review:** Conducting a formal review of "Owner" level permissions.
 
 ![](./grcac/verified_owners.png)
-> *Fig 11.1: Identity Governance Remediation—Performing an RBAC audit to satisfy NIST 800-53 AC-2. By limiting the number of Subscription Owners, I verified that the NYC Franchise maintains exactly 3 owners, satisfying the NIST requirement for limited privileged access while ensuring redundancy.*
+> *Fig 11.1: Privileged Access Audit—Verifying the Subscription Owner count. Maintaining a strict limit of three owners ensures operational continuity while minimizing the attack surface of the NYC-Franchise-Prod management plane.*
 
 *** 
 After completing a "Batch Remediation" of the high-severity findings—covering Incident Response, Threat Protection, and Identity Governance—I initiated a final manual compliance scan. This represents the "Validation" phase of the GRC lifecycle. By forcing a re-evaluation of the environment, I am moving the NYC Franchise from a "Non-compliant" baseline to a "Hardened" production state, providing the necessary evidence for a successful audit sign-off.
@@ -123,7 +123,13 @@ I identified a significant discrepancy between the Aggregate Compliance Percenta
 > *Fig 13.3: Quantitative Compliance Proof—Bypassing aggregated dashboard scoring to reveal the true state of the NYC-Franchise-Prod environment. With 378 controls successfully satisfied, the infrastructure demonstrates a high level of NIST 800-53 alignment, effectively managing the '52' remaining non-compliant items as a prioritized remediation backlog.*
 
 
+## Project Conclusion: NIST 800-53 Compliance Hardening
+Through this project, I successfully transformed a "Default" Azure environment into a hardened infrastructure aligned with the NIST 800-53 Rev. 5 framework for the NYC Franchise.
 
+### Key Outcomes
+* **Gap Analysis:** Identified 52 high-severity non-compliant findings through automated policy auditing.
+* **Technical Remediation:** Deployed the Azure Monitor Agent (AMA) and activated Defender for Servers to establish real-time endpoint security.
+* **Governance Realignment:** Configured automated Incident Response (IR-6) notification pathways and standardized Identity Access Management (IAM) to meet federal security standards.
 
-
+**Final Status:** While the broad NIST initiative contains over 1,300 controls, the core "NYC-Franchise-Prod" infrastructure now satisfies 378 key security policies, significantly reducing the organizational risk profile and providing a scalable blueprint for future franchise deployments.
 
