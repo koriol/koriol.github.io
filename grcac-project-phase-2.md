@@ -18,7 +18,7 @@ Audit Lifecycle Management: Tracking the "In Progress" state of a global regulat
 
 Data Retrieval: Using the Policy engine to extract specific non-compliance evidence.
 
-![Compliance implementation verification](./grcac/compliance_verification.png)
+![](./grcac/policy_2.png)
 > *Fig 7.6: Backend Compliance Verification—Utilizing the Azure Policy engine to view raw compliance data for the NIST 800-53 initiative. This bypasses the visual latency of the Defender dashboard and confirms that 400+ controls are currently being evaluated against the NYC Franchise resources.*
 
 We are now moving from "Wait and See" to "Active Assessment." We've noticed that the compliance engine has different results for different scopes, highlighting the importance of Hierarchical Governance. We are now identifying the specific "Policy Violations" that are preventing the NYC Franchise from achieving NIST 800-53 compliance. This allows us to move into the Remediation Phase with a clear list of technical targets.
@@ -28,5 +28,19 @@ Compliance Scope Analysis: Differentiating between Tenant-wide and Subscription-
 Root Cause Identification: Drilling down from a "Non-compliant" status to the specific resource and policy causing the failure.
 
 GRC Data Interpretation: Understanding that "0% Compliant" is a starting point, not a failure of the engineer.
+
+![Compliance implementation verification](./grcac/compliance_verification.png)
+
+Upon initiating the NIST 800-53 audit, we pivoted to the Azure Policy Compliance engine to bypass dashboard latency. The assessment revealed that while individual resources (like the VM) were being scanned, the most critical "High" severity failures were Subscription-wide Governance gaps. We identified that the NYC Franchise lacked essential security "Mains"—specifically missing Incident Response contacts and Defender for Cloud coverage. This shift in focus from "Server Security" to "Tenant Governance" is a key milestone in moving the project toward an enterprise-ready state.
+
+Subscription-Level Auditing: Identifying security gaps that affect an entire cloud environment rather than a single asset.
+
+UUID/Resource Identification: Correlating unique Azure identifiers to specific subscription scopes during an audit.
+
+Policy Type Interpretation: Understanding "AuditIfNotExists" logic—recognizing that the audit is failing because a required security feature hasn't been turned on yet.
+
+![](./grcac/compliance_state.png)
+> *Fig 8.1: Subscription-Wide Compliance Assessment—Reviewing the NIST 800-53 audit findings for the NYC-Franchise-Prod subscription. The results highlight critical 'Governance Gaps' in Incident Response (IR-6) and Continuous Monitoring (CA-7), providing a prioritized roadmap for environment-wide remediation.*
+
 
 
