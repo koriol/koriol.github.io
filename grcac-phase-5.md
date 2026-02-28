@@ -66,4 +66,41 @@ Upon executing the SSH Brute Force simulation, I observed a significant delay in
 ### Creating the "NYC-SSH-Brute-Force" Trigger
 To eliminate the "Detection Gap" identified in the previous step, I engineered a Custom Analytics Rule within Microsoft Sentinel. Using Kusto Query Language (KQL), I defined a threshold-based trigger that monitors for more than five failed SSH authentication attempts within a five-minute window. This rule utilizes Entity Mapping to automatically link the `Computer` data to a `Host` entity, ensuring that when the threshold is met, the system generates a high-fidelity incident rather than a silent log entry. This directly addresses NIST 800-53 SI-4, providing active defense against brute-force tactics.
 
+<u>**Skills Applied**</u>
+* **Detection Engineering:** Creating custom logic to transform raw telemetry into actionable security alerts.
+* **Threshold Optimization:** Setting specific "Noise vs. Signal" parameters (5 attempts / 5 minutes) to prevent alert fatigue.
+* **SIEM Automation:** Configuring the automated transition from "Alert" to "Incident" within the XDR framework.
+
+![](./grcac/rule_logic.png)
+> *Fig 20.1: Detection Engineering—Configuring the 'NYC-SSH-Brute-Force' analytics rule. By defining a 5-attempt threshold and mapping the 'Computer' entity, I am ensuring that automated brute-force attacks are caught and escalated to the SOC immediately, fulfilling NIST 800-53 SI-4.*
+
+***
+
+### Triggering the Live Incident
+With the custom NIST 800-53 SI-4 detection rule active, I initiated a high-velocity Brute Force simulation. By script-cycling 10 failed SSH authentication attempts, I deliberately crossed the "5 failures per 5 minutes" threshold defined in my detection logic. This step validates that the SIEM isn't just a passive repository for logs, but an active participant in the Incident Response (IR) lifecycle, capable of escalating raw telemetry into a high-severity investigation without human intervention.
+
+<u>**Skills Applied**</u>
+* **Validation Testing:** Confirming that custom security logic functions as designed under "live-fire" conditions.
+* **Incident Lifecycle Management:** Observing the automated transition from raw data -> detection rule -> generated incident.
+* **Threshold Verification:** Ensuring the "Signal-to-Noise" ratio is correctly tuned to catch real attacks while ignoring occasional human typos.
+
+![](./grcac/permission_denied_loop.png)
+> *Fig 21.1: Stress-Testing the Detection Logic—Executing 10 unauthorized SSH login attempts to cross the 5-event threshold of the 'NYC-SSH-Brute-Force' rule. This live-fire test is the final validation step for NIST 800-53 SI-4, ensuring the SOC is alerted to credential access attacks in real-time.*
+
+***
+
+### Investigative Triage & "Blast Radius" Check
+With the automated detection logic successfully triggering an incident, I transitioned into the Triage and Investigation phase. By assigning the incident to my administrative account, I established accountability in accordance with NIST 800-53 AC-2. I utilized the Unified Attack Story to visualize the relationship between the brute-force alerts and the targeted `vm-nyc-linux-01` asset. The primary objective was to identify the source IP address of the attacker to determine the scope of the threat and prepare for immediate remediation via Network Security Group (NSG) modification.
+
+<u>**Skills Applied**</u>
+* **Incident Triage:** Moving a security event from "New" to "In Progress" with proper ownership.
+* **Source Attribution:** Identifying the specific IP address or entity responsible for the unauthorized access attempt.
+* **Contextual Analysis:** Using the Attack Story graph to verify that the threat has not spread laterally to other NYC-Franchise-Prod assets.
+
+![](./grcac/)
+> *Fig 21.2: Active Incident Triage—Investigating the 'NYC-SSH-Brute-Force' event. By identifying the source IP and assigning ownership, I am fulfilling the requirements of NIST 800-53 IR-4, ensuring the threat is actively managed and the source of the unauthorized authentication attempts is documented for the final audit.*
+
+
+
+
 
