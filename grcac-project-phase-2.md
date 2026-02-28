@@ -18,6 +18,9 @@ Audit Lifecycle Management: Tracking the "In Progress" state of a global regulat
 
 Data Retrieval: Using the Policy engine to extract specific non-compliance evidence.
 
+![Compliance implementation verification](./grcac/compliance_verification.png)
+> *Fig 7.6: Backend Compliance Verification—Utilizing the Azure Policy engine to view raw compliance data for the NIST 800-53 initiative. This bypasses the visual latency of the Defender dashboard and confirms that 400+ controls are currently being evaluated against the NYC Franchise resources.*
+
 We are now moving from "Wait and See" to "Active Assessment." We've noticed that the compliance engine has different results for different scopes, highlighting the importance of Hierarchical Governance. We are now identifying the specific "Policy Violations" that are preventing the NYC Franchise from achieving NIST 800-53 compliance. This allows us to move into the Remediation Phase with a clear list of technical targets.
 
 Compliance Scope Analysis: Differentiating between Tenant-wide and Subscription-specific audit results.
