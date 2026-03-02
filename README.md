@@ -32,6 +32,24 @@ Link: View Repository
 Implemented an end-to-end IAM lifecycle for a mock education franchise. Engineered a centralized Active Directory domain to govern multi-platform (Windows/Linux) access, reducing manual onboarding time by 80% and enforcing NIST-compliant Least Privilege.
 [**View the IAM Project**](./iam-project-home.md)
 View Technical Guide
-[test page](./test.md)
+
+
+## Planned Projects
+* Modern Workplace Security & Identity:
+    * Section 1: JumpCloud & Identity: Show the user sync to M365.
+    * Section 2: CrowdStrike & Endpoints: Show the sensor deployment and alert.
+> The Narrative: "This project demonstrates the setup of a secure corporate office environment, linking identity governance with real-time endpoint protection."
+* Nessus Audit (Vulnerability Management/NIST 800-53 RA-5)
+* SOAR Phishing Automation (Logic Apps/Automated Response)
+* BCDR Failover (Resilience/Disaster Recovery)
+* Global Honeypot
+* SOC Automator
+* Security training lesson
+* Third-party vendor assessment
+* Security Culture Campaign
+
+
+
+
 
 
