@@ -1,6 +1,11 @@
 # Regulatory Compliance & Governance as Code
 ### The Objective
-To transition from a "Wild West" cloud setup to a Governed Enterprise Environment. You will use Microsoft’s automation tools to audit your NYC Franchise against the NIST SP 800-53 (the gold standard for US government/enterprise security) and enforce "Guardrails" that prevent insecure configurations.
+The NYC-Franchise-Prod project is a comprehensive simulation of an enterprise-grade security deployment. It bridges the gap between infrastructure-as-code and security operations (SecOps) by moving through the entire lifecycle of a cloud asset: from initial provisioning to active threat hunting and remediation.
+
+In modern cloud environments, a "Perimeter-Only" defense is insufficient. This project was designed to:
+* **Bridge Compliance and Action:** Moving beyond "paper" security by implementing actual NIST 800-53 technical controls (AC-3, IA-2, SI-4).
+* **Validate Detection Engineering:** Proving that custom telemetry (KQL) and Watchlists can detect "Low and Slow" attacks that standard alerts might miss.
+* **Demonstrate Full-Spectrum Capability:** Showing competence in networking, Linux administration, identity management, and incident response within a single narrative.
 
 ### Skills
 **Compliance Mapping:** Understanding how technical settings (like disk encryption) map to legal requirements (like NIST or HIPAA).
@@ -59,5 +64,11 @@ Action: Export the Regulatory Compliance Report as a PDF/CSV.
 Outcome: This report is what you’d hand to a CEO or an Auditor to prove the franchise is secure.
 [Phase 4 page](./grcac-phase-4.md)
 
-### Results
-I implemented a Governance framework using Azure Policy to enforce NIST 800-53 standards, reducing the attack surface by 40% through automated remediation of non-compliant resources.
+### Lessons Learned
+
+* **The Latency Factor:** Real-world cloud logging isn't instantaneous. Understanding ingestion delay is vital for accurate incident timelines.
+* **Protocol Precision:** Troubleshooting SSH naming conventions and IPv4/IPv6 mismatches highlighted the necessity of deep OS-level knowledge in security roles.
+* **Governance Matters:** Security is only as good as its documentation. Mapping actions to the MITRE ATT&CK framework provided the "Language" needed to communicate risk to stakeholders.
+
+### Conclusions & Reflections
+This project transformed my understanding of "Security" from a static state to a continuous process. By building the environment from scratch, I learned that true security isn't about the tools themselves, but the integration between them. Seeing a custom KQL query catch a "backdoor" user in real-time was the ultimate validation of the "Assume Breach" mindset.
