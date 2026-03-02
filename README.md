@@ -18,6 +18,10 @@ Deliverable: View Gap Analysis Table | View Risk Register
 ### 🛡️ NIST 800-53 Risk Register
 > [**View the risk register summary**](./risk-register.md)
 
+### NYC-Franchise-Prod: Enterprise Cloud Security & Incident Response
+A full-stack security engineering project simulating the deployment, hardening, and defense of a multi-tier Azure infrastructure. I implemented NIST 800-53 controls and engineered custom KQL detection logic in Microsoft Defender to identify and evict a simulated "Insider Threat" in real-time.
+[**View the project here**](./grcac_homepage.md)
+
 ### 🐍 Technical & Coding Portfolio
 #### Python for Security Automation
 Script: Automated User Access Review (UAR) tool for CSV exports.
@@ -29,3 +33,5 @@ Implemented an end-to-end IAM lifecycle for a mock education franchise. Engineer
 [**View the IAM Project**](./iam-project-home.md)
 View Technical Guide
 [test page](./test.md)
+
+
