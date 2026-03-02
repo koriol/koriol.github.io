@@ -188,14 +188,25 @@ To conclude the Phase 6 'Insider Threat' simulation, I initiated a Hardened Reco
 ![](./grcac/deluser_backupadmin.png)
 > *Fig 29.3: Threat Eviction & Recovery—Successfully removing the unauthorized 'backupadmin' account and associated persistence. By reverting SSH to an identity-file-only model, I have restored the NIST 800-53 CM-6 security baseline and finalized the NYC-Franchise-Prod recovery phase.*
 
+***
 
+### Phase 6 Conclusion: The "Insider Threat" Audit
+Phase 6 served as the Stress Test for the NYC-Franchise-Prod environment. By simulating a compromised administrative account (`backupadmin`), I validated the efficacy of the Log Analytics Agent and the Microsoft Defender for Cloud unified detection engine. The core objective was to move beyond static perimeter defense and implement Behavioral Identity Monitoring.
 
+<u>**Key outcomes included:**</u>
 
+1. **Watchlist Integration:** Successfully mapped unauthorized entities to a high-priority monitoring list.
+2. **Detection Efficacy:** Triggered a High-Severity incident within 5 minutes of unauthorized activity.
+3. **Forensic Reconstruction:** Extracted specific TTY-level commands (ls /root) from raw Syslog telemetry to prove malicious intent.
+4. **Incident Lifecycle Management:** Performed a full NIST 800-53 IR-4 recovery by evicting the user, removing persistence (cron), and re-hardening the SSH gateway to a Key-Only authentication baseline.
 
+<u>**Skills Honed & Presented: **</u>
 
+* **Detection Engineering:** Creating high-fidelity alerts that minimize false positives.
+* **SIEM/SOAR Orchestration:** Using the Defender portal as a "Single Pane of Glass" for a Linux-based breach.
+* **Cyber Kill Chain Interruption:** Specifically targeting the Persistence and Action on Objectives phases.
 
-
-
-
+![](./grcac/incidents_resolved.png)
+> *Fig 30.0: Incident Closure & Post-Mortem—Marking the unauthorized access incident as 'Resolved (True Positive).' All persistence mechanisms were neutralized, and the NIST 800-53 security baseline was successfully restored to the NYC-Linux-VM.*
 
 
