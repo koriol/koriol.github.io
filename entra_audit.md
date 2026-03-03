@@ -46,13 +46,39 @@ In a GRC context, "Hardcoding" (writing passwords directly into your code) is a 
 * **Linux/System Admin:** Managing hidden configuration files and local environment variables.
 * **Tools:** Python `python-dotenv` library, `.gitignore`, and a text editor (VS Code).
 
+![](./entra_audit/secure_cred.png)
+> *Fig 31: Securing Identity Credentials: Utilizing environment variables (.env) and Git ignore rules to prevent credential leakage in the project repository—aligning with secure development lifecycle (SDLC) best practices.*
 
+***
 
+### Writing the Authentication Logic
+Before we can audit users, we must successfully "handshake" with the Microsoft Identity Platform. This step implements the Authentication portion of IAM. We are writing the code that exchanges our protected `.env` secrets for a secure, short-lived Bearer Token.
 
+<u>**Skills & Tools**</u>
+* **Security Engineering:** Implementing the OAuth 2.0 protocol.
+* **Identity & Access Management:** Utilizing Service Principals for machine-to-machine (M2M) communication.
+* **Tools:** Python msal (Microsoft Authentication Library), requests library.
 
+MSAL stands for Microsoft Authentication Library.
+* The Problem: Hand-coding the math and security handshakes for OAuth 2.0 is incredibly difficult and prone to bugs.
+* The Solution: Microsoft provides this library (MSAL) to handle the heavy lifting. When you import msal, you are bringing in a toolkit that knows exactly how to talk to Microsoft's login servers, how to format your Client Secret, and how to ask for a "Token."
+* GRC Value: Using an official, maintained library like MSAL is a Security Best Practice. It ensures your authentication follows the latest industry standards (like encrypted transmissions).
 
+![](./entra_audit/auth_token.png)
+> *Fig 32: Verified Identity Handshake: Successfully executing the OAuth 2.0 Client Credentials flow to obtain a JWT access token for non-interactive directory auditing.*
 
+***
 
+### Data Analysis & Audit Logic (The Core Project)
+Now that we have our "wristband" (Access Token), we use it to pull raw identity data from the Microsoft Graph. This is the "Audit" phase where we transform raw JSON data into actionable security intelligence—specifically identifying accounts that lack MFA or have gone "stale" (no login in 30+ days).
+
+<u>**Skills & Tools**</u>
+* **Identity Governance:** Identifying orphaned or stale accounts, a key task for NIST 800-53 AC-2 (Account Management).
+* **Data Parsing:** Using Python to filter nested JSON dictionaries into a readable format.
+* **Tools:** Microsoft Graph Explorer (for testing), Python requests library.
+
+![](./entra_audit/)
+> *Fig 33: Audit Data Extraction: Programmatically querying the Microsoft Graph API to retrieve identity metadata. The output facilitates the identification of stale accounts, directly supporting SOC 2 CC6.3 (Review of User Access Rights).*
 
 
 
