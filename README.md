@@ -35,7 +35,11 @@ View Technical Guide
 
 ### Entra ID User Auditor
 An automated identity governance tool built in Python and PowerShell that identifies stale accounts and MFA gaps via the Microsoft Graph API. This project demonstrates continuous controls monitoring (CCM) by mapping technical audit data to NIST 800-53 and SOC 2 compliance frameworks.
+![Entra ID](https://img.shields.io/badge/Microsoft%20Entra%20ID-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![IAM](https://img.shields.io/badge/Identity-IAM-FF9900?style=for-the-badge&logo=amazon-iam&logoColor=white)
+![Azure PIM](https://img.shields.io/badge/Azure%20PIM-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 [**View the Entra Audit page**](./entra_audit.md)
+
 
 
 ## Planned Projects
