@@ -14,10 +14,26 @@
 ### Project: NIST 800-53 Site Assessment (Educational Sector)
 * **The Assessment:** Conducted an in-person physical and digital security audit of a storefront environment.
 * **The Artifacts:**
-  * **Topological Network Map:** Visualizing the convergence of IoT, physical access, and digital infrastructure.
-  * **Gap Analysis Table:** A 31-control deep dive focusing on Access Control (AC) and Physical Protection (PE).
+  * **Topological Network Map:** Visualizing the convergence of IoT, physical access, and digital infrastructure. (In progress)
+  * [**Gap Analysis Table:**](./gap-analysis.md) A 31-control deep dive focusing on Access Control (AC) and Physical Protection (PE).
   * [**Risk Register:**](./risk-register.md) Quantifying vulnerabilities into a prioritized remediation roadmap.
+    > **Planned work:**
+    >  * **BCDR Failover:** Testing resilience and disaster recovery protocols for site-wide outages.
+    >  * **Third-Party Assessment:** Evaluating vendor risks within the educational supply chain.
 
+![NIST 800-53](https://img.shields.io/badge/NIST-800--53-blue?style=for-the-badge) | ![Least Privilege](https://img.shields.io/badge/Security-Least%20Privilege-red?style=for-the-badge) | ![SOC2](https://img.shields.io/badge/Compliance-SOC2-green?style=for-the-badge)
+[**View the Full Analysis**]| 
+
+***
+## 🐍 GRC-as-Code & Security Engineering
+*Automating compliance and incident response through technical implementation.*
+
+### Project: NYC-Franchise-Prod: Cloud Hardening & IR
+* **Hardened a multi-tier Azure environment using NIST 800-53 technical controls.
+
+Engineered custom KQL detection logic to evict "Insider Threats."
+
+View Project Hub
 ### 🛡️ Governance, Risk, & Compliance (GRC)
 #### Featured: NIST 800-53 Gap Analysis (Educational Sector)
 The Problem: Converged physical/digital risks in a storefront environment.
@@ -28,8 +44,7 @@ Deliverable: View Gap Analysis Table | View Risk Register
 ### 🛡️ NIST 800-53 Gap Analysis
 *Educational Storefront Assessment*
 > A comprehensive audit of 31 controls focusing on the intersection of physical site security and digital access management.
-![NIST 800-53](https://img.shields.io/badge/NIST-800--53-blue?style=for-the-badge) | ![Least Privilege](https://img.shields.io/badge/Security-Least%20Privilege-red?style=for-the-badge) | ![SOC2](https://img.shields.io/badge/Compliance-SOC2-green?style=for-the-badge)
-[**View the Full Analysis**]| [**Download CSV**](./assets/gap-analysis.csv)
+[**Download CSV**](./assets/gap-analysis.csv)
 
 ### 🛡️ NIST 800-53 Risk Register
 > [**View the risk register summary**]
