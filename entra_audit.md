@@ -72,16 +72,44 @@ MSAL stands for Microsoft Authentication Library.
 ### Data Analysis & Audit Logic (The Core Project)
 Now that we have our "wristband" (Access Token), we use it to pull raw identity data from the Microsoft Graph. This is the "Audit" phase where we transform raw JSON data into actionable security intelligence—specifically identifying accounts that lack MFA or have gone "stale" (no login in 30+ days).
 
+This step demonstrates the transition from Authentication (who are you?) to Authorization (what are you allowed to see?). We are using the `requests` library to perform a GET request against the Microsoft Graph API, utilizing Data Minimization (via `$select`) to retrieve only the metadata required for a user access review.
+
 <u>**Skills & Tools**</u>
 * **Identity Governance:** Identifying orphaned or stale accounts, a key task for NIST 800-53 AC-2 (Account Management).
 * **Data Parsing:** Using Python to filter nested JSON dictionaries into a readable format.
 * **Tools:** Microsoft Graph Explorer (for testing), Python requests library.
 
-![](./entra_audit/)
+![](./entra_audit/run_data_extract.png)
 > *Fig 33: Audit Data Extraction: Programmatically querying the Microsoft Graph API to retrieve identity metadata. The output facilitates the identification of stale accounts, directly supporting SOC 2 CC6.3 (Review of User Access Rights).*
 
+***
+
+### Final Compilation & MFA Logic
+The final phase of this project is adding the "Security Punch." We aren't just looking for names; we are looking for MFA (Multi-Factor Authentication) gaps. Identifying users who lack strong authentication is a critical GRC finding that maps directly to NIST 800-53 IA-2 (Identification and Authentication).
+
+<u>**Skills & Tools**</u>
+* **Cybersecurity Analysis:** Determining "Security Posture" based on authentication methods.
+* **Logic Branching:** Using Python `if/else` statements to categorize security risks.
+* **Tools:** Microsoft Graph `strongAuthenticationMethods` endpoint.
+
+![](./entra_audit/risk_output_audit.png)
+> *Fig 34: Risk-Based Identity Auditing: Final script execution identifying stale accounts and potential authentication gaps, providing actionable data for a User Access Review (UAR).*
+
+***
+
+## The PowerShell Version
+In Windows-centric environments, PowerShell is the native language for automation. This version of the auditor utilizes the `Microsoft.Graph` PowerShell SDK. It achieves the same GRC goals—identifying stale accounts and MFA gaps—but demonstrates "Platform Agility," showing that you can enforce security policies regardless of the toolset provided.
+
+<u>**Skills & Tools**</u>
+* **Infrastructure as Code (IaC):** Automating identity audits via shell scripting.
+* **Module Management:** Installing and authenticating via the Microsoft Graph PowerShell SDK.
+* **Tools:** PowerShell 7, Microsoft Graph API.
+
+![](./entra_audit/powershell_audit_output.png)
+> *Fig 35: Native Automation: Utilizing the Microsoft Graph PowerShell SDK to perform identity audits, demonstrating the ability to enforce GRC controls across different technical environments (Python and PowerShell)*
 
 
-
+## Summary
+This project is functionally successful because it provides a repeatable, objective source of truth for identity auditors. By moving from manual checks to an API-driven approach, the organization reduces the risk of "Identity Sprawl" and ensures that stale or unauthorized accounts are flagged immediately.
 
 
