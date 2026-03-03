@@ -33,6 +33,10 @@ Implemented an end-to-end IAM lifecycle for a mock education franchise. Engineer
 [**View the IAM Project**](./iam-project-home.md)
 View Technical Guide
 
+### Entra ID User Auditor
+An automated identity governance tool built in Python and PowerShell that identifies stale accounts and MFA gaps via the Microsoft Graph API. This project demonstrates continuous controls monitoring (CCM) by mapping technical audit data to NIST 800-53 and SOC 2 compliance frameworks.
+[**View the Entra Audit page**](./entra_audit.md)
+
 
 ## Planned Projects
 * Modern Workplace Security & Identity:
