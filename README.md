@@ -1,7 +1,10 @@
 # koriol.github.io
 
-## Mission
-Bridging the gap between technical infrastructure and regulatory compliance through risk-based analysis.
+> **Mission:** Bridging the gap between technical infrastructure and regulatory compliance through risk-based analysis.
+
+## 📜 Professional Credentials
+| ![Security+](https://img.shields.io/badge/CompTIA-Security%2B-orange?style=flat-square) | ![NIST 800-53](https://img.shields.io/badge/Framework-NIST%20800--53-blue?style=flat-square) | ![Python](https://img.shields.io/badge/Automation-Python-yellow?style=flat-square) |
+| :--- | :--- | :--- |
 
 ### 🛡️ Governance, Risk, & Compliance (GRC)
 #### Featured: NIST 800-53 Gap Analysis (Educational Sector)
@@ -12,7 +15,8 @@ The Solution: A 31-control audit focusing on Access Control (AC) and Physical Pr
 Deliverable: View Gap Analysis Table | View Risk Register
 ### 🛡️ NIST 800-53 Gap Analysis
 *Educational Storefront Assessment*
-> A comprehensive audit of 31 controls focusing on the intersection of physical site security and digital access management. 
+> A comprehensive audit of 31 controls focusing on the intersection of physical site security and digital access management.
+![NIST 800-53](https://img.shields.io/badge/NIST-800--53-blue?style=for-the-badge) | ![Least Privilege](https://img.shields.io/badge/Security-Least%20Privilege-red?style=for-the-badge) | ![SOC2](https://img.shields.io/badge/Compliance-SOC2-green?style=for-the-badge)
 [**View the Full Analysis**](./gap-analysis.md) | [**Download CSV**](./assets/gap-analysis.csv)
 
 ### 🛡️ NIST 800-53 Risk Register
