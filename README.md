@@ -1,4 +1,4 @@
-# koriol.github.io
+# koriol.github.io | GRC & Security Engineering
 
 > **Mission:** Bridging the gap between technical infrastructure and regulatory compliance through risk-based analysis.
 
