@@ -28,9 +28,11 @@ In a modern cloud-first organization, the "Perimeter" is no longer a physical of
 ### Establishing the Authoritative Source (JumpCloud Setup)
 Before we can manage users, we need a "Source of Truth." While we could use Azure's native Entra ID, companies like Agency Cybersecurity use tools like JumpCloud because they are "Platform Agnostic"—meaning they can manage Windows, Macs, Linux, and Google Workspace all from one place. We are setting up JumpCloud to be the "Boss" of your Azure environment.
 
+With the elevated credentials active, the next step is establishing JumpCloud as the "Source of Truth." I am setting up a cloud-native directory that will act as the master controller for users, devices, and applications. By using Alan’s (Aturing) email for the signup, I am linking the identity of the person performing the work to the account that will hold the "Owner" status in the new IdP.
 
-
-
+<u>**Skills Applied**</u>
+* **IdP Tenant Provisioning:** Initializing a multi-tenant SaaS security platform.
+* **Administrative Account Hardening:** Establishing the root-level identity for the organization.
 
 
 
