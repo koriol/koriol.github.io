@@ -6,6 +6,18 @@
 | ![Security+](https://img.shields.io/badge/CompTIA-Security%2B-orange?style=flat-square) | ![NIST 800-53](https://img.shields.io/badge/Framework-NIST%20800--53-blue?style=flat-square) | ![Python](https://img.shields.io/badge/Automation-Python-yellow?style=flat-square) |
 | :--- | :--- | :--- |
 
+***
+
+## 🏗️ Compliance Assessment & Risk Management
+*This section covers physical-to-digital site assessments and the translation of findings into actionable risk data.*
+
+### Project: NIST 800-53 Site Assessment (Educational Sector)
+* **The Assessment:** Conducted an in-person physical and digital security audit of a storefront environment.
+* **The Artifacts:**
+  * **Topological Network Map:** Visualizing the convergence of IoT, physical access, and digital infrastructure.
+  * **Gap Analysis Table:** A 31-control deep dive focusing on Access Control (AC) and Physical Protection (PE).
+  * [**Risk Register:**](./risk-register.md) Quantifying vulnerabilities into a prioritized remediation roadmap.
+
 ### 🛡️ Governance, Risk, & Compliance (GRC)
 #### Featured: NIST 800-53 Gap Analysis (Educational Sector)
 The Problem: Converged physical/digital risks in a storefront environment.
@@ -17,10 +29,10 @@ Deliverable: View Gap Analysis Table | View Risk Register
 *Educational Storefront Assessment*
 > A comprehensive audit of 31 controls focusing on the intersection of physical site security and digital access management.
 ![NIST 800-53](https://img.shields.io/badge/NIST-800--53-blue?style=for-the-badge) | ![Least Privilege](https://img.shields.io/badge/Security-Least%20Privilege-red?style=for-the-badge) | ![SOC2](https://img.shields.io/badge/Compliance-SOC2-green?style=for-the-badge)
-[**View the Full Analysis**](./gap-analysis.md) | [**Download CSV**](./assets/gap-analysis.csv)
+[**View the Full Analysis**]| [**Download CSV**](./assets/gap-analysis.csv)
 
 ### 🛡️ NIST 800-53 Risk Register
-> [**View the risk register summary**](./risk-register.md)
+> [**View the risk register summary**]
 
 ### NYC-Franchise-Prod: Enterprise Cloud Security & Incident Response
 A full-stack security engineering project simulating the deployment, hardening, and defense of a multi-tier Azure infrastructure. I implemented NIST 800-53 controls and engineered custom KQL detection logic in Microsoft Defender to identify and evict a simulated "Insider Threat" in real-time.
