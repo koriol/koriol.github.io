@@ -108,8 +108,26 @@ In Windows-centric environments, PowerShell is the native language for automatio
 ![](./entra_audit/powershell_audit_output.png)
 > *Fig 35: Native Automation: Utilizing the Microsoft Graph PowerShell SDK to perform identity audits, demonstrating the ability to enforce GRC controls across different technical environments (Python and PowerShell)*
 
-
 ## Summary
 This project is functionally successful because it provides a repeatable, objective source of truth for identity auditors. By moving from manual checks to an API-driven approach, the organization reduces the risk of "Identity Sprawl" and ensures that stale or unauthorized accounts are flagged immediately.
 
+***
+
+## Challenges Overcome & Lessons Learned
+
+1. Overcoming Environment & Interpreter Conflicts
+   * Challenge: Initial script execution failed with command not found and NameError because the system was attempting to run Python code as a Bash script.
+   * Lesson Learned: I learned to implement Shebang lines (#!/usr/bin/env python3) and use App Execution Aliases in Windows to ensure the correct Python interpreter is targeted. This taught me the importance of a standardized development environment in security automation.
+
+2. Implementing Secure Secret Management
+   * Challenge: Balancing the need for script automation with the risk of credential leakage (Hardcoding).
+   * Lesson Learned: I successfully implemented the python-dotenv library to abstract sensitive Service Principal credentials into a .env file. I further secured the repository by configuring .gitignore to prevent these secrets from ever being committed to version control—a core requirement for Secure SDLC and SOC 2 compliance.
+
+3. Navigating API Licensing & Data Gaps
+   * Challenge: The script initially failed to return sign-in telemetry (signInActivity).
+   * Lesson Learned: I discovered that certain Graph API properties require specific license tiers (Entra ID P1/P2) and granular permissions (AuditLog.Read.All). I learned to use the Microsoft Graph Explorer as a "sandbox" to validate API responses and troubleshoot "null" data before scaling my code.
+
+4. Cross-Platform Troubleshooting (PowerShell)
+   * Challenge: Encountered a CertificateThumbprint error when attempting to connect via the Microsoft Graph PowerShell SDK.
+   * Lesson Learned: I analyzed the error and realized the SDK was defaulting to Certificate-based authentication. I pivoted to a PSCredential object approach, successfully using my existing Client Secret to authenticate. This demonstrated the value of understanding multiple authentication flows (Secret vs. Certificate) in an IAM context.
 
