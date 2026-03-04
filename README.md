@@ -17,9 +17,9 @@
   * **Topological Network Map:** Visualizing the convergence of IoT, physical access, and digital infrastructure. (In progress)
   * [**Gap Analysis Table:**](./gap-analysis.md) A 31-control deep dive focusing on Access Control (AC) and Physical Protection (PE).
   * [**Risk Register:**](./risk-register.md) Quantifying vulnerabilities into a prioritized remediation roadmap.
-    > **Planned work:**
-    >  * **BCDR Failover:** Testing resilience and disaster recovery protocols for site-wide outages.
-    >  * **Third-Party Assessment:** Evaluating vendor risks within the educational supply chain.
+> **Planned work:**
+>  * **BCDR Failover:** Testing resilience and disaster recovery protocols for site-wide outages.
+>  * **Third-Party Assessment:** Evaluating vendor risks within the educational supply chain.
 
 ![NIST 800-53](https://img.shields.io/badge/NIST-800--53-blue?style=for-the-badge) | ![Least Privilege](https://img.shields.io/badge/Security-Least%20Privilege-red?style=for-the-badge) | ![SOC2](https://img.shields.io/badge/Compliance-SOC2-green?style=for-the-badge)
 [**View the Full Analysis**]| 
@@ -39,7 +39,7 @@
 ***
 
 ## 🔑 Identity & Access Management (IAM)
-> *Managing the identity lifecycle and governing access across hybrid environments.*
+*Managing the identity lifecycle and governing access across hybrid environments.*
 
 ### Project: Entra ID User Auditor & AD Hardening
 * **The Tool:** Built a Python/PowerShell tool using Microsoft Graph API for Continuous Controls Monitoring (CCM).
@@ -99,7 +99,6 @@ An automated identity governance tool built in Python and PowerShell that identi
 * Global Honeypot
 * SOC Automator
 * Security training lesson
-* Third-party vendor assessment
 * Security Culture Campaign
 
 
