@@ -1,6 +1,6 @@
 # Modern IAM
 
-## JumpCloud & Identity Lifecycle Governance
+## Okta & Identity Lifecycle Governance
 
 ### Introduction
 In a modern cloud-first organization, the "Perimeter" is no longer a physical office or a firewall; it is the Identity. This project simulates the deployment of a Cloud Directory Service (JumpCloud) to act as the single source of truth for an organization. We will integrate this directory with Microsoft 365 (Entra ID) to automate the "Joiner-Mover-Leaver" process, ensuring that security follows the user regardless of where they log in.
@@ -38,6 +38,8 @@ With the elevated credentials active, the next step is establishing JumpCloud as
 In a production environment, "Vendor Lock-in" or "Access Friction" can delay critical security deployments. After encountering registration blocks on the JumpCloud platform, I executed a Technical Pivot to Okta, the industry-leading Identity-as-a-Service (IDaaS) provider. By utilizing the Okta Developer Tenant, I established a federated identity source that integrates seamlessly with Microsoft Entra ID, ensuring that the goal of Centralized Identity Governance was achieved without administrative delay.
 
 When selecting an Identity-as-a-Service (IDaaS) provider, I distinguished between Customer Identity (CIAM) and Workforce Identity. For the NYC-Franchise-Prod environment, I implemented the Okta Workforce Identity Cloud. This choice aligns with the operational requirements of a corporate IT environment, where the focus is on securing internal employee access to SaaS suites like Microsoft 365 and enforcing Single Sign-On (SSO) and Multi-Factor Authentication (MFA) across the enterprise.
+
+When initializing the Okta Workforce Identity tenant, I deliberately chose to use the NYC-ADMIN-Aturing account rather than the root 'Owner' account. This decision reflects an adherence to NIST 800-53 (AC-6) by delegating administrative tasks to a secondary privileged identity. By utilizing the account recently elevated via Azure PIM, I maintained a clear audit trail and ensured that the primary 'Owner' credentials remain isolated from third-party service registrations.
 
 <u>**Skills Applied**</u>
 * **Vendor Agility:** The ability to swap specialized tools based on availability and requirement.
