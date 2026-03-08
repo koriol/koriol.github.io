@@ -50,7 +50,12 @@ When initializing the Okta Workforce Identity tenant, I deliberately chose to us
 ![](./okta/)
 > *Fig 2.1: Strategic Pivot to Okta IDaaS & Okta Workforce Identity Initialization — Successfully provisioning the 'NYC-Franchise-Prod' Identity Tenant. Selecting the enterprise-grade Workforce Identity Cloud to manage internal employee lifecycles for the NYC-Franchise-Prod environment.*
 
+***
 
+Recognizing the inherent risk of utilizing a temporary administrative relay for initial tenant provisioning, I immediately moved to establish Administrative Persistence. I provisioned a secondary 'Break-Glass' administrator account tied to a permanent, verified identity. This adherence to Redundancy and Continuity planning ensures that the NYC-Franchise-Prod environment remains manageable throughout the project lifecycle, regardless of third-party mail-flow volatility.
+
+![](./modern_iam/dual_admin.png)
+> *Fig 2.2: Establishing Administrative Persistence—Provisioning a permanent secondary administrator to ensure continuous access to the IdP console, independent of the initial registration relay.*
 
 
 
