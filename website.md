@@ -28,6 +28,39 @@ Refining Technical SEO by correcting the Sitemap directive in the robots.txt fil
 * **Protocol Standards:** Implementing industry-standard SEO directives that differentiate a professional production site from a development prototype.
 
 
+Transitioning to Phase 2: Technical Performance and Accessibility Optimization. In this phase, I implemented 'Lazy Loading' to reduce initial server load times and audited the heading hierarchy to comply with WCAG (Web Content Accessibility Guidelines). By ensuring only one H1 exists per page and providing descriptive Alt-text for all visual assets, I am optimizing the site for both search engine crawlers and assistive technologies.
+
+<u>**Skills Applied**</u>
+* **Performance Engineering:** Learning to balance high-quality visuals with fast load times through compression and deferred loading.
+* **A11y (Accessibility) Standards:** Understanding how semantic HTML impacts users with visual impairments and how Google rewards inclusive design.
+* **Core Web Vitals:** Familiarizing with the metrics Google uses to judge user experience (LCP, FID, CLS).
+
+
+Implementing JSON-LD Structured Data and Local SEO signals. By embedding Schema.org markup, I am providing search engines with explicit 'Linked Data' regarding Dr. Vives’s credentials, location, and business type. This goes beyond simple keywords; it builds a 'Knowledge Graph' for the brand, increasing the likelihood of appearing in rich search results and local map packs.
+
+<u>**Skills Applied**</u>
+* **Schema Markup (JSON-LD):** Learning to write machine-readable data that categorizes a business for AI and search algorithms.
+* **Local SEO Strategy:** Understanding the importance of 'NAP' (Name, Address, Phone) consistency across a web presence.
+* **Search Engine Communication:** Moving from visual design to technical data architecture.
+
+Enhancing Local SEO and Site Architecture through Semantic Footers and Internal Linking. By adding specific geographic markers (North White Plains, NYC) to the footer, I am anchoring the business to its primary service areas for local search intent. Furthermore, implementing contextual internal links between the Services and Bio pages creates a 'web of authority' that allows search crawlers to better index the relationship between the brand's offerings and its leadership.
+
+<u>**Skills Applied**</u>
+* **Local SEO Strategy:** Learning how geographic keywords in footers act as anchors for map results.
+* **Information Architecture:** Using internal linking to distribute "link equity" (ranking power) across the site.
+* **User Experience (UX):** Providing users with logical paths to learn more without having to scroll back to the menu. The site becomes more relevant for searches like "Executive Coach White Plains."
+
+Optimizing for Performance and Accessibility through Image SEO. By implementing descriptive 'alt' tags, I am ensuring the site is accessible to screen readers and providing search engines with context for visual content. Additionally, adding 'lazy loading' attributes improves Core Web Vitals (LCP), a key Google ranking factor that rewards fast-loading pages.
+
+<u>**Skills Applied**</u>
+* **Technical SEO:** Understanding how page speed impacts search engine results pages (SERP).
+* **Accessibility (A11y):** Learning the importance of Alt text for visually impaired users.
+* **Resource Management:** Optimizing how a browser handles data to save bandwidth and improve user experience.
+
+
+
+
+
 
 
 
