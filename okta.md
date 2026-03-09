@@ -126,7 +126,14 @@ To implement a comprehensive security stack, I navigated the Cross-Platform Prov
 * **Vendor Management:** Sourcing and initializing separate enterprise security tools.
 * **Architecture Design:** Understanding the relationship between an "Installer" (JumpCloud) and the "Controller" (CrowdStrike).
 
+During the EDR (Endpoint Detection and Response) provisioning phase, I encountered Vendor Validation Filters that restricted trial access to verified business domains. To maintain project momentum, I utilized a professional-identifier (FRAN-NYC) and a temporary administrative relay to fulfill the business-logic requirements of the CrowdStrike Falcon vetting process. This highlights the real-world challenge of Security Procurement, where administrative overhead and vendor compliance checks must be navigated to secure critical infrastructure tools.
 
+<u>**Skills Applied**</u>
+* **Vendor Relationship Management:** Navigating enterprise sign-up and vetting workflows.
+* **Problem-Solving under Constraints:** Bypassing domain-level restrictions for lab environments.
+
+![](./modern_iam/crowdstrike_request.png)
+> *Fig 5.2: Procurement & Vetting—Initiating the CrowdStrike Falcon trial request. This phase involves a 24-hour manual security review by the vendor to validate the business context (FRAN-NYC) before granting console access.*
 
 
 
