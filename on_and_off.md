@@ -74,27 +74,29 @@ Caption: Fig 2.0: Rapid deprovisioning via account disablement to mitigate the r
 ***
 
 #### The Request (Ticketing & Audit Trail): Initialize the Security Ticket
-Before we touch Microsoft Entra ID, we must have a "Source of Truth" for the request. We will use Jira to simulate a request from HR. Every administrative action in a production environment must be tied to a request. This prevents "Shadow IT" and unauthorized account creation. From a GRC perspective, this ticket serves as the Authorization Evidence required by NIST 800-53 Control AC-2. If an auditor asks why "Katherine Johnson" has access to your data, you point to this ticket.
+Before we touch Microsoft Entra ID, we must have a "Source of Truth" for the request. We will use Jira to simulate a request from HR. Every administrative action in a production environment must be tied to a request. This prevents "Shadow IT" and unauthorized account creation. From a GRC perspective, this ticket serves as the Authorization Evidence required by NIST 800-53 Control AC-2. If an auditor asks why "Alex Rivera" has access to your data, you point to this ticket.
 
-![]()
+![Onboarding Alex Rivera on Sprint 1 SCRUM - 5 active ticketing](./modern_iam/active_ticket.png)
 > *Fig 4.0: Initiating the identity lifecycle through a formal HR-to-IT ticketing workflow for auditability.*
 
 A security professional ensures that the data being collected is structured. If "Department" is just a random sentence in a description box, it’s hard to audit later. By creating specific fields, you ensure that every onboarding request contains the exact information needed to satisfy NIST 800-53 AC-2.
 
-![Ticket categories added to Jira](./ticket_categories.png)
+![Ticket categories added to Jira](./modern_iam/ticket_categories.png)
 > *Fig 4.0a: Configuring Jira custom fields to ensure standardized data collection for IAM audit requirements.*
 
 
 #### Provisioning the Identity (Entra ID): Create the User Account
 We are creating a unique identity for the user. By requiring a password change on the first login, we ensure the "Secret" is known only to the user, not the administrator, supporting the Principle of Non-Repudiation. Filling out the Job Info fields is critical for future automation (like Dynamic Groups).
 
-![]()
+We are mirroring the data from your Jira ticket exactly. Consistency between the Request (Jira) and the Execution (Entra) is what prevents security gaps. If the department is wrong, the user might get access to the wrong files, violating the Principle of Least Privilege.
+
+![](./modern_iam/entra_ticket.png)
 > *Fig 4.1: Provisioning a unique digital identity in Microsoft Entra ID based on authorized ticket metadata.*
 
 #### Role-Based Access (RBAC): Assign to Security Groups
-Instead of granting "Finance Folder" access directly to Katherine, we put Katherine in the `Finance_Users` group. This is Role-Based Access Control (RBAC). If Katherine leaves the Finance department, we simply remove them from the group, and all associated permissions are revoked instantly. This prevents Privilege Creep.
+Instead of granting "Finance Folder" access directly to Alex, we put Alex in the `Finance_Users` group. This is Role-Based Access Control (RBAC). If Alex leaves the Finance department, we simply remove them from the group, and all associated permissions are revoked instantly. This prevents Privilege Creep.
 
-![]()
+![](./modern_iam/arivera_sg_group.png)
 > *Fig 4.2: Implementing Role-Based Access Control (RBAC) to enforce the Principle of Least Privilege.*
 
 
