@@ -75,4 +75,4 @@ Cross-Platform Integration: Demonstrating how GRC processes (Ticketing) drive Te
 
 Audit Readiness: Creating a "Paper Trail" that would satisfy a security auditor.
 
-![](./
+![](./formal_policy.md)
