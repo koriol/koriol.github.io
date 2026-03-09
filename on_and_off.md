@@ -5,21 +5,17 @@
 Project: Integrated IAM Onboarding & Offboarding
 Goal: Establish a secure identity lifecycle by linking a project management "Request" to a technical "Provisioning" action in Entra ID.
 
-Project Introduction: The "Why"
 Purpose: To establish a secure Identity Lifecycle Management (ILM) framework that bridges the gap between administrative requests (GRC) and technical enforcement (IAM).
 
 Why This Matters:
+* **Security Risk:** 80% of cyberattacks use identity-based methods. Poor offboarding leads to "orphaned accounts," which are primary targets for lateral movement.
+* **Compliance:** Frameworks like NIST 800-53 (AC-2) and SOC2 mandate that access is granted only with authorization and revoked immediately upon termination.
+* **Operational Efficiency:** Automated or standardized onboarding reduces "time-to-productivity," ensuring employees have the tools they need on Day 1 without over-provisioning access.
 
-Security Risk: 80% of cyberattacks use identity-based methods. Poor offboarding leads to "orphaned accounts," which are primary targets for lateral movement.
-
-Compliance: Frameworks like NIST 800-53 (AC-2) and SOC2 mandate that access is granted only with authorization and revoked immediately upon termination.
-
-Operational Efficiency: Automated or standardized onboarding reduces "time-to-productivity," ensuring employees have the tools they need on Day 1 without over-provisioning access.
-
+### Roadmap
 Step 1: Initialize the "Source of Request" (Ticketing)
 Create a dedicated "Onboarding/Offboarding" board in a free tool like Jira or Trello. Create your first "New Hire" card for a hypothetical user.
-
-Thought Process: Security actions should never be "shadow tasks." By starting with a ticket, we ensure every administrative action in Entra ID has an audit trail and a business justification. This aligns with NIST 800-53 Control AC-2 (Account Management), which requires documented authorization for account actions.
+> Security actions should never be "shadow tasks." By starting with a ticket, we ensure every administrative action in Entra ID has an audit trail and a business justification. This aligns with NIST 800-53 Control AC-2 (Account Management), which requires documented authorization for account actions.
 
 Success Criteria: A "To-Do" ticket exists containing the new hire's name, role, and department.
 
@@ -29,8 +25,7 @@ Caption: Fig 1.0: Establishing a formal audit trail via a ticketing system to au
 
 Step 2: Configure RBAC Groups in Microsoft Entra
 Log into your Entra ID trial and create a Security Group (e.g., "Finance_Access") rather than assigning permissions to the user directly.
-
-Thought Process: We are implementing the Principle of Least Privilege (PoLP). Assigning permissions to groups rather than individuals prevents "privilege creep"—where a user keeps old permissions when they change roles. This makes offboarding significantly cleaner, as you only need to remove the user from the group.
+> We are implementing the Principle of Least Privilege (PoLP). Assigning permissions to groups rather than individuals prevents "privilege creep"—where a user keeps old permissions when they change roles. This makes offboarding significantly cleaner, as you only need to remove the user from the group.
 
 Success Criteria: The Security Group is visible in the "Groups" blade of Entra ID with "Assigned" membership type.
 
@@ -40,8 +35,7 @@ Caption: Fig 1.1: Implementation of Role-Based Access Control (RBAC) within Micr
 
 Step 3: Provision the Identity & Enforce MFA
 Create the user in Entra ID, assign them to the group from Step 2, and enable Conditional Access (or Per-User MFA) to require a second factor on the first login.
-
-Thought Process: A "naked" password is a high-risk vulnerability. By enforcing MFA at the point of creation, we ensure that the identity is protected before it ever touches company data. This satisfies IA-2 (Identification and Authentication) controls by requiring a non-cryptographic or cryptographic multi-factor authenticator.
+> A "naked" password is a high-risk vulnerability. By enforcing MFA at the point of creation, we ensure that the identity is protected before it ever touches company data. This satisfies IA-2 (Identification and Authentication) controls by requiring a non-cryptographic or cryptographic multi-factor authenticator.
 
 Success Criteria: User status shows "Enabled" and the "Authentication Methods" tab confirms MFA is required.
 
@@ -51,8 +45,7 @@ Caption: Fig 1.2: User provisioning in Entra ID with integrated MFA enforcement 
 
 Step 4: The "Kill Switch" (Offboarding Procedure)
 Simulate a termination by moving the Jira ticket to "Closed" and immediately "Disabling" the account in Entra ID.
-
-Thought Process: Timing is the most critical factor in offboarding. Disabling an account is preferred over immediate deletion because it preserves the user's data for legal or forensic review while instantly revoking their ability to sign in. This is a key component of an Incident Response (IR) and Account Management strategy.
+> Timing is the most critical factor in offboarding. Disabling an account is preferred over immediate deletion because it preserves the user's data for legal or forensic review while instantly revoking their ability to sign in. This is a key component of an Incident Response (IR) and Account Management strategy.
 
 Success Criteria: The account status in Entra ID changes from "Enabled: Yes" to "Enabled: No," and all active sessions are revoked.
 
@@ -62,17 +55,59 @@ Caption: Fig 2.0: Rapid deprovisioning via account disablement to mitigate the r
 
 
 
-Tool,Role in Project,Why it’s used
-Jira (Free),The Request Layer,Acts as the formal ticketing system to document the audit trail for every hire and fire.
-Microsoft Entra ID,The Enforcement Layer,"Your primary Identity Provider (IdP) for account creation, RBAC, and MFA enforcement."
-Markdown / GitHub,The Documentation Layer,"Where the SOP, Policy, and evidence are hosted, demonstrating professional technical writing."
-Microsoft Graph API,Automation (Optional),(Since you're comfortable with Python) To demonstrate how to audit MFA status or group memberships via script.
+| Tool | Role in Project | Why it’s used |
+| --- | --- | --- |
+| Jira (Free) | The Request Layer | Acts as the formal ticketing system to document the audit trail for every hire and fire. |
+| Microsoft Entra ID | The Enforcement Layer | Primary Identity Provider (IdP) for account creation, RBAC, and MFA enforcement. |
+| Markdown / GitHub | The Documentation Layer | Where the SOP, Policy, and evidence are hosted, demonstrating professional technical writing. |
+| Microsoft Graph API | Automation | To demonstrate how to audit MFA status or group memberships via script.|
 
-Skills Honed for Your Portfolio
-IAM Lifecycle Management: Managing an identity from "Hire to Retire."
 
-Cross-Platform Integration: Demonstrating how GRC processes (Ticketing) drive Technical Controls (Entra ID).
-
-Audit Readiness: Creating a "Paper Trail" that would satisfy a security auditor.
+<u>**Skills Applied**</u>
+* **IAM Lifecycle Management:** Managing an identity from "Hire to Retire."
+* **Cross-Platform Integration:** Demonstrating how GRC processes (Ticketing) drive Technical Controls (Entra ID).
+* **Audit Readiness:** Creating a "Paper Trail" that would satisfy a security auditor.
 
 ![](./formal_policy.md)
+![](./sop.md)
+
+***
+
+#### The Request (Ticketing & Audit Trail): Initialize the Security Ticket
+Before we touch Microsoft Entra ID, we must have a "Source of Truth" for the request. We will use Jira to simulate a request from HR. Every administrative action in a production environment must be tied to a request. This prevents "Shadow IT" and unauthorized account creation. From a GRC perspective, this ticket serves as the Authorization Evidence required by NIST 800-53 Control AC-2. If an auditor asks why "Katherine Johnson" has access to your data, you point to this ticket.
+
+![]()
+> *Fig 4.0: Initiating the identity lifecycle through a formal HR-to-IT ticketing workflow for auditability.*
+
+A security professional ensures that the data being collected is structured. If "Department" is just a random sentence in a description box, it’s hard to audit later. By creating specific fields, you ensure that every onboarding request contains the exact information needed to satisfy NIST 800-53 AC-2.
+
+![Ticket categories added to Jira](./ticket_categories.png)
+> *Fig 4.0a: Configuring Jira custom fields to ensure standardized data collection for IAM audit requirements.*
+
+
+#### Provisioning the Identity (Entra ID): Create the User Account
+We are creating a unique identity for the user. By requiring a password change on the first login, we ensure the "Secret" is known only to the user, not the administrator, supporting the Principle of Non-Repudiation. Filling out the Job Info fields is critical for future automation (like Dynamic Groups).
+
+![]()
+> *Fig 4.1: Provisioning a unique digital identity in Microsoft Entra ID based on authorized ticket metadata.*
+
+#### Role-Based Access (RBAC): Assign to Security Groups
+Instead of granting "Finance Folder" access directly to Katherine, we put Katherine in the `Finance_Users` group. This is Role-Based Access Control (RBAC). If Katherine leaves the Finance department, we simply remove them from the group, and all associated permissions are revoked instantly. This prevents Privilege Creep.
+
+![]()
+> *Fig 4.2: Implementing Role-Based Access Control (RBAC) to enforce the Principle of Least Privilege.*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
