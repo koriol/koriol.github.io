@@ -148,12 +148,12 @@ After performing the manual offboarding of Alex Rivera, I used this Python scrip
 ```
 import requests
 
-# Identity Metadata from Entra ID App Registration
-TENANT_ID = 'your-tenant-id'
-CLIENT_ID = 'your-client-id'
-CLIENT_SECRET = 'your-client-secret'
+# 1. THE COORDINATES
+TENANT_ID = 'oriolkgmail.onmicrosoft.com' # Use the domain name to avoid ID errors
+CLIENT_ID = 'PASTE_APPLICATION_CLIENT_ID_HERE' # From App Registration Overview
+CLIENT_SECRET = 'PASTE_SECRET_VALUE_HERE' # The long string with symbols (~, _, etc.)
 
-# Step 1: Get Access Token
+# 2. THE LOGIN (OAuth 2.0)
 auth_url = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
 auth_data = {
     'grant_type': 'client_credentials',
@@ -161,17 +161,65 @@ auth_data = {
     'client_secret': CLIENT_SECRET,
     'scope': 'https://graph.microsoft.com/.default'
 }
-token = requests.post(auth_url, data=auth_data).json().get('access_token')
 
-# Step 2: Query Graph API for Disabled Accounts
-headers = {'Authorization': f'Bearer {token}'}
-# This filter pulls only users where accountEnabled is false (the Kill Switch)
-query = "https://graph.microsoft.com/v1.0/users?$filter=accountEnabled eq false&$select=displayName,userPrincipalName,accountEnabled"
-results = requests.get(query, headers=headers).json()
+print("Attempting to get token...")
+token_res = requests.post(auth_url, data=auth_data)
+res_data = token_res.json()
 
-# Step 3: Output Results
-print("--- SECURITY AUDIT: DISABLED ACCOUNTS ---")
-for user in results.get('value', []):
-    print(f"Verified Disabled: {user['displayName']} ({user['userPrincipalName']})")
+if "access_token" not in res_data:
+    print("FAILED TO LOG IN.")
+    print(f"Microsoft says: {res_data.get('error_description')}")
+else:
+    token = res_data['access_token']
+    print("SUCCESS: Logged in. Auditing tenant now...")
+    
+    # 3. THE AUDIT
+    headers = {'Authorization': f'Bearer {token}', 'ConsistencyLevel': 'eventual'}
+    query = "https://graph.microsoft.com/v1.0/users?$filter=accountEnabled eq false&$select=displayName,userPrincipalName,accountEnabled&$count=true"
+    
+    response = requests.get(query, headers=headers)
+    
+    if response.status_code == 200:
+        users = response.json().get('value', [])
+        print(f"Found {len(users)} disabled accounts.")
+        for u in users:
+            print(f"[VERIFIED] {u['displayName']} is DISABLED.")
+    else:
+        print(f"Audit Error: {response.text}")
 ```
 
+![](./modern_iam/py_account_disabled.png)
+> *Fig 6.1: Utilizing Python and Microsoft Graph API to programmatically audit account status and verify offboarding compliance.*
+
+### Skills Applied
+* **Security Automation:** Leveraging APIs and Python to perform continuous monitoring and automated auditing.
+* **Service Principal Management:** Configuring App Registrations and OAuth2 flows for secure programmatic access.
+
+***
+## Identity Governance & Lifecycle Management
+Framework: NIST 800-53 Rev. 5 (AC-2, PS-4) | Sector: Education Technology
+
+This project simulates a high-stakes identity lifecycle for an NYC-based educational storefront. It bridges the gap between Governance (Policy) and Enforcement (Technical Controls) by automating the "Hire-to-Retire" process using an industry-standard tech stack.
+
+![](./modern_iam/licensed-image-compliance-lifecycle.jpg)
+
+### Key Accomplishments
+* Engineered a Secure Onboarding SOP: Developed a formal ticketing workflow in Jira to ensure every new identity is authorized, fulfilling NIST 800-53 AC-2.
+* Implemented Zero Trust MFA: Enforced Conditional Access Policies to mitigate credential-based attacks, ensuring that 100% of administrative identities require phishing-resistant factors.
+* Executed Emergency Offboarding: Demonstrated the "Kill Switch" protocol (Deprovisioning + Session Revocation) to neutralize insider threats within minutes of a termination request (NIST 800-53 PS-4).
+* Programmatic Verification: Built a custom Python script to query the Microsoft Graph API, providing an automated "Proof of Work" that identity status aligns with security policy.
+
+### Lessons Learned & Troubleshooting (The "Real World" GRC)
+A. Identity Identifier Mismatch (AADSTS700016)
+* The Problem: The automation script failed to authenticate despite providing "correct" IDs.
+* The Discovery: Diagnostic analysis of the Entra ID object hierarchy revealed that a User Object ID was being utilized instead of the Service Principal's Application (Client) ID.
+* The Resolution: Corrected the OAuth 2.0 Client Credentials flow by identifying the specific Service Principal ID within the target tenant.
+
+B. OData Filtering & API Latency
+* The Problem: The Graph API returned an empty list even after the account was disabled.
+* The Discovery: Discovered that Microsoft Graph requires the ConsistencyLevel: eventual header for advanced filtering on the accountEnabled attribute.
+* The Resolution: Hardened the Python request headers to account for distributed data synchronization, ensuring accurate audit results.
+
+C. Secret Hygiene
+* The Problem: Distinguishing between Secret ID (Metadata) and Secret Value (Credential).
+* The Resolution: Established a protocol for secret generation and secure handling, ensuring only the "Value" is utilized in authentication strings while the "ID" is used solely for audit logs.
