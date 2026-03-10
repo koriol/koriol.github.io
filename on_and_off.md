@@ -63,7 +63,7 @@ Caption: Fig 2.0: Rapid deprovisioning via account disablement to mitigate the r
 | Microsoft Graph API | Automation | To demonstrate how to audit MFA status or group memberships via script.|
 
 
-<u>**Skills Applied**</u>
+### Core Competencies
 * **IAM Lifecycle Management:** Managing an identity from "Hire to Retire."
 * **Cross-Platform Integration:** Demonstrating how GRC processes (Ticketing) drive Technical Controls (Entra ID).
 * **Audit Readiness:** Creating a "Paper Trail" that would satisfy a security auditor.
@@ -107,23 +107,71 @@ Passwords are the weakest link in the security chain. By creating a Conditional 
 A task isn't "Done" until the documentation is updated. By commenting on the specific security controls applied (MFA and Group membership), you are providing a "Final Audit" for the ticket. This closes the loop between the Policy (what we said we'd do) and the Execution (what we did).
 
 ![](./modern_iam/onboard_done_ticket.png)
-> *Fig 4.3: Mitigating credential-based attacks by enforcing Multi-Factor Authentication (MFA) via Entra Conditional Access.*
+> *Fig 4.4: Completion of the secure onboarding workflow and closure of the audit trail.*
 
 ***
 
 ### The Offboarding Workflow (The Kill Switch)
 
+Offboarding is a race against time. By creating a high-priority ticket, you are documenting the "Authorization to Revoke." This ensures that if the user attempts to sue for "loss of access" or if an auditor asks why the account was killed, you have the formal HR/Management directive on file.
+
+![](./modern_iam/offboard_ticket.png)
+> *Fig 5.0: Initiating emergency deprovisioning workflow to mitigate insider threat and unauthorized access risk.*
+
+By switching the account to "No," you are effectively disabling the identity. This is the primary defense against "Orphaned Accounts." In a GRC context, this satisfies NIST 800-53 PS-4, as it ensures that access is formally and technically terminated the moment the personnel's relationship with the organization ends.
+
+![](./modern_iam/alex_disable.png)
+> *Fig 5.1: Disabling the user account to prevent unauthorized access following personnel termination.*
+
+Blocking the account stops new logins, but Revoke sessions kills current ones. This is critical for emergency terminations where you need to ensure the user cannot send one last email or download a file after being notified of their departure.
+
+![](./modern_iam/revoked_sessions.png)
+> *Fig 5.2: Invalidation of all active refresh tokens to ensure immediate cessation of resource access.*
 
 
+![](./modern_iam/offboarding_done.png)
+> *Fig 5.3: Closed-loop lifecycle management showing the completion of both provisioning and deprovisioning requests.*
 
+***
 
+### Automated Security Auditing
 
+To demonstrate programmatic verification of security controls. In an enterprise environment with thousands of users, manual checks are impossible. Using the Microsoft Graph API, I developed a script to instantly audit the tenant for "Disabled" accounts to verify that offboarding procedures were technically successful.
 
+Why this matters:
+* **Continuous Monitoring:** Satisfies NIST 800-53 CA-7, which requires ongoing verification of security control effectiveness.
+* **Accuracy:** Eliminates human error in the audit process.
+* **Scalability:** Allows a security team to pull reports on thousands of users in seconds.
 
+After performing the manual offboarding of Alex Rivera, I used this Python script to "close the loop." By querying the Graph API directly, I confirmed that the `accountEnabled` attribute was successfully set to `false` in the backend database. This demonstrates a "Trust but Verify" approach to identity governance.
 
+```
+import requests
 
+# Identity Metadata from Entra ID App Registration
+TENANT_ID = 'your-tenant-id'
+CLIENT_ID = 'your-client-id'
+CLIENT_SECRET = 'your-client-secret'
 
+# Step 1: Get Access Token
+auth_url = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
+auth_data = {
+    'grant_type': 'client_credentials',
+    'client_id': CLIENT_ID,
+    'client_secret': CLIENT_SECRET,
+    'scope': 'https://graph.microsoft.com/.default'
+}
+token = requests.post(auth_url, data=auth_data).json().get('access_token')
 
+# Step 2: Query Graph API for Disabled Accounts
+headers = {'Authorization': f'Bearer {token}'}
+# This filter pulls only users where accountEnabled is false (the Kill Switch)
+query = "https://graph.microsoft.com/v1.0/users?$filter=accountEnabled eq false&$select=displayName,userPrincipalName,accountEnabled"
+results = requests.get(query, headers=headers).json()
 
-
+# Step 3: Output Results
+print("--- SECURITY AUDIT: DISABLED ACCOUNTS ---")
+for user in results.get('value', []):
+    print(f"Verified Disabled: {user['displayName']} ({user['userPrincipalName']})")
+```
 
