@@ -135,6 +135,37 @@ During the EDR (Endpoint Detection and Response) provisioning phase, I encounter
 ![](./modern_iam/crowdstrike_request.png)
 > *Fig 5.2: Procurement & Vetting—Initiating the CrowdStrike Falcon trial request. This phase involves a 24-hour manual security review by the vendor to validate the business context (FRAN-NYC) before granting console access.*
 
+During the EDR procurement phase, I encountered vendor-specific access restrictions regarding the CrowdStrike Falcon trial. To maintain project velocity and adhere to the 14-day deployment deadline, I executed a Tactical Pivot to Microsoft Defender for Endpoint. By leveraging the existing Microsoft 365 Business environment, I successfully initialized the EDR console and prepared the onboarding packages for the NYC-Franchise fleet. This decision demonstrates Operational Agility and the ability to optimize existing enterprise assets to meet security objectives.
+
+<u>**Skills Applied**</u>
+* **Vendor Agility:** Pivoting between EDR platforms (CrowdStrike vs. Defender).
+* **Microsoft 365 Security Center:** Configuring endpoint protection settings and onboarding flows.
+* **Risk-Based Decision Making:** Prioritizing project uptime over vendor-specific preferences.
+
+![](./modern_iam/)
+> *Fig 5.3: EDR Tactical Pivot—Initializing Microsoft Defender for Endpoint within the existing M365 tenant to bypass third-party procurement delays and ensure immediate protection for the NYC-Franchise-Prod environment.*
+
+To execute the EDR rollout without Microsoft Intune dependencies, I evaluated several deployment vectors including GPO, VDI, and Local Scripting. I selected the Local Script method to maintain a Vendor-Agnostic Deployment Strategy. By utilizing JumpCloud as the primary execution engine, I can deliver the Defender onboarding script as a 'Remote Command.' This approach demonstrates the ability to manage endpoint security across a heterogeneous fleet where traditional Active Directory or Intune management may not be present, ensuring 100% visibility into the franchise's asset health.
+
+<u>**Skills Applied**</u>
+* **Strategic Tool Selection:** Choosing the correct onboarding method for a multi-cloud environment.
+* **Script-Based Provisioning:** Preparing CMD/PowerShell payloads for remote execution.
+* **Endpoint Visibility:** Bridging the gap between an Identity Provider (JumpCloud) and an EDR (Defender).
+
+![](./modern_iam/defender_scripts.png)
+> *Fig 5.4: Deployment Vector Selection—Choosing the Local Script method for Defender for Endpoint onboarding. This facilitates a 'Manager-of-Managers' architecture where JumpCloud orchestrates the security installation on the endpoint.*
+
+To ensure consistent security coverage across the franchise, I utilized JumpCloud Commands to orchestrate the remote onboarding of Microsoft Defender for Endpoint. By ingesting the vendor-supplied local onboarding script into a centralized administrative console, I transformed a manual, per-machine task into a Scalable Automation. This ensures that any new workstation added to the 'NYC-Franchise-Prod' group can be secured within minutes, eliminating human error and maintaining a high security baseline.
+
+<u>**Skills Applied**</u>
+* **Security Orchestration (SOAR):** Using centralized tools to push security agents.
+* **Script Management:** Managing and deploying .cmd payloads via cloud-native infrastructure.
+* **Scaleable Operations:** Designing workflows that work for 1 device or 1,000 devices.
+
+![](./modern_iam/command_mde.png)
+> *Fig 6.1: Security Orchestration—Configuring a JumpCloud 'Push' command to remotely onboard franchise endpoints into Microsoft Defender for Endpoint. This bypasses the need for manual, local installation.*
+
+
 
 
 
