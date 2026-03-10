@@ -99,6 +99,20 @@ Instead of granting "Finance Folder" access directly to Alex, we put Alex in the
 ![](./modern_iam/arivera_sg_group.png)
 > *Fig 4.2: Implementing Role-Based Access Control (RBAC) to enforce the Principle of Least Privilege.*
 
+Passwords are the weakest link in the security chain. By creating a Conditional Access Policy, we are building a "Security Gate." This ensures that even if an attacker steals Alex's password, they cannot access the environment without the second factor (Alex's phone or hardware key). This is the "Gold Standard" for identity protection.
+
+![](./modern_iam/grant_alex.png)
+> *Fig 4.3: Mitigating credential-based attacks by enforcing Multi-Factor Authentication (MFA) via Entra Conditional Access.*
+
+A task isn't "Done" until the documentation is updated. By commenting on the specific security controls applied (MFA and Group membership), you are providing a "Final Audit" for the ticket. This closes the loop between the Policy (what we said we'd do) and the Execution (what we did).
+
+![](./modern_iam/onboard_done_ticket.png)
+> *Fig 4.3: Mitigating credential-based attacks by enforcing Multi-Factor Authentication (MFA) via Entra Conditional Access.*
+
+***
+
+### The Offboarding Workflow (The Kill Switch)
+
 
 
 
