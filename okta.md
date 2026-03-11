@@ -1,6 +1,6 @@
 # Modern IAM
 
-## Okta & Identity Lifecycle Governance
+## JumpCloud & Identity Lifecycle Governance
 
 ### Introduction
 In a modern cloud-first organization, the "Perimeter" is no longer a physical office or a firewall; it is the Identity. This project simulates the deployment of a Cloud Directory Service (JumpCloud) to act as the single source of truth for an organization. We will integrate this directory with Microsoft 365 (Entra ID) to automate the "Joiner-Mover-Leaver" process, ensuring that security follows the user regardless of where they log in.
@@ -164,6 +164,23 @@ To ensure consistent security coverage across the franchise, I utilized JumpClou
 
 ![](./modern_iam/command_mde.png)
 > *Fig 6.1: Security Orchestration—Configuring a JumpCloud 'Push' command to remotely onboard franchise endpoints into Microsoft Defender for Endpoint. This bypasses the need for manual, local installation.*
+
+Recognizing that the NYC-Franchise-Prod environment utilizes a hybrid OS architecture, I expanded the EDR deployment to include Linux endpoints. I successfully navigated the platform-specific onboarding requirements, transitioning from Windows .cmd batch scripts to Python-based onboarding for the Linux fleet. This dual-track deployment ensures that regardless of the underlying kernel, all franchise assets report to a centralized security dashboard, providing a holistic view of the organization's threat surface.
+
+<u>**Skills Applied**</u>
+* **Heterogeneous Fleet Management:** Securing both Windows and Linux assets.
+* **Cross-Platform Scripting:** Handling .cmd (Windows) and .py (Linux) payloads.
+* **Asset Visibility:** Centralizing diverse OS telemetry into a single XDR (Extended Detection and Response) console.
+
+![](./modern_iam/linux_script_save.png)
+> *Fig 6.2: Cross-Platform Security—Provisioning the Linux-specific EDR onboarding package to ensure full visibility of the franchise's virtualized infrastructure.*
+
+
+Following the successful execution of the automated onboarding commands, I moved into the Verification and Telemetry Validation phase. By auditing the Microsoft Defender Device Inventory, I confirmed that both the Windows and Linux assets were actively communicating with the XDR console. This ensures that the franchise's infrastructure is not only managed but monitored for real-time threats. This transition from Deployment to Operations marks the stabilization of the initial security baseline.
+
+<u>**Skills Applied**</u>
+* **EDR Telemetry Validation:** Confirming sensor health across disparate OS kernels.
+* **XDR Management:** Navigating the Microsoft Defender 'Device Inventory' for asset health.
 
 
 
