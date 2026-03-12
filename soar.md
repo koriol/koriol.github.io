@@ -36,8 +36,8 @@ Before we can automate intelligence, we need to ensure our environment has the r
 ### Setting the Stage: The Infrastructure
 We are transitioning from Active Defense to Intelligence Enrichment. We are setting up the environment to handle external data and preparing the "connectors" that allow Python to talk to the internet.
 
-![](./Auth_log/)
-> *Environment Provisioning: Installing the necessary Python dependencies and establishing a modular configuration for secure API key management.*
+![](./Auth_log/pip_show_requests.png)
+> *Dependency Verification: Utilizing pip show within the virtual environment to confirm the successful installation and versioning of the Requests library prior to API integration.*
 
 <u>**Skills & Tools**</u>
 * **Python Pip:** Managing third-party libraries—a fundamental skill for any security automation engineer.
@@ -48,29 +48,26 @@ We are transitioning from Active Defense to Intelligence Enrichment. We are sett
 #### Dependency Isolation & Triage Logic
 In this step, I addressed modern Linux security constraints by implementing a Python Virtual Environment (venv). This ensures that the SOAR tool's dependencies remain isolated from the core operating system. I then developed the core logic to bridge the gap between my Watchdog logs and global threat intelligence, automating the decision-making process for incident classification.
 
-![](./Auth_log/)
-> *Environment Isolation and Script Execution: Utilizing a Python Virtual Environment to securely manage dependencies while executing the automated triage logic.*
-
 <u>**Skills & Tools**</u>
 * **Python Virtual Environments (venv):** Essential for managing complex software dependencies without compromising system stability.
 * **Error Resolution (PEP 668):** Demonstrated the ability to troubleshoot and bypass "Externally Managed Environment" errors using industry-standard practices.
 * **Automated Incident Categorization:** Writing conditional logic to label threats (CRITICAL vs. CLEAN) based on third-party confidence scores.
 * **Regex (Regular Expressions):** Used to parse unstructured log data from Project 2 to find specific indicators of compromise (IP addresses).
 
-![](./Auth_log/)
+![](./Auth_log/venv_triage_scan.png)
 > *Environment Isolation and Script Execution: Utilizing a Python Virtual Environment to securely manage dependencies while executing the automated triage logic.*
 
 ### Adversary Emulation & Validation
 In a production environment, automation must be tested against diverse data sets. To validate the SOAR tool's logic, I performed Adversary Emulation by injecting "Known Bad" indicators into the log pipeline. By simulating brute-force attempts from real-world malicious IPs (sourced from active botnets), I ensured the script could accurately differentiate between high-risk threats and legitimate traffic. This allowed me to test the script’s ability to differentiate between legitimate traffic and high-risk botnets in a controlled environment.
 
-![](./Auth_log/)
+![](./Auth_log/adversary_injection.png)
 > *Synthetic Intelligence Injection: Emulating multi-vector attacks from known malicious IPs to validate the SOAR tool's scoring and categorization logic.*
 
 
 
 This section documents the pivot from raw detection to automated intelligence. Building this "SOAR-lite" tool required navigating several real-world technical hurdles that are common in enterprise security environments.
 
-![](./Auth_log/)
+![](./Auth_log/cat_incident.png)
 > *Final Incident Output: The SOAR script successfully parsed the 'Security_Alerts.log' and enriched the data with real-time threat intelligence, providing clear risk classifications for an analyst to review.*
 
 
