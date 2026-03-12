@@ -133,10 +133,6 @@ This is the most important part of your portfolio for a GRC or SOC Manager. It s
 4. NIST 800-53 Mapping Reflection
 This project moved beyond simple coding into Compliance Orchestration. By meeting SI-4 (Monitoring) and SC-7 (Boundary Protection), I demonstrated how a simple script can fulfill complex federal security requirements.
 
-<details open>
-  <summary>I am open by default</summary>
-  This content is visible immediately.
-</details>
 
 
 
