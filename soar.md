@@ -78,6 +78,9 @@ Shell Neutrality: Encountered shell-specific errors when activating the virtual 
 
 Context is King: A blocked IP is good, but knowing why it was blocked (e.g., it's a known Russian botnet vs. a misconfigured internal server) is the difference between reactive and proactive security.
 
+The Issue: Attempting to install Python libraries system-wide resulted in a PEP 668 "Externally Managed Environment" error. Additionally, shell differences led to a source: not found error during environment activation.
+
+The Solution: I pivoted to using a Python Virtual Environment (venv) to isolate dependencies and utilized the POSIX-compliant dot operator (.) for activation. This ensured the stability of the host OS while providing a flexible workspace for the SOAR tool.
 
 
 
