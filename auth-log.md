@@ -104,10 +104,10 @@ This project highlighted the importance of Signature Tuning. Initially, the scri
 ### The "Bonus" Phase: Incident Response & Geolocation
 Detecting 1,000 failed attempts is good; stopping the 1,001st attempt automatically is better. We will use Python’s `os.system` or `subprocess` module to interact with the UFW (Uncomplicated Firewall), which is standard on Ubuntu/Debian. When the threshold is hit, the script will issue a command to block that IP address entirely.
 
-![](./Auth_log/)
+![](./Auth_log/ips_watchdog.png)
 > *Transitioning to an Intrusion Prevention System (IPS). The script automatically invokes a firewall rule to drop all future packets from the offending IP address.*
 
-![](./Auth_log/)
+![](./Auth_log/watchdog_ban.png)
 > *Verification of Active Defense. The UFW status table confirms the malicious IP has been blacklisted dynamically by the Python Watchdog.*
 
 <u>**Skills Applied**</u>
