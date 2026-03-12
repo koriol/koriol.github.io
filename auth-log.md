@@ -95,6 +95,8 @@ By developing this tool, I have implemented technical controls that map directly
 | SI-4 | Information System Monitoring | The Python watchdog provides host-based monitoring to detect indicators of potential attacks (Brute Force). |
 | AU-12 | Audit Record Generation | The script generates a specialized Security_Alerts.log specifically for authentication failures. |
 | AU-6 | Audit Record Review | Automated the analysis of raw system logs to find actionable security events, satisfying the requirement for regular audit review. |
+| SI-4(24) | Indicators of Compromise | Using identified patterns to trigger automated responses. |
+| SC-7 | Boundary Protection | Dynamically updating firewall rules to protect the internal host from external threats. |
 
 ### Lessons Learned
 This project highlighted the importance of Signature Tuning. Initially, the script suffered from a False Negative because the RegEx was too specific. By analyzing the raw log data and broadening the search pattern, I improved the detection rate. Furthermore, I learned that even with proper group permissions, certain Linux environments require specific process-level privileges to maintain a continuous file stream from /var/log/auth.log.
@@ -113,7 +115,23 @@ Detecting 1,000 failed attempts is good; stopping the 1,001st attempt automatica
 * **Firewall Management:** Practical experience with host-based firewalls (UFW/iptables).
 * **Security Orchestration:** Combining custom Python logic with native OS security tools (Orchestration/Automation).
 
+## Lessons Learned: The Final Reflection
+This is the most important part of your portfolio for a GRC or SOC Manager. It shows you can think critically about your own work.
 
+1. The Challenge of "Silent Failures"
+* **The Problem:** Initial tests resulted in no detections because the script was looking for "Failed password" while the system was logging "Invalid user."
+* **The Lesson:** Security tools must be "tuned" to the specific environment. A one-size-fits-all signature often leads to False Negatives.
+
+2. The Permission Bottleneck
+* **The Problem:** The script required sudo to read /var/log/auth.log and modify ufw.
+* **The Lesson:** While sudo solved the issue, in a production environment, I would look into Linux Capabilities or specific ACLs (Access Control Lists) to follow the Principle of Least Privilege (PoLP) more strictly.
+
+3. From Monitoring to Mitigation
+* **The Problem:** Detecting an attack manually is too slow for modern botnets.
+* **The Lesson:** Automation (IPS) is a force multiplier. By linking Python to the system firewall, the Mean Time to Remediate (MTTR) was reduced to nearly zero.
+
+4. NIST 800-53 Mapping Reflection
+This project moved beyond simple coding into Compliance Orchestration. By meeting SI-4 (Monitoring) and SC-7 (Boundary Protection), I demonstrated how a simple script can fulfill complex federal security requirements.
 
 
 
