@@ -24,7 +24,7 @@ Before we can pull sensitive security data, we must establish a secure identity.
 * Service Principal Configuration
 * Least Privilege Enforcement.
 
-![The "Role Assignments" screen showing App Registration with the "Security Reader" role.](./Entra_audit/compliance_audit.png)
+![The "Role Assignments" screen showing App Registration with the "Security Reader" role.](./Auth_log/compliance_audit.png)
 > *Establishing a Service Principal with the 'Security Reader' role to facilitate least-privileged, programmatic access to the Azure Security Center API.*
 
 ### Developing the Compliance Extractor Script
@@ -35,7 +35,7 @@ We use `DefaultAzureCredential` because it is versatile, allowing the script to 
 * SDK Implementation
 * API Filtering
 
-![IDE showing the script running in the terminal and the "Report Generated" message.](./)
+![IDE showing the script running in the terminal and the "Report Generated" message.](./Auth_log/)
 > *Executing the Python extraction script using the Azure SDK to iterate through regulatory compliance assessments.*
 
 ### Parsing and Reporting
@@ -46,7 +46,7 @@ Raw JSON is for machines; Markdown is for humans. This step involves logic to pa
 * Technical Documentation
 * Audit Readiness
 
-![A side-by-side view of the generated NIST_Report.md file and the Azure Defender "Regulatory Compliance" blade.](./)
+![A side-by-side view of the generated NIST_Report.md file and the Azure Defender "Regulatory Compliance" blade.](./Auth_log/)
 > *Mapping programmatic API outputs to the NIST 800-53 framework, creating a clear audit trail of non-compliant resources.*
 
 
