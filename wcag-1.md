@@ -52,6 +52,8 @@ I used WAVE to get a visual overlay of the site's structural integrity. Unlike c
 | ARIA | WCAG 4.1.2 (Name, Role, Value) | Medium | Can cause "silent failures" where a button is seen but not announced. |
 | Alerts | Manual Review Required | TBD | These are "potential" issues that need a human to check. |
 
+I selected WCAG 2.2 Level AA as the audit baseline. This represents the most current international standard and aligns with 2026 legal mandates. While Level AAA is available, it is often impractical for full-site implementation; instead, I will target specific AAA criteria where they provide the most value to the user experience.
+
 
 #### Audit Evidence Log
 | Page | Device | WAVE (Errors / Alerts ) | Axe DevTools Status (Critical / Serious) | Key Finding |
