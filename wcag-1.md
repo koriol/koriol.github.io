@@ -18,12 +18,20 @@ An effective audit must cover the entire user journey, not just the homepage. By
 | Services | 93 | 96 | ✅ Pass | Heading sequence; main landmark |
 | Contact | 95 | 96 | ✅ Pass | Heading sequence; main landmark |
 
-<details>
-<summary>📸 Click to view Baseline Audit Screenshots (12 total)</summary>
 * [Homepage mobile scores](./wcag/nl_index_mobile_lh_score.png)
-* [Homepage desktop scores](./)
+* [Homepage desktop scores](./wcag/nl_index_desktop_lh_score.png)
+* [About Us mobile scores](./wcag/nl_about_mobile_lh_score.png)
+* [About Us desktop scores](./wcag/nl_about_desktop_lh_score.png)
+* [About Founder mobile scores](./wcag/nl_founder_mobile_lh_score.png)
+* [About Founder desktop score](./wcag/nl_founder_desktop_lh_score.png)
+* [Affiliations mobile score](./wcag/nl_affiliations_mobile_lh_score.png)
+* [Affiliations desktop score](./wcag/nl_affiliations_desktop_lh_score.png)
+* [Services mobile score](./wcag/nl_services_mobile_lh_score.png)
+* [Services desktop score](./wcag/nl_services_desktop_lh_score.png)
+* [Contact Us mobile score](./wcag/nl_contact_mobile_lh_score.png)
+* [Contact Us desktop score](./wcag/nl_contact_desktop_lh_score.png)
 
-
+While conducting the Accessibility audit, I noted the Homepage Performance score was 75. Since Accessibility and Performance often overlap (e.g., properly sized images and clean DOM structures), my remediation plan includes optimizing these elements to boost both scores simultaneously
 
 
 
