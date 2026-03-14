@@ -36,6 +36,14 @@ The goal of this project was to conduct a comprehensive accessibility audit and 
 ## Steps for auditing
 Categorize each concerned accessibility violation according to the four WCAG principles: perceivable, operable, understandable, and robust, to create ​a coherent remediation framework. ​Under perceivable, list issues such as missing alt text, absent captions, and insufficient ​color contrast. ​Operable covers keyboard navigation gaps, invisible focus indicators, and timing constraints. 
 
+## Tools
+| Feature | Axe DevTools (by Deque) | WAVE (by WebAIM) | Lighthouse |
+| --- | --- | --- | --- |
+| Best For | Developers fixing code | Visual learners and designers | - |
+| Interface | Integrated into the Browser Console | Visual icons overlaying the website | - |
+| Accuracy | Extremely high (zero false-positives) | High, but can be visually cluttered | - |
+| Unique Power | Explains exactly which line of code failed | Highlights page structure and ARIA icons | - |
+| Portfolio Value | Use of developer tools | Provides great ""Before/After"" visual screenshots. | - |
 
 
 
