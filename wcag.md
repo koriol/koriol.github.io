@@ -45,6 +45,18 @@ Categorize each concerned accessibility violation according to the four WCAG pri
 | Unique Power | Explains exactly which line of code failed | Highlights page structure and ARIA icons | - |
 | Portfolio Value | Use of developer tools | Provides great ""Before/After"" visual screenshots. | - |
 
+## WAVE AIM Score
+The WAVE Accessibility IMpact (AIM) score provides a measure of impact of page accessibility issues on users with disabilities. The WAVE tools reports an Automated AIM based upon:
+
+1. Number of detectable errors
+2. Error density (number of detectable errors by page elements)
+3. Number of WAVE alerts (possible or likely accessibility issues)
+
+These factors are all aligned with the results from the annual WebAIM Million analysis of 1,000,000 home pages
+to provide a comparative score from 1 to 10. A score of 5 indicates that the page's score is roughly average compared to web pages generally.
+
+> *A high AIM Score does not necessarily indicate that the page is highly accessible or compliant with accessibility guidelines. Manual testing is always necessary to determine accessibility and compliance.*
+
 
 
 
