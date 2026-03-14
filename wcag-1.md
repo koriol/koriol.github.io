@@ -33,7 +33,29 @@ An effective audit must cover the entire user journey, not just the homepage. By
 
 While conducting the Accessibility audit, I noted the Homepage Performance score was 75. Since Accessibility and Performance often overlap (e.g., properly sized images and clean DOM structures), my remediation plan includes optimizing these elements to boost both scores simultaneously
 
+![](./wcag/accessibility_lh_score_details.png)
+> *Initial site-wide baseline: While most pages scored in the 90s, the homepage mobile audit audit revealed specific failures in color contrast, heading sequence and a missing main landmark*
 
+***
+
+### Deep-Dive Accessibility Audit (WAVE & Axe DevTools)
+Automated scores (Lighthouse) are a great start, but they don't catch everything. I used WAVE to visualize the document structure and Axe DevTools to inspect the DOM for ARIA and contrast failures that impact screen reader users. Auditing both Desktop and Mobile ensures the responsive design doesn't "break" accessibility (e.g., hidden menus that aren't keyboard-accessible).
+
+Audit Evidence Log
+| Page | Device | WAVE Status | Axe DevTools Status | Key Finding |
+| --- | --- | --- | --- | --- |
+| Home | Mobile |
+| Home | Desktop |
+| About Us | Mobile |
+| About Us | Desktop |
+| About Founder | Mobile |
+| About Founder | Desktop |
+| Affiliations | Mobile |
+| Affiliations | Desktop |
+| Services | Mobile |
+| Services | Desktop |
+| Contact | Mobile |
+| Contact | Desktop |
 
 
 
