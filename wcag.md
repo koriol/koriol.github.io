@@ -33,7 +33,8 @@ The goal of this project was to conduct a comprehensive accessibility audit and 
 * Understandable
 * Robust
 
-
+## Steps for auditing
+Categorize each concerned accessibility violation according to the four WCAG principles: perceivable, operable, understandable, and robust, to create ​a coherent remediation framework. ​Under perceivable, list issues such as missing alt text, absent captions, and insufficient ​color contrast. ​Operable covers keyboard navigation gaps, invisible focus indicators, and timing constraints. 
 
 
 
