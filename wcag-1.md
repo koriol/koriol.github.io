@@ -41,11 +41,23 @@ While conducting the Accessibility audit, I noted the Homepage Performance score
 ### Deep-Dive Accessibility Audit (WAVE & Axe DevTools)
 Automated scores (Lighthouse) are a great start, but they don't catch everything. I used WAVE to visualize the document structure and Axe DevTools to inspect the DOM for ARIA and contrast failures that impact screen reader users. Auditing both Desktop and Mobile ensures the responsive design doesn't "break" accessibility (e.g., hidden menus that aren't keyboard-accessible).
 
-Audit Evidence Log
-| Page | Device | WAVE Status | Axe DevTools Status | Key Finding |
+I used WAVE to get a visual overlay of the site's structural integrity. Unlike code-only tools, WAVE allows me to see exactly where "Contrast Errors" and "Alerts" appear in the layout, making it easier to identify patterns in the CSS that need global adjustments.
+
+### WAVE Severity Table
+
+| WAVE Category | Portfolio Translation | Severity | Why it matters |
+| --- | --- | --- | --- |
+| Contrast Errors | WCAG 1.4.3 (Minimum Contrast) | Critical | Prevents users with visual impairments from reading content. |
+| Structure | WCAG 1.3.1 (Info & Relationships) | High | Breaks the logical "map" of the site for screen readers. |
+| ARIA | WCAG 4.1.2 (Name, Role, Value) | Medium | Can cause "silent failures" where a button is seen but not announced. |
+| Alerts | Manual Review Required | TBD | These are "potential" issues that need a human to check. |
+
+
+#### Audit Evidence Log
+| Page | Device | WAVE (Errors / Alerts ) | Axe DevTools Status (Critical / Serious) | Key Finding |
 | --- | --- | --- | --- | --- |
 | Home | Mobile |
-| Home | Desktop |
+| Home | Desktop | 
 | About Us | Mobile |
 | About Us | Desktop |
 | About Founder | Mobile |
@@ -57,7 +69,7 @@ Audit Evidence Log
 | Contact | Mobile |
 | Contact | Desktop |
 
-
+While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that Lighthouse missed. This discovery validated the necessity of a multi-tool audit approach; scores can be deceiving, but the error count doesn't lie
 
 
 
