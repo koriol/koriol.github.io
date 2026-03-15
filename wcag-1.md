@@ -63,6 +63,8 @@ While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that L
 
 ### POUR Alignment
 
+By grouping the 12 audit reports into the POUR pillars, I identified that the site’s primary challenges lie in Operability and Perceptivity. While the "Critical" errors are low, the abundance of "Serious" structural alerts (Landmarks and Headings) indicates that a screen reader user would find it difficult to build a mental map of the page.
+
 | Pillar | Meaning | Impacted Audit Findings | Success Criteria |
 | --- | --- | --- | --- |
 | Perceivable | Information must be presentable to users in ways they can perceive. | **Color Contrast Ratios:** Global failures across all 12 scans. **Redundant Links:** Clutters visual and audio perception. | 1.4.3 Contrast (Minimum), 1.1.1 Non-text Content. |
