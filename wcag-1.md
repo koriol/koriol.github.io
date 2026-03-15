@@ -44,7 +44,7 @@ I selected WCAG 2.2 Level AA as the audit baseline. This represents the most cur
 
 #### Audit Evidence Log
 
-| Page | Device | WAVE (Errors / Alerts ) | Axe DevTools Status (Critical / Serious / Moderate) | Key Finding |
+| Page | Device | WAVE (Errors / Alerts ) | Axe DevTools Status (Critical / Serious / Moderate) | Key Findings |
 | --- | --- | --- | --- | --- |
 | Home | [Mobile](./wcag/wave_dex_index_mobile.png) | 0 / 6 | 0 / 7 / 21 | Color contrast ratios, Some page content is not contained by landmarks |
 | Home | [Desktop](./wcag/wave_dev_index_desktop.png) | 0 / 6 | 0 / 10 / 21 | Color contrast ratios and redundant links |
@@ -52,12 +52,12 @@ I selected WCAG 2.2 Level AA as the audit baseline. This represents the most cur
 | About Us | [Desktop](./wcag/wave_dev_about_desktop.png) | 0 / 1 | 0 / 0 / 4 | Heading sequence and main landmark | 
 | About Founder | [Mobile](./wcag/wave_dev_founder_mobile.png) | 0 / 3 | 0 / 2 / 19 | Ensure that lists are structured correctly; Sequential heading levels |
 | About Founder | [Desktop](./wcag/wave_dev_founder_desktop.png) | 0 / 3 | 0 / 3 / 19 | Ensure that lists are structured correctly; Ensure touch targets have sufficient size and space |
-| Affiliations | [Mobile](./wcag/wave_dev_affiliations_mobile.png) | 
-| Affiliations | [Desktop](./wcag/wave_dev_affiliations_desktop.png) |
-| Services | [Mobile](./wcag/wave_dev_services_mobile.png) |
-| Services | [Desktop](./wcag/wave_dev_services_desktop.png) |
-| Contact | [Mobile](./wcag/wave_dev_contact_mobile.png) |
-| Contact | [Desktop](./wcag/wave_dev_contact_desktop.png) |
+| Affiliations | [Mobile](./wcag/wave_dev_affiliations_mobile.png) | 0 / 1 | 0 / 1 / 5 | Interacive controls must not be nested; Contained landmarks |
+| Affiliations | [Desktop](./wcag/wave_dev_affiliations_desktop.png) | 0 / 1 | 0 / 0 / 3 | Main landmark; redundant link |
+| Services | [Mobile](./wcag/wave_dev_services_mobile.png) | 0 / 3 | 0 / 5 / 17 | Ensure that lists are structured correctly; Heading levels |
+| Services | [Desktop](./wcag/wave_dev_services_desktop.png) | 0 / 3 | 0 / 0 / 4 | Heading levels; main landmarks |
+| Contact | [Mobile](./wcag/wave_dev_contact_mobile.png) | 0 / 2 | 0 / 1 / 19 | Interactive controls must not be nested; heading levels |
+| Contact | [Desktop](./wcag/wave_dev_contact_desktop.png) | 0 / 2 | 0 / 0 / 11 | Heading levels; contained landmarks |
 
 While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that Lighthouse missed on the homepage. This discovery validated the necessity of a multi-tool audit approach; scores can be deceiving, but the error count doesn't lie
 
