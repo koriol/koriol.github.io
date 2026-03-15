@@ -13,7 +13,7 @@ The goal of this project was to conduct a comprehensive accessibility audit and 
 
 ## Roadmap
 1. [Discovery & Automated Audit](./wcag-1.md) – Baseline scan of all top-level pages.
-2. Manual Testing – Keyboard navigation, screen reader flow, and zoom testing.
+2. [Manual Testing](./wcag-2.md) – Keyboard navigation, screen reader flow, and zoom testing.
 3. Remediation Plan – Prioritizing "blocker" issues and estimating fix times.
 4. Implementation – Executing code changes.
 5. Final Validation – Verifying fixes and issuing a conformance statement.
