@@ -11,25 +11,12 @@ An effective audit must cover the entire user journey, not just the homepage. By
 
 | Page | Desktop (A11y) | Mobile (A11y) | Status |
 | --- | --- | --- | --- |
-| Home | 87 | 91 | ⚠️ Needs Work | Color contrasts; sequential heading elements; main landmark |
-| About Us | 97 | 98 | ✅ Pass | Minimal issues; missing main landmark |
-| About Founder | 93 | 96 | ✅ Pass | Heading sequence; main landmark |
-| Affiliations | 97 | 98 | ✅ Pass | Main landmark | 
-| Services | 93 | 96 | ✅ Pass | Heading sequence; main landmark |
-| Contact | 95 | 96 | ✅ Pass | Heading sequence; main landmark |
-
-* [Homepage mobile scores](./wcag/nl_index_mobile_lh_score.png)
-* [Homepage desktop scores](./wcag/nl_index_desktop_lh_score.png)
-* [About Us mobile scores](./wcag/nl_about_mobile_lh_score.png)
-* [About Us desktop scores](./wcag/nl_about_desktop_lh_score.png)
-* [About Founder mobile scores](./wcag/nl_founder_mobile_lh_score.png)
-* [About Founder desktop score](./wcag/nl_founder_desktop_lh_score.png)
-* [Affiliations mobile score](./wcag/nl_affiliations_mobile_lh_score.png)
-* [Affiliations desktop score](./wcag/nl_affiliations_desktop_lh_score.png)
-* [Services mobile score](./wcag/nl_services_mobile_lh_score.png)
-* [Services desktop score](./wcag/nl_services_desktop_lh_score.png)
-* [Contact Us mobile score](./wcag/nl_contact_mobile_lh_score.png)
-* [Contact Us desktop score](./wcag/nl_contact_desktop_lh_score.png)
+| Home | [87](./wcag/nl_index_desktop_lh_score.png) | [91](./wcag/nl_index_mobile_lh_score.png) | ⚠️ Needs Work | Color contrasts; sequential heading elements; main landmark |
+| About Us | [97](./wcag/nl_about_desktop_lh_score.png) | [98](./wcag/nl_about_mobile_lh_score.png) | ✅ Pass | Minimal issues; missing main landmark |
+| About Founder | [93](./wcag/nl_founder_desktop_lh_score.png) | [96](./wcag/nl_founder_mobile_lh_score.png) | ✅ Pass | Heading sequence; main landmark |
+| Affiliations | [97](./wcag/nl_affiliations_desktop_lh_score.png) | [98](./wcag/nl_affiliations_mobile_lh_score.png) | ✅ Pass | Main landmark | 
+| Services | [93](./wcag/nl_services_desktop_lh_score.png) | [96](./wcag/nl_services_mobile_lh_score.png) | ✅ Pass | Heading sequence; main landmark |
+| Contact | [95](./wcag/nl_contact_desktop_lh_score.png) | [96](./wcag/nl_contact_mobile_lh_score.png) | ✅ Pass | Heading sequence; main landmark |
 
 While conducting the Accessibility audit, I noted the Homepage Performance score was 75. Since Accessibility and Performance often overlap (e.g., properly sized images and clean DOM structures), my remediation plan includes optimizing these elements to boost both scores simultaneously
 
@@ -56,10 +43,11 @@ I selected WCAG 2.2 Level AA as the audit baseline. This represents the most cur
 
 
 #### Audit Evidence Log
-| Page | Device | WAVE (Errors / Alerts ) | Axe DevTools Status (Critical / Serious) | Key Finding |
+
+| Page | Device | WAVE (Errors / Alerts ) | Axe DevTools Status (Critical / Serious / Moderate) | Key Finding |
 | --- | --- | --- | --- | --- |
-| Home | Mobile |
-| Home | Desktop | 
+| Home | [Mobile](./wcag/wave_dex_index_mobile.png) | 0 / 6 | 0 / 7 / 21 | Color contrast ratios, Some page content is not contained by landmarks |
+| Home | [Desktop](./wcag/wave_dev_index_desktop.png)) | 0 / 6 | 0 / 10 / 21 | Color contrast ratios and redundant links |
 | About Us | Mobile |
 | About Us | Desktop |
 | About Founder | Mobile |
@@ -73,8 +61,14 @@ I selected WCAG 2.2 Level AA as the audit baseline. This represents the most cur
 
 While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that Lighthouse missed. This discovery validated the necessity of a multi-tool audit approach; scores can be deceiving, but the error count doesn't lie
 
+### POUR Alignment
 
-
+| Pillar | Meaning | Specific Findings |
+| --- | --- | --- |
+| Perceivable | Can the user see or hear it? | 11 Contrast Errors, Alt Text quality, text resizing. |
+| Operable | Can the user navigate and use it? | 14 Structural Errors (if they affect navigation), Keyboard traps, Focus indicators. |
+| Understandable | Does it make sense? | Heading sequence (logic), Form labels, error messages. |
+| Robust | Does it work with all tech? | 1 ARIA error, clean HTML code, screen reader compatibility. |
 
 
 
