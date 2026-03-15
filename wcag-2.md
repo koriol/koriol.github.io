@@ -10,6 +10,7 @@ Automated tools are "syntax checkers"—they confirm the presence of code but ca
 
 #### Skills & Tools
 | Tool | Purpose | Skill Honed |
+| --- | --- | --- |
 | Keyboard-Only Navigation | Navigating the site using only Tab, Shift+Tab, Enter, and Esc. | **Functional Testing:** Identifying blockers for users with motor impairments. |
 | VoiceOver / NVDA | Auditing the "Audio UI" to hear how the site is announced. | **AT Proficiency:** Understanding how ARIA roles and landmarks translate to speech. |
 | WCAG 2.2 Checklist | Cross-referencing findings against specific success criteria. | **Regulatory Knowledge:** Applying legal standards to UI/UX components. |
