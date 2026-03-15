@@ -47,19 +47,19 @@ I selected WCAG 2.2 Level AA as the audit baseline. This represents the most cur
 | Page | Device | WAVE (Errors / Alerts ) | Axe DevTools Status (Critical / Serious / Moderate) | Key Finding |
 | --- | --- | --- | --- | --- |
 | Home | [Mobile](./wcag/wave_dex_index_mobile.png) | 0 / 6 | 0 / 7 / 21 | Color contrast ratios, Some page content is not contained by landmarks |
-| Home | [Desktop](./wcag/wave_dev_index_desktop.png)) | 0 / 6 | 0 / 10 / 21 | Color contrast ratios and redundant links |
-| About Us | Mobile |
-| About Us | Desktop |
-| About Founder | Mobile |
-| About Founder | Desktop |
-| Affiliations | Mobile |
-| Affiliations | Desktop |
-| Services | Mobile |
-| Services | Desktop |
-| Contact | Mobile |
-| Contact | Desktop |
+| Home | [Desktop](./wcag/wave_dev_index_desktop.png) | 0 / 6 | 0 / 10 / 21 | Color contrast ratios and redundant links |
+| About Us | [Mobile](./wcag/wave_dev_about_mobile.png) | 0 / 1 | 0 / 2 / 10 | Frame names; Ensure that lists are structured correctly |
+| About Us | [Desktop](./wcag/wave_dev_about_desktop.png) | 0 / 1 | 0 / 0 / 4 | Heading sequence and main landmark | 
+| About Founder | [Mobile](./wcag/wave_dev_founder_mobile.png) | 0 / 3 | 0 / 2 / 19 | Ensure that lists are structured correctly; Sequential heading levels |
+| About Founder | [Desktop](./wcag/wave_dev_founder_desktop.png) | 0 / 3 | 0 / 3 / 19 | Ensure that lists are structured correctly; Ensure touch targets have sufficient size and space |
+| Affiliations | [Mobile](./wcag/wave_dev_affiliations_mobile.png) | 
+| Affiliations | [Desktop](./wcag/wave_dev_affiliations_desktop.png) |
+| Services | [Mobile](./wcag/wave_dev_services_mobile.png) |
+| Services | [Desktop](./wcag/wave_dev_services_desktop.png) |
+| Contact | [Mobile](./wcag/wave_dev_contact_mobile.png) |
+| Contact | [Desktop](./wcag/wave_dev_contact_desktop.png) |
 
-While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that Lighthouse missed. This discovery validated the necessity of a multi-tool audit approach; scores can be deceiving, but the error count doesn't lie
+While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that Lighthouse missed on the homepage. This discovery validated the necessity of a multi-tool audit approach; scores can be deceiving, but the error count doesn't lie
 
 ### POUR Alignment
 
