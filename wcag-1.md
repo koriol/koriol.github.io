@@ -63,12 +63,12 @@ While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that L
 
 ### POUR Alignment
 
-| Pillar | Meaning | Specific Findings |
-| --- | --- | --- |
-| Perceivable | Can the user see or hear it? | 11 Contrast Errors, Alt Text quality, text resizing. |
-| Operable | Can the user navigate and use it? | 14 Structural Errors (if they affect navigation), Keyboard traps, Focus indicators. |
-| Understandable | Does it make sense? | Heading sequence (logic), Form labels, error messages. |
-| Robust | Does it work with all tech? | 1 ARIA error, clean HTML code, screen reader compatibility. |
+| Pillar | Meaning | Impacted Audit Findings | Success Criteria |
+| --- | --- | --- | --- |
+| Perceivable | Information must be presentable to users in ways they can perceive. | **Color Contrast Ratios:** Global failures across all 12 scans. **Redundant Links:** Clutters visual and audio perception. | 1.4.3 Contrast (Minimum), 1.1.1 Non-text Content. |
+| Operable | User interface components and navigation must be operable. | **Landmarks:** Content not contained in landmarks (Header, Main, Footer). **Touch Targets:** Insufficient size/spacing on mobile. **Nested Controls:** Interactive elements inside other controls. | 1.3.1 Info & Relationships, 2.4.1 Bypass Blocks, 2.5.5 Target Size. |
+| Understandable | Information and the operation of the user interface must be understandable. | **Heading Sequence:** Non-sequential levels (e.g., jumping H2 to H4). **List Structure:** Improperly nested or formatted HTML lists. | 1.3.1 Info & Relationships, 2.4.6 Headings and Labels. |
+| Robust | Content must be robust enough to be interpreted reliably by a wide variety of user agents (including AT). | **Frame Names:** Missing or non-descriptive names. **ARIA/Landmark Nesting:** Ensuring valid code structure for screen reader compatibility. | 4.1.2 Name, Role, Value. |
 
 
 
