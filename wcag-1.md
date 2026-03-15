@@ -59,7 +59,7 @@ I selected WCAG 2.2 Level AA as the audit baseline. This represents the most cur
 | Contact | [Mobile](./wcag/wave_dev_contact_mobile.png) | 0 / 2 | 0 / 1 / 19 | Interactive controls must not be nested; heading levels |
 | Contact | [Desktop](./wcag/wave_dev_contact_desktop.png) | 0 / 2 | 0 / 0 / 11 | Heading levels; contained landmarks |
 
-While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that Lighthouse missed on the homepage. This discovery validated the necessity of a multi-tool audit approach; scores can be deceiving, but the error count doesn't lie
+While Lighthouse gave the homepage a 87, WAVE revealed 32 specific errors that Lighthouse missed on the homepage. This discovery validated the necessity of a multi-tool audit approach; scores can be deceiving, but the error count doesn't lie. While 'Moderate' errors do not always break the site, the high volume (21 on the Homepage) creates 'cognitive friction.' For instance, redundant links force screen reader users to listen to the same destination twice, slowing down their navigation efficiency
 
 ### POUR Alignment
 
@@ -72,10 +72,14 @@ By grouping the 12 audit reports into the POUR pillars, I identified that the si
 | Understandable | Information and the operation of the user interface must be understandable. | **Heading Sequence:** Non-sequential levels (e.g., jumping H2 to H4). **List Structure:** Improperly nested or formatted HTML lists. | 1.3.1 Info & Relationships, 2.4.6 Headings and Labels. |
 | Robust | Content must be robust enough to be interpreted reliably by a wide variety of user agents (including AT). | **Frame Names:** Missing or non-descriptive names. **ARIA/Landmark Nesting:** Ensuring valid code structure for screen reader compatibility. | 4.1.2 Name, Role, Value. |
 
+### Audit Reflection
 
+The abundance of 'Landmark' and 'Heading Sequence' errors suggests that the original development prioritized visual layout over semantic structure. My remediation strategy will move away from 'Div-heavy' development toward a semantic-first approach using HTML5 landmarks. Since Operability (Landmarks/Headings) is the biggest finding, adding a visual representation of a "Correct vs. Incorrect" structure would be very helpful.
 
-
-
+#### Skills & Tools
+* **Multi-Vector Auditing:** Using three distinct engines (Lighthouse, WAVE, Axe-core) to triangulate accessibility barriers.
+* **Compliance Interpretation:** Translating automated "pass/fail" results into WCAG 2.2 Success Criteria and POUR Principles.
+* **Responsive Accessibility:** Identifying how the "Accessibility Tree" changes between mobile and desktop views (specifically regarding touch targets and hidden menus).
 
 
 
