@@ -17,9 +17,23 @@ Automated tools are "syntax checkers"—they confirm the presence of code but ca
 | Screen Magnification (200-400%) | Checking for "Reflow" and content overlap at high zoom levels. | **Visual UI** Design: Ensuring layout stability for low-vision users. |
 
 ***
+### The Bridge to Manual: Accessibility Insights
+To ensure a rigorous "Double-Blind" audit, I added Accessibility Insights for Web to the toolset. This tool is unique because it provides a Visual Helper for manual testing—specifically for tracking the keyboard focus path—which allows me to "see" the tab order that a motor-impaired user would experience.
+
+
+
+
+
+
+
+
+
+
 
 ### Keyboard Operability & Focus Path Audit
 Given the "Serious" structural alerts in the Axe audit, I suspected the tab order might be illogical. I performed a manual "Tab-through" of all 6 pages to ensure that every interactive element is reachable and that the visual focus indicator is never hidden.
+
+
 
 
 
