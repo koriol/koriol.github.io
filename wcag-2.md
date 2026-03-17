@@ -38,8 +38,10 @@ One of the most common manual failures is an illogical "Tab Order." A user shoul
 ### Reflow, Zoom, and Visual Stability
 Low-vision users often zoom their browsers to 400% to read content. If your site isn't built with a "Responsive" mindset, elements will start to overlap, text will get cut off, or—worst of all—a horizontal scrollbar will appear. Horizontal scrolling is a massive accessibility failure because it forces the user to scroll left and right for every single line of text.
 
-The Purpose:
+<u>The Purpose:</u>
 To ensure that at 400% zoom, the site "reflows" into a single column (much like a mobile view) without losing any functionality or information.
+
+While a site might look great on a standard mobile device, WCAG 1.4.10 (Reflow) requires that content remains functional at a 320px width equivalent (400% zoom on a 1280px screen). I chose the Homepage as the primary test case because it contains the most complex UI components—hero sections, overlapping text, and various grid layouts—making it the most likely candidate for "Reflow" failures.
 
 ![At 400% zoom, desktop menu has transformed into a mobile "Hamburger" menu.](./wcag/index_zoom.png)
 > *Responsive Reflow (400% Zoom): The navigation successfully collapses into a mobile-friendly menu, ensuring no functionality is lost for high-magnification users.*
@@ -55,7 +57,9 @@ While the site successfully reflows into a single-column layout, I identified a 
 Given the "Serious" structural alerts in the Axe audit, I suspected the tab order might be illogical. I performed a manual "Tab-through" of all 6 pages to ensure that every interactive element is reachable and that the visual focus indicator is never hidden.
 
 
- | Page | Keyboard Flow | 400% Reflow | Screen Reader (Audio) | Manual Status |
+
+#### Manual Audit Summary Table
+| Page | Keyboard Flow | 400% Reflow | Screen Reader (Audio) | Manual Status |
 | --- | --- | --- | --- | --- |
 | Home | ✅ Pass | ⚠️ Overlap | ✅ Pass | Detailed in Audit |
 | About Us | ✅ Pass | ✅ Pass | ✅ Pass | Verified |
