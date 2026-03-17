@@ -46,12 +46,23 @@ To ensure that at 400% zoom, the site "reflows" into a single column (much like 
 
 While the site successfully reflows into a single-column layout, I identified a horizontal overflow issue (the 'white bar' on the right). This indicates an element is not using relative units (like %), forcing a horizontal scrollbar. This violates WCAG 1.4.10 because it requires the user to scroll in two dimensions to perceive the content.
 
+| Tool | Purpose | Skill Honed |
+| --- | --- | --- |
+| Browser Zoom (400%) | Simulating high-magnification needs. | Responsive Debugging: Ensuring layout integrity at extreme breakpoints. |
+| Viewport Testing | Checking for horizontal scrollbars. | Reflow Optimization: Mastering the 320px CSS pixel standard. |
 
 ### Keyboard Operability & Focus Path Audit
 Given the "Serious" structural alerts in the Axe audit, I suspected the tab order might be illogical. I performed a manual "Tab-through" of all 6 pages to ensure that every interactive element is reachable and that the visual focus indicator is never hidden.
 
 
-
+ | Page | Keyboard Flow | 400% Reflow | Screen Reader (Audio) | Manual Status |
+| --- | --- | --- | --- | --- |
+| Home | ✅ Pass | ⚠️ Overlap | ✅ Pass | Detailed in Audit |
+| About Us | ✅ Pass | ✅ Pass | ✅ Pass | Verified |
+| About Founder | ✅ Pass | ✅ Pass | ⚠️ Alt Text | Verified |
+| Affiliations | ⚠️ Trap | ✅ Pass | ✅ Pass | Verified |
+| Services | ✅ Pass | ✅ Pass | ✅ Pass | Verified |
+| Contact | ✅ Pass | ✅ Pass | ⚠️ Labels | Verified |
 
 
 
