@@ -8,6 +8,14 @@ Automated tools are "syntax checkers"—they confirm the presence of code but ca
 * **Audit Meaning:** Manually review Alt Text and Heading Content to ensure they provide a logical road map, rather than just filling a technical requirement.
 * **Validate Robustness:** Confirm that interactive components (like the mobile menu) function correctly with screen readers.
 
+While automated tools like Axe and WAVE provided a technical hit-list, they are incapable of evaluating user intent and navigational logic. This phase focuses on a human-centric evaluation using the Accessibility Insights for Web framework. By shifting from code-scanning to active interaction, I can identify barriers that only emerge when a user attempts to navigate the site using assistive technology.
+
+#### The Purpose of This Phase
+The primary goal is to validate the "Four Pillars" (POUR) through a series of structured manual tests. I am specifically looking for:
+* Operability: Can a keyboard-only user access every part of the site?
+* Understandability: Does the reading order make sense when heard via a screen reader?
+* Perceptibility: Does the site remain usable at high zoom levels (Reflow)?
+
 #### Skills & Tools
 | Tool | Purpose | Skill Honed |
 | --- | --- | --- |
@@ -20,14 +28,23 @@ Automated tools are "syntax checkers"—they confirm the presence of code but ca
 ### The Bridge to Manual: Accessibility Insights
 To ensure a rigorous "Double-Blind" audit, I added Accessibility Insights for Web to the toolset. This tool is unique because it provides a Visual Helper for manual testing—specifically for tracking the keyboard focus path—which allows me to "see" the tab order that a motor-impaired user would experience.
 
+One of the most common manual failures is an illogical "Tab Order." A user should move through the page in a predictable, linear fashion. I used the Tab Stops feature in Accessibility Insights to create a visual "map" of the site's interactive path. This allows me to see if the focus jumps around randomly or gets stuck in invisible elements—issues that a standard automated scan would likely mark as a "Pass."
 
+![Homepage with the Tab Stops numbered circles and lines showing the path](./wcag/tab_stops_index.png)
+> *Visualizing Navigation Logic: The Tab Stops tool confirms a linear and predictable navigation path, ensuring users don't get 'lost' in the page structure.*
 
+***
 
+### Reflow, Zoom, and Visual Stability
+Low-vision users often zoom their browsers to 400% to read content. If your site isn't built with a "Responsive" mindset, elements will start to overlap, text will get cut off, or—worst of all—a horizontal scrollbar will appear. Horizontal scrolling is a massive accessibility failure because it forces the user to scroll left and right for every single line of text.
 
+The Purpose:
+To ensure that at 400% zoom, the site "reflows" into a single column (much like a mobile view) without losing any functionality or information.
 
+![At 400% zoom, desktop menu has transformed into a mobile "Hamburger" menu.](./wcag/index_zoom.png)
+> *Responsive Reflow (400% Zoom): The navigation successfully collapses into a mobile-friendly menu, ensuring no functionality is lost for high-magnification users.*
 
-
-
+While the site successfully reflows into a single-column layout, I identified a horizontal overflow issue (the 'white bar' on the right). This indicates an element is not using relative units (like %), forcing a horizontal scrollbar. This violates WCAG 1.4.10 because it requires the user to scroll in two dimensions to perceive the content.
 
 
 ### Keyboard Operability & Focus Path Audit
