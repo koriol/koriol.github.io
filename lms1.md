@@ -43,8 +43,13 @@ Identified a 'False Positive' in the automated accessibility scan. While the sys
 ### The Access Control: The "Lock"
 In a medical curriculum, sequence matters. You wouldn't want a student taking a Cardiology Assessment before they've reviewed the Syllabus and the Introductory material. In Cybersecurity terms, we are implementing Conditional Access. The "Condition" is: If User has 'Visited' [Syllabus] AND [Intro Page], THEN 'Grant Access' to [Quiz].
 
-![](./brightspace/)
+![](./brightspace/release_conditions.png)
 > *Configured logic-based Access Control (Release Conditions) to enforce sequential learning. This simulates an Attribute-Based Access Control (ABAC) model, ensuring students satisfy compliance prerequisites before accessing high-stakes assessments.*
+
+***
+
+### The Student-View Verification
+As an Instructional Support Associate, you must verify that the "Logic Gate" is working. If the set conditions are correct, the student should see the Introduction Page but the Quiz should either be invisible or clearly marked as "Locked" until the requirement is met.
 
 ### Phase 1 Summary:
 * **Mission:** Infrastructure & Compliance.
