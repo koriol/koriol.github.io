@@ -48,9 +48,6 @@ In a medical curriculum, sequence matters. You wouldn't want a student taking a 
 
 ***
 
-### The Student-View Verification
-As an Instructional Support Associate, you must verify that the "Logic Gate" is working. If the set conditions are correct, the student should see the Introduction Page but the Quiz should either be invisible or clearly marked as "Locked" until the requirement is met.
-
 ### Phase 1 Summary:
 * **Mission:** Infrastructure & Compliance.
 * **Tools:** Brightspace, Accessibility Checker, LTI 1.3.
