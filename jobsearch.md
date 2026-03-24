@@ -9,3 +9,15 @@ With over 30 jobs applied to, you need to organize your projects that tailor to 
 
 ***
 
+Five Rivers IT, Inc.	Junior Compliance Analyst
+* Nessus
+* WISP
+
+Con Edison, Specialist - Central Information Group
+* **Skills:** Regulatory Liaison Operations, Incident Assessment, Crisis Data Dissemination, and Multi-Commodity Monitoring (Electric, Gas, Steam).
+* **Why:** To prove you can translate messy, high-pressure field data into structured, legally compliant reports for government agencies (NERC, DOE, NYCEM) within strict timeframes.
+* **Project Idea (The "CIG Dashboard")Project: The Automated Regulatory Notification Tracker.**
+  * Action: Use Python to create a script that monitors a "dummy" incident log.
+  * If an incident is marked "Major," the script automatically generates a drafted "Flash Report" for the Department of Public Service, including timestamped entry and required regulatory fields.
+
+
