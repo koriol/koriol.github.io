@@ -60,7 +60,7 @@ Given the "Serious" structural alerts in the Axe audit, I suspected the tab orde
 ### The Testimonial Carousel Conflict
 While automated tools like Axe and WAVE flagged "Moderate" errors for this section, they could not detect the dynamic interaction failure occurring in real-time. During my manual screen reader audit, I identified that the auto-playing testimonial slider creates a "Focus Conflict." As the slides rotate, the Screen Reader loses its place, reading fragmented text or jumping to the next section before the user can finish the current testimonial.
 
-![](./wcag/)
+![](./wcag/screenreader_testimonial.png)
 > *Dynamic Content Failure: The Screen Reader history confirms a 'Focus Conflict' where the auto-playing testimonial slider interrupts the audio UI, preventing the user from reading the feedback.*
 
 ### Interactive Content & Pronunciation Audit
