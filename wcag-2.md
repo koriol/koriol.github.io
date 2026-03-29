@@ -57,6 +57,14 @@ While the site successfully reflows into a single-column layout, I identified a 
 Given the "Serious" structural alerts in the Axe audit, I suspected the tab order might be illogical. I performed a manual "Tab-through" of all 6 pages to ensure that every interactive element is reachable and that the visual focus indicator is never hidden.
 
 
+### The Testimonial Carousel Conflict
+While automated tools like Axe and WAVE flagged "Moderate" errors for this section, they could not detect the dynamic interaction failure occurring in real-time. During my manual screen reader audit, I identified that the auto-playing testimonial slider creates a "Focus Conflict." As the slides rotate, the Screen Reader loses its place, reading fragmented text or jumping to the next section before the user can finish the current testimonial.
+
+![](./wcag/)
+> *Dynamic Content Failure: The Screen Reader history confirms a 'Focus Conflict' where the auto-playing testimonial slider interrupts the audio UI, preventing the user from reading the feedback.*
+
+### Interactive Content & Pronunciation Audit
+While automated tools check if a link exists, they don't check if it sounds right. During the manual walkthrough with Windows Narrator, I identified several "Audio UX" friction points, ranging from confusing link text to a broken testimonial slider that the client has since decided to phase out in favor of a user-controlled interface.
 
 #### Manual Audit Summary Table
 | Page | Keyboard Flow | 400% Reflow | Screen Reader (Audio) | Manual Status |
@@ -64,11 +72,15 @@ Given the "Serious" structural alerts in the Axe audit, I suspected the tab orde
 | Home | ✅ Pass | ⚠️ Overlap | ⚠️ Missing | Detailed in Audit |
 | About Us | ✅ Pass | ✅ Pass | ✅ Pass | Verified |
 | About Founder | ✅ Pass | ✅ Pass | ⚠️ Alt Text | Verified |
-| Affiliations | ⚠️ Trap | ✅ Pass | ✅ Pass | Verified |
-| Services | ✅ Pass | ✅ Pass | ✅ Pass | Verified |
+| Affiliations | ✅ Pass | ✅ Pass | ✅ Pass | Verified |
+| Services | ✅ Pass | ✅ Pass | ⚠️ Lists | Verified |
 | Contact | ✅ Pass | ✅ Pass | ⚠️ Labels | Verified |
 
-
+### Audit Conclusion: The Roadmap to 100%
+The automated and manual audits revealed a site that is visually professional but structurally "noisy" for assistive technology.
+* **Primary Barriers:** Lack of a main landmark, redundant link text, and an inaccessible auto-playing carousel.
+* **Secondary Barriers:** Color contrast failures and non-sequential heading levels.
+Next Step: I will now move into the Remediation Phase, where I will refactor the HTML5 structure and CSS variables to meet the WCAG 2.2 AA standard.
 
 
 
