@@ -61,7 +61,7 @@ Given the "Serious" structural alerts in the Axe audit, I suspected the tab orde
 #### Manual Audit Summary Table
 | Page | Keyboard Flow | 400% Reflow | Screen Reader (Audio) | Manual Status |
 | --- | --- | --- | --- | --- |
-| Home | ✅ Pass | ⚠️ Overlap | ✅ Pass | Detailed in Audit |
+| Home | ✅ Pass | ⚠️ Overlap | ⚠️ Missing | Detailed in Audit |
 | About Us | ✅ Pass | ✅ Pass | ✅ Pass | Verified |
 | About Founder | ✅ Pass | ✅ Pass | ⚠️ Alt Text | Verified |
 | Affiliations | ⚠️ Trap | ✅ Pass | ✅ Pass | Verified |
