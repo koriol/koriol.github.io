@@ -20,8 +20,13 @@ To achieve WCAG 2.2 AA compliance efficiently, I have prioritized the following 
 | Semantic HTML5 | Replacing <div> containers with landmarks. | **Information Architecture:** Building code that conveys meaning, not just layout. |
 | ARIA Attributes | Fine-tuning how Screen Readers "speak" the content. | **Technical Communication:** Overriding default browser behavior for a better Audio UI. |
 
+***
 
+### Planning the "Global Contrast" Fix
+Instead of fixing 11 individual contrast errors, I will target the root cause: the CSS theme. By identifying the hex codes that failed the audit (e.g., #A1A1A1) and replacing them with WCAG-compliant alternatives (e.g., #767676), I can resolve nearly 30% of the audit's errors in a single code push.
 
+![A snippet of your CSS code showing the "Old" color commented out and the "New" compliant color active.](./wcag/)
+> *Global Style Remediation: Updating CSS variables to ensure every page meets the WCAG 2.2 AA contrast standard simultaneously.*
 
 
 
