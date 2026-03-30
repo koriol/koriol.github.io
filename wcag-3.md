@@ -5,12 +5,12 @@
 ### The Risk & Impact Matrix
 | Finding | Frequency | User Impact | POUR Pillar | Priority | Rationale |
 | --- | --- | --- | --- | --- | --- |
-| Missing main Landmark | 100% (Global) | Critical | P0 | Prevents "Skip to Content." Without this, the site fails basic navigation standards. |
-| Color Contrast (Low) | 100% (Global) | Critical | P0 | Legibility barrier. Most common reason for accessibility lawsuits. |
-| Skipped Heading Levels | High | Serious | P1 | Breaks the document outline. Confuses non-visual users. |
-| Unlabeled Mobile Menu | Home/Global | Serious | P1 | A button that says nothing is a "dead end" for blind users. |
-| Auto-Play Carousel | Home | Serious | P1 | "Focus Trap" that interrupts reading. |
-| Pronunciation (About Us) | Low | Friction | P2 | Minor UX annoyance ("U S"). |
+| Missing main Landmark | 100% (Global) | Critical | Operable | P0 | Prevents "Skip to Content." Without this, the site fails basic navigation standards. |
+| Color Contrast (Low) | 100% (Global) | Critical | Perceivable | P0 | Visual barrier for low-vision users. Core requirement for WCAG compliance. |
+| Skipped Heading Levels | High | Serious | Understandable | P1 | Breaks the document "Table of Contents." Confuses non-visual users. |
+| Unlabeled Mobile Menu | Home/Global | Serious | Robust | P1 | A button without a label is a "dead end" for Screen Readers. |
+| Auto-Play Carousel | Home | Serious | Operable | P1 | Focus trap that interrupts reading and navigation. |
+| Pronunciation (About Us) | Low | Friction | Understandable | P2 | Minor UX annoyance ("U S"). Doesn't stop task completion. |
 
 Based on this matrix, I have selected the P0 and P1 issues for immediate remediation. This strategy targets "Global High-Impact" items first—fixing these will technically resolve over 70% of the audit's total error count with minimal lines of code changed.
 
