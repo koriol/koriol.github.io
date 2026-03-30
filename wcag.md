@@ -1,4 +1,4 @@
-# WCAG 2.1 AA Accessibility Audit & Remediation: NL Coaching Solutions
+# WCAG 2.2 AA Accessibility Audit & Remediation: NL Coaching Solutions
 
 ## Introduction
 The goal of this project was to conduct a comprehensive accessibility audit and remediation for NL Coaching Solutions to ensure the platform is inclusive for all users, including those with visual, motor, auditory, or cognitive impairments.
@@ -15,7 +15,7 @@ The goal of this project was to conduct a comprehensive accessibility audit and 
 1. [Discovery & Automated Audit](./wcag-1.md) – Baseline scan of all top-level pages.
 2. [Manual Testing](./wcag-2.md) – Keyboard navigation, screen reader flow, and zoom testing.
 3. [Remediation Plan](./wcag-3.md) – Prioritizing "blocker" issues and estimating fix times.
-4. Implementation – Executing code changes.
+4. [Implementation](./wcag-4.md) – Executing code changes.
 5. Final Validation – Verifying fixes and issuing a conformance statement.
 
 ***
