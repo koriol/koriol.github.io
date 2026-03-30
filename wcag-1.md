@@ -1,4 +1,4 @@
-# WCAG 2.1 AA Accessibility Audit & Remediation: NL Coaching Solutions
+# WCAG 2.2 AA Accessibility Audit & Remediation: NL Coaching Solutions
 
 ## Discovery & Automated Audit
 
