@@ -1,9 +1,9 @@
 # WCAG 2.1 AA Accessibility Audit & Remediation: NL Coaching Solutions
 
 ## The Remediation Planning Phase: Strategic Prioritization
-Technical Standard: WCAG 2.2 Level AA
-Legal Framework Alignment: Section 508 / ADA Title III
-Compliance Goal: To achieve a "Zero-Critical" violation status across all primary user journeys, ensuring the site is legally defensible and functionally inclusive.
+**Technical Standard:** WCAG 2.2 Level AA
+**Legal Framework Alignment:** Section 508 / ADA Title III
+**Compliance Goal:** To achieve a "Zero-Critical" violation status across all primary user journeys, ensuring the site is legally defensible and functionally inclusive.
 
 ### The Risk & Impact Matrix
 | Finding | Frequency | User Impact | POUR Pillar | Priority | Rationale |
@@ -16,7 +16,6 @@ Compliance Goal: To achieve a "Zero-Critical" violation status across all primar
 | Pronunciation (About Us) | Low | Friction | Understandable | P2 | Minor UX annoyance ("U S"). Doesn't stop task completion. |
 
 Based on this matrix, I have selected the P0 and P1 issues for immediate remediation. This strategy targets "Global High-Impact" items first—fixing these will technically resolve over 70% of the audit's total error count with minimal lines of code changed.
-
 
 #### The Priority Roadmap
 To achieve WCAG 2.2 AA compliance efficiently, I have prioritized the following technical tasks:
@@ -37,13 +36,12 @@ To achieve WCAG 2.2 AA compliance efficiently, I have prioritized the following 
 
 ***
 
-Strategic Justification
-Thought Process:
-"I categorized each finding into the POUR Pillars to ensure that my remediation plan covers all aspects of the user experience. By identifying that the majority of my P0 (Critical) issues fall under Perceivable and Operable, I am focusing my initial development efforts on the most foundational elements of web accessibility: Visual Clarity and Navigational Integrity."
+### Strategic Justification
+I categorized each finding into the POUR Pillars to ensure that my remediation plan covers all aspects of the user experience. By identifying that the majority of my P0 (Critical) issues fall under Perceivable and Operable, I am focusing my initial development efforts on the most foundational elements of web accessibility: Visual Clarity and Navigational Integrity.
 
-"Beyond fixing individual errors, the overarching goal of this project is to transition the site from a Legacy 'Div-First' Layout to a Modern Semantic Architecture. This shift reduces the site's 'Accessibility Debt' by ensuring that the code itself describes its purpose (Robustness), rather than relying on ARIA patches to fix poor HTML choices."
+Beyond fixing individual errors, the overarching goal of this project is to transition the site from a Legacy 'Div-First' Layout to a Modern Semantic Architecture. This shift reduces the site's 'Accessibility Debt' by ensuring that the code itself describes its purpose (Robustness), rather than relying on ARIA patches to fix poor HTML choices.
 
-Implementing "Shift-Left" Accessibility
+#### Implementing "Shift-Left" Accessibility
 To prevent "Accessibility Debt" from accumulating in future updates, my remediation plan incorporates a Semantic-First approach. Instead of using ARIA to "patch" broken HTML, I will refactor the underlying DOM. This reduces the complexity of the code and ensures that future content added to the `<main>` or `<nav>` containers inherits accessible properties by default.
 
 ### The Verification Protocol: How we "Check" the Fix
@@ -56,9 +54,12 @@ Before we start coding, we must define how you will "Sign-Off" on a fix. This is
 | Interactive (P1) | Keyboard "Tab" Walkthrough | No keyboard traps and visible focus on all elements. |
 | Dynamic (P1) | Manual Observation | Carousel auto-play is disabled; content is user-controlled. |
 
-I prioritized the Global Contrast and Semantic HTML refactor because they represent the 'Low Hanging Fruit' of this project—High Impact with Low Effort. By updating the CSS variables and wrapping the content in a <main> tag, I can resolve the majority of the audit's critical findings in under an hour of development time.
+I prioritized the Global Contrast and Semantic HTML refactor because they represent the 'Low Hanging Fruit' of this project—High Impact with Low Effort. By updating the CSS variables and wrapping the content in a `<main>` tag, I can resolve the majority of the audit's critical findings in under an hour of development time.
 
+### Transition to Implementation: The Governance Phase
+By formalizing this Remediation Plan, I have established a clear baseline for Project Governance. This ensures that every line of code modified is tied directly to a WCAG Success Criterion and a specific user barrier. My focus now shifts from "Identification" to "Action."
 
+In the following phase, I will document the technical refactor of the site’s architecture, beginning with the P0 Critical tasks. Each step will be validated against the Verification Protocol to ensure that compliance is not just achieved, but sustained across the entire DOM.
 
 
 
