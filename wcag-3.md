@@ -1,6 +1,9 @@
 # WCAG 2.1 AA Accessibility Audit & Remediation: NL Coaching Solutions
 
 ## The Remediation Planning Phase: Strategic Prioritization
+Technical Standard: WCAG 2.2 Level AA
+Legal Framework Alignment: Section 508 / ADA Title III
+Compliance Goal: To achieve a "Zero-Critical" violation status across all primary user journeys, ensuring the site is legally defensible and functionally inclusive.
 
 ### The Risk & Impact Matrix
 | Finding | Frequency | User Impact | POUR Pillar | Priority | Rationale |
@@ -34,19 +37,24 @@ To achieve WCAG 2.2 AA compliance efficiently, I have prioritized the following 
 
 ***
 
-### Planning the "Global Contrast" Fix
-Instead of fixing 11 individual contrast errors, I will target the root cause: the CSS theme. By identifying the hex codes that failed the audit (e.g., #A1A1A1) and replacing them with WCAG-compliant alternatives (e.g., #767676), I can resolve nearly 30% of the audit's errors in a single code push.
+Strategic Justification
+Thought Process:
+"I categorized each finding into the POUR Pillars to ensure that my remediation plan covers all aspects of the user experience. By identifying that the majority of my P0 (Critical) issues fall under Perceivable and Operable, I am focusing my initial development efforts on the most foundational elements of web accessibility: Visual Clarity and Navigational Integrity."
 
-![A snippet of your CSS code showing the "Old" color commented out and the "New" compliant color active.](./wcag/)
-> *Global Style Remediation: Updating CSS variables to ensure every page meets the WCAG 2.2 AA contrast standard simultaneously.*
+"Beyond fixing individual errors, the overarching goal of this project is to transition the site from a Legacy 'Div-First' Layout to a Modern Semantic Architecture. This shift reduces the site's 'Accessibility Debt' by ensuring that the code itself describes its purpose (Robustness), rather than relying on ARIA patches to fix poor HTML choices."
 
+Implementing "Shift-Left" Accessibility
+To prevent "Accessibility Debt" from accumulating in future updates, my remediation plan incorporates a Semantic-First approach. Instead of using ARIA to "patch" broken HTML, I will refactor the underlying DOM. This reduces the complexity of the code and ensures that future content added to the `<main>` or `<nav>` containers inherits accessible properties by default.
 
+### The Verification Protocol: How we "Check" the Fix
+Before we start coding, we must define how you will "Sign-Off" on a fix. This is the Quality Assurance (QA) plan.
 
-
-
-
-
-
+| Task Type | Verification Method | Definition of Done (DoD) |
+| --- | --- | --- |
+| Structural (P0) | Screen Reader "Rotor" Test | Main and Navigation landmarks are announced correctly. |
+| Visual (P0) | Axe DevTools / WAVE Scan | 0 Contrast Errors and a Lighthouse score of 100. |
+| Interactive (P1) | Keyboard "Tab" Walkthrough | No keyboard traps and visible focus on all elements. |
+| Dynamic (P1) | Manual Observation | Carousel auto-play is disabled; content is user-controlled. |
 
 
 
