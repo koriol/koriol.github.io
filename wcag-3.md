@@ -1,17 +1,29 @@
 # WCAG 2.1 AA Accessibility Audit & Remediation: NL Coaching Solutions
 
-## Remediation Phase: The Strategy
+## The Remediation Planning Phase: Strategic Prioritization
 
-### Introduction: Prioritizing Impact
-With a total of 32 automated errors and several manual "blockers" identified, the remediation phase must be handled systematically. My goal is to move from Global Fixes (high-impact structural changes) to Granular Fixes (page-specific text and link adjustments). This ensures that the most critical barriers—such as the missing main landmark and the auto-playing carousel—are resolved first.
+### The Risk & Impact Matrix
+| Finding | Frequency | User Impact | POUR Pillar | Priority | Rationale |
+| --- | --- | --- | --- | --- | --- |
+| Missing main Landmark | 100% (Global) | Critical | P0 | Prevents "Skip to Content." Without this, the site fails basic navigation standards. |
+| Color Contrast (Low) | 100% (Global) | Critical | P0 | Legibility barrier. Most common reason for accessibility lawsuits. |
+| Skipped Heading Levels | High | Serious | P1 | Breaks the document outline. Confuses non-visual users. |
+| Unlabeled Mobile Menu | Home/Global | Serious | P1 | A button that says nothing is a "dead end" for blind users. |
+| Auto-Play Carousel | Home | Serious | P1 | "Focus Trap" that interrupts reading. |
+| Pronunciation (About Us) | Low | Friction | P2 | Minor UX annoyance ("U S"). |
 
-#### The "Top 5" Priority Roadmap
+Based on this matrix, I have selected the P0 and P1 issues for immediate remediation. This strategy targets "Global High-Impact" items first—fixing these will technically resolve over 70% of the audit's total error count with minimal lines of code changed.
+
+
+#### The Priority Roadmap
 To achieve WCAG 2.2 AA compliance efficiently, I have prioritized the following technical tasks:
-* **Semantic Refactor (Structural):** Implementing HTML5 <main>, <header>, and <footer> tags to provide a navigational "map" for screen readers.
-* **Global CSS Variable Update (Perceptual):** Adjusting the primary and muted text color variables to meet the 4.5:1 contrast ratio across all 12 audited views.
-* **Heading Hierarchy Repair (Understandable):** Re-sequencing <h1> through <h3> tags to ensure a logical "Table of Contents" on every page.
-* **Carousel Reconstruction (Operable):** Disabling the auto-scroll feature and implementing manual navigation buttons to give users control over moving content.
-* **Audio UI Cleanup (Robustness):** Fixing the "About U S" pronunciation and removing redundant "Services" list announcements using aria-label or cleaner HTML text.
+| Task | Remediation Method | Est. Time | Portfolio Value |
+| --- | --- | --- | --- |
+| Semantic HTML Refactor | Replace div with <main>, <header>, <footer>. | 30 mins | Shows "Structural Integrity" skills. |
+| CSS Theme Update | Update :root variables for text/background contrast. | 15 mins | Shows "Scalable Styling" efficiency. |
+| Carousel Logic Fix | Disable JS auto-play; add aria-live and buttons. | 1 hour | Shows "JavaScript/ARIA" proficiency. |
+| Heading Alignment | Audit H1-H6 tags for sequential logic. | 45 mins | Shows "Attention to Detail." |
+| Link Text Cleanup | Remove "click here"" and fix ""About U S"" labels.",30 mins,"Shows ""Audio UI (A11y)"" expertise."|
 
 ### Skills & Tools
 | Tool | Purpose | Skill Honed |
