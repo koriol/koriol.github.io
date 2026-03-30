@@ -56,7 +56,7 @@ Before we start coding, we must define how you will "Sign-Off" on a fix. This is
 | Interactive (P1) | Keyboard "Tab" Walkthrough | No keyboard traps and visible focus on all elements. |
 | Dynamic (P1) | Manual Observation | Carousel auto-play is disabled; content is user-controlled. |
 
-
+I prioritized the Global Contrast and Semantic HTML refactor because they represent the 'Low Hanging Fruit' of this project—High Impact with Low Effort. By updating the CSS variables and wrapping the content in a <main> tag, I can resolve the majority of the audit's critical findings in under an hour of development time.
 
 
 
