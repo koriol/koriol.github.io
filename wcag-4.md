@@ -85,12 +85,44 @@ After with Semantic Architecture:
 ### Contrast Remediation
 During the perceptual audit, a discrepancy was identified between automated scanning tools (WAVE) and manual pixel-sampling tools (TPGi CCA). WAVE flagged the hero text as a "Contrast Failure" because it could not programmatically detect the CSS pseudo-element overlay. I resolved this by implementing "Solid Fallback" colors, ensuring that even if CSS assets fail to load, the text remains legible against a dark background.
 
+The Challenge: "Phantom" Contrast Failures
+Automated auditing via WAVE identified a critical contrast failure (1.09:1) in the Hero and Background sections. However, manual sampling via TPGi Colour Contrast Analyser confirmed a compliant ratio of 9.6:1.
 
+The Technical Discovery:
+The discrepancy was caused by the automated tool’s inability to calculate the opacity of the CSS ::before pseudo-element used for the dark overlay. The scanner was comparing white text against the default white background of the container, ignoring the "tinted glass" layer I had engineered for visual depth.
 
+Technical Implementation (Code Comparison)
+Before (Non-Compliant for Scanners):
 
+```
+/* The container had no fallback color, causing a "White-on-White" false positive */
+.hero-section {
+    background-image: url('hero.jpg');
+    color: #fff;
+    position: relative;
+}
+.hero-section::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay visible to humans, invisible to tools */
+}
+```
 
+After (Robust & Compliant):
+```
+/* Added a solid fallback color to provide a "safety net" for the accessibility tree */
+.hero-section {
+    background-color: #0d0d0d; /* Solid fallback satisfying WCAG 4.5:1 ratio */
+    background-image: url('hero.jpg');
+    color: #fff;
+    position: relative;
+}
+```
 
-
+Refining the Brand Colors (Actual Visual Fix)
+I also identified a real contrast barrier in the header sub-text where the brand’s secondary gray (#ccc) failed Level AA standards.
+| Element | Original Color | Remedied Color | Contrast Ratio | Result |
+| --- | --- | --- | --- | --- |
+| Logo Sub-text | #ccc | #E0E0E0 | 4.8:1 | PASS (AA) |
 
 
 
