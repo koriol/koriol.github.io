@@ -3,6 +3,12 @@
 ## Implementation & Remediation
 
 ### Executing the Strategic Roadmap
+To ensure high-quality code and zero regressions, I followed a four-stage lifecycle for every identified barrier:
+* **Identify & Triage:** Map the finding to a WCAG Success Criterion and assign a Severity Heatmap color.
+* **Engineer:** Refactor the HTML/CSS/JS in a local environment.
+* **Verify:** Perform a dual-test (Automated via Axe + Manual via Windows Narrator).
+* **Sign-Off:** Update the Risk Matrix to "Resolved" and log the new Lighthouse score.
+
 With the Prioritization Matrix established, I moved into the execution phase, focusing first on the P0 (Critical) structural and perceptual barriers. My goal was to move the site from a "Div-Based" layout to a Semantic Architecture. By refactoring the core HTML5 elements and CSS variables, I addressed over 70% of the audit's total error count in the first development sprint.
 
 ***
