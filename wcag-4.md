@@ -76,6 +76,9 @@ After with Semantic Architecture:
     </header>
 ```
 
+### Contrast Remediation
+During the perceptual audit, a discrepancy was identified between automated scanning tools (WAVE) and manual pixel-sampling tools (TPGi CCA). WAVE flagged the hero text as a "Contrast Failure" because it could not programmatically detect the CSS pseudo-element overlay. I resolved this by implementing "Solid Fallback" colors, ensuring that even if CSS assets fail to load, the text remains legible against a dark background.
+
 
 
 
