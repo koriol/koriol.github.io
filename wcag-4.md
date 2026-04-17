@@ -124,8 +124,27 @@ I also identified a real contrast barrier in the header sub-text where the brand
 | --- | --- | --- | --- | --- |
 | Logo Sub-text | #ccc | #E0E0E0 | 4.8:1 | PASS (AA) |
 
+Balancing Brand Identity and WCAG AA Compliance
+The Problem: A secondary action link color (#F0AD4E) failed the WCAG AA contrast threshold when placed on light backgrounds (#f9f9f9), yielding a 1.8:1 ratio.
 
+![Color contrast fail ratio](./wcag/ccfail.png)
+> *Color contrast dropper showing color ratio 1.8:1 on original branding color*
 
+The Solution: I performed a "Color Deepening" remediation. By shifting the hue to a darker mustard-gold (#9E6600), I maintained the brand's visual identity while achieving a 4.62:1 ratio, surpassing the legal requirement of 4.5:1.
+
+Why I didn't use a border: While a border provides a visual boundary, it does not solve the core issue of text legibility. Deepening the ink color ensures that users with low vision or color-blindness can read the characters themselves, not just see the outline of a box.
+
+UI Pattern Pivot & Creative Problem Solving.
+
+Why: Sometimes the "math" of two colors simply won't work for accessibility. A professional knows when to stop fighting the colors and instead change the design structure to ensure compliance without losing the brand's soul.
+
+Minimalist Accessible Design and Interactive State Management.
+
+Why: This approach prioritizes Readability (P1). By moving away from decorative colors for primary navigation/links, we ensure the user's focus remains on the content while maintaining a sophisticated "Executive" aesthetic.
+
+Visual Hierarchy & Decorative Compliance.
+
+Why: This proves the difference between meaningful content (which must be accessible) and decorative flair (which can be as "brand-heavy" as preferred). It shows we can satisfy a creative director and a compliance auditor at the same time.
 
 
 
