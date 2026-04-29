@@ -1,3 +1,13 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WYRPQCHE2J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WYRPQCHE2J');
+</script>
+
 # koriol.github.io | GRC & Security Engineering
 
 > **Mission:** Bridging the gap between technical infrastructure and regulatory compliance through risk-based analysis.
